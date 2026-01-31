@@ -18,6 +18,16 @@ const { class: className } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
+// Navigation labels translated
+const navLabels: Record<string, string> = {
+  'Cards': t.nav.cards,
+  'Software Dev': t.nav.softwareDev,
+  'AI Solutions': t.nav.ai,
+  'Remittance': t.nav.remittance,
+  'Staff': t.nav.staff,
+  'Media': t.nav.media,
+};
+
 // Get current path for active state
 const currentPath = Astro.url.pathname;
 
@@ -122,7 +132,7 @@ const getHref = (href: string) => {
           )}
           
           <!-- Label -->
-          <span class="relative z-10">{item.label}</span>
+          <span class="relative z-10">{navLabels[item.label] || item.label}</span>
           
           <!-- Active Indicator Line -->
           <div 
@@ -214,13 +224,14 @@ const getHref = (href: string) => {
               </div>
             )}
             <div class="flex-1">
-              <span class:list={["font-medium block", active ? "text-white" : "text-zinc-300"]}>{item.label}</span>
+              <span class:list={["font-medium block", active ? "text-white" : "text-zinc-300"]}>{navLabels[item.label] || item.label}</span>
               <span class="text-[10px] text-zinc-600 font-mono uppercase">
-                {item.href.includes('/staff') ? 'Engineering Talent' : 
-                 item.href.includes('cards') ? 'Card Issuance' :
-                 item.href.includes('infra') ? 'Development' :
-                 item.href.includes('music') ? 'Distribution' :
-                 item.href.includes('corp') ? 'Incorporation' : 'Service'}
+                {item.href.includes('/staff') ? t.staff.label : 
+                 item.href.includes('/ai') ? t.ai.badge :
+                 item.href.includes('/remittance') ? t.remittance.badge :
+                 item.href.includes('cards') ? t.cards.label :
+                 item.href.includes('infra') ? t.infrastructure.label :
+                 item.href.includes('music') ? t.music.label : t.footer.services}
               </span>
             </div>
             <iconify-icon 

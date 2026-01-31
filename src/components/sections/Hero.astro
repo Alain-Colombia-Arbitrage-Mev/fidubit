@@ -5,7 +5,12 @@
  */
 import GlassPanel from '@/components/ui/GlassPanel.astro';
 import Button from '@/components/ui/Button.astro';
-import { siteConfig, systemModules } from '@/data/site';
+import { systemModules } from '@/data/site';
+import { getLangFromUrl, useTranslations } from '@/i18n';
+
+// Get translations
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="flex-1 flex flex-col min-w-0 transition-opacity duration-500">
@@ -39,14 +44,14 @@ import { siteConfig, systemModules } from '@/data/site';
           class="w-2 h-2 bg-yellow-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(234,179,8,0.8)]"
           aria-hidden="true"
         ></span>
-        // {siteConfig.tagline}
+        // {t.hero.badge}
       </div>
 
       <!-- Headline -->
       <div class="space-y-6">
         <h1 class="uppercase leading-[0.9] md:text-8xl text-5xl font-medium text-white tracking-tight sys-reveal sys-rise drop-shadow-2xl">
-          Fintech
-          <span class="text-zinc-700 block blur-[1px]">Architecture</span>
+          {t.hero.title}
+          <span class="text-zinc-700 block blur-[1px]">{t.hero.titleHighlight}</span>
         </h1>
         
         <GlassPanel 
@@ -55,7 +60,7 @@ import { siteConfig, systemModules } from '@/data/site';
           class="max-w-xl border-l-2 border-yellow-500 rounded-l-none sys-reveal sys-rise sys-delay-100"
         >
           <p class="text-sm text-zinc-400 font-mono leading-relaxed">
-            {siteConfig.description}
+            {t.hero.description}
           </p>
         </GlassPanel>
       </div>
@@ -68,7 +73,7 @@ import { siteConfig, systemModules } from '@/data/site';
           icon="solar:arrow-right-linear"
           class="sys-reveal sys-rise sys-delay-200"
         >
-          Request Access
+          {t.hero.cta}
         </Button>
         
         <Button 
@@ -78,7 +83,7 @@ import { siteConfig, systemModules } from '@/data/site';
           iconPosition="left"
           class="sys-reveal sys-rise sys-delay-300"
         >
-          Media Division
+          {t.hero.learnMore}
         </Button>
       </div>
     </div>

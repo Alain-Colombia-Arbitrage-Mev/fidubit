@@ -5,6 +5,11 @@
  */
 import GlassPanel from '@/components/ui/GlassPanel.astro';
 import { contactOptions } from '@/data/site';
+import { getLangFromUrl, useTranslations } from '@/i18n';
+
+// Get translations
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="contact-section" class="border-t border-b border-white/5 bg-fidubit-black relative py-24">
@@ -15,11 +20,11 @@ import { contactOptions } from '@/data/site';
     <!-- Header -->
     <div class="text-center mb-16">
       <span class="text-yellow-500 font-mono text-xs uppercase tracking-widest border border-yellow-500/30 px-3 py-1 rounded-full bg-yellow-500/10 mb-4 inline-block">
-        Direct Line
+        {t.contact.label}
       </span>
-      <h2 class="text-4xl font-medium text-white mb-4 sys-reveal sys-rise">Start Integration</h2>
+      <h2 class="text-4xl font-medium text-white mb-4 sys-reveal sys-rise">{t.contact.title}</h2>
       <p class="text-zinc-500 font-mono text-sm sys-reveal sys-rise sys-delay-100">
-        Fill in your verified contact details. Our team will reach out within 24 hours to discuss your requirements.
+        {t.contact.description}
       </p>
     </div>
 
@@ -174,7 +179,7 @@ import { contactOptions } from '@/data/site';
           type="submit" 
           class="btn-cta w-full group"
         >
-          <span>Initialize Handshake</span>
+          <span>{t.contact.form.submit}</span>
           <iconify-icon 
             icon="solar:arrow-right-linear" 
             class="group-hover:translate-x-1 transition-transform" 
