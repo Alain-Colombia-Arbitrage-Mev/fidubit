@@ -19,7 +19,7 @@ import type {
 export const siteConfig = {
   name: 'FIDUBIT',
   tagline: 'Fintech & Media Infrastructure',
-  description: 'Hong Kong Card Issuance, E-Banking Core Development & Digital Music Distribution. We incorporate companies and build the financial & media rails they run on.',
+  description: 'Hong Kong Card Issuance, Fintech Core Development & Digital Music Distribution. We incorporate companies and build the financial & media rails they run on.',
   url: 'https://fidubit.com',
   whatsapp: '+852 1234 5678',
   email: 'contact@fidubit.com',
@@ -73,8 +73,8 @@ export const cardProducts: CardData[] = [
 export const infrastructureServices: ServiceFeature[] = [
   {
     icon: 'solar:code-square-linear',
-    title: 'E-Banking Developer',
-    description: 'Custom core banking ledger systems built for scale. We deliver white-label IBAN generation, Swift/SEPA integration, and high-performance transaction engines capable of processing millions of transactions per second.',
+    title: 'Fintech Developer',
+    description: 'Custom fintech ledger systems built for scale. We deliver white-label IBAN generation, Swift/SEPA integration, and high-performance transaction engines capable of processing millions of transactions per second.',
     tag: 'INFRA_DEV',
     accentColor: 'blue',
     features: [
@@ -145,7 +145,7 @@ export const corporateServices: CorporateService[] = [
   },
   {
     icon: 'solar:bank-linear',
-    title: 'Banking Introductions',
+    title: 'Fintech Introductions',
     description: 'Warm introductions to tier-1 banks and EMIs across Asia and Europe. Multi-currency account setup with SWIFT/SEPA connectivity for seamless international operations.',
   },
   {
@@ -157,7 +157,7 @@ export const corporateServices: CorporateService[] = [
 
 export const contactOptions: ContactOption[] = [
   { value: 'card-issuance', label: 'Card Issuance Program' },
-  { value: 'core-banking', label: 'Core Banking Development' },
+  { value: 'core-fintech', label: 'Core Fintech Development' },
   { value: 'staff-augmentation', label: 'Staff Augmentation' },
   { value: 'incorporation', label: 'Company Incorporation' },
   { value: 'blockchain', label: 'Blockchain / Tokenization' },
@@ -200,7 +200,7 @@ export const staffRoles: StaffRole[] = [
   },
   {
     title: 'Frontend Specialists',
-    description: 'Our UI/UX focused engineers build responsive, accessible interfaces for banking dashboards, trading platforms, and admin panels integrated with your workflow.',
+    description: 'Our UI/UX focused engineers build responsive, accessible interfaces for fintech dashboards, trading platforms, and admin panels integrated with your workflow.',
     icon: 'solar:monitor-linear',
     skills: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'Figma'],
     availability: 'immediate',
