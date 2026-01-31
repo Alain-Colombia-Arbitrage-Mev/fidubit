@@ -1,0 +1,382 @@
+---
+/**
+ * FIDUBIT - AI Solutions Page (Spanish)
+ */
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import WhatsAppButton from '@/components/ui/WhatsAppButton.astro';
+import GlassPanel from '@/components/ui/GlassPanel.astro';
+import Button from '@/components/ui/Button.astro';
+import { useTranslations } from '@/i18n';
+
+const t = useTranslations('es');
+
+const seo = {
+  title: 'Soluciones IA - Entrenamiento de Modelos y Agentes IA | FIDUBIT',
+  description: 'Soluciones empresariales de IA: entrenamiento de modelos Big Data, modelos de trading HFT con análisis de sentimiento en tiempo real, IA para HealthTech, y agentes IA personalizados para publicidad, llamadas y clasificación de clientes.',
+  keywords: [
+    'entrenamiento de modelos IA',
+    'machine learning',
+    'análisis big data',
+    'IA trading HFT',
+    'análisis de sentimiento',
+    'IA healthtech',
+    'IA nutrición',
+    'agentes IA',
+    'clasificación de clientes',
+    'llamadas IA',
+    'publicidad IA',
+  ],
+};
+
+const aiServices = [
+  {
+    id: 'big-data',
+    icon: 'solar:database-linear',
+    title: t.ai.services.bigData.title,
+    subtitle: t.ai.services.bigData.subtitle,
+    description: t.ai.services.bigData.description,
+    color: 'blue',
+    features: [
+      'Pipelines de datos personalizados',
+      'Infraestructura de entrenamiento distribuido',
+      'APIs de inferencia en tiempo real',
+      'Integración con data lakes',
+      'MLOps y monitoreo',
+      'Versionado de modelos',
+    ],
+    useCases: ['Previsión de demanda', 'Detección de fraude', 'Predicción de churn', 'Optimización de cadena de suministro'],
+  },
+  {
+    id: 'trading',
+    icon: 'solar:chart-2-linear',
+    title: t.ai.services.trading.title,
+    subtitle: t.ai.services.trading.subtitle,
+    description: t.ai.services.trading.description,
+    color: 'green',
+    features: [
+      'Parsing de noticias en tiempo real',
+      'Sentimiento en redes sociales',
+      'Análisis de flujo de órdenes',
+      'Modelos de microestructura',
+      'Inferencia de baja latencia',
+      'Frameworks de backtesting',
+    ],
+    useCases: ['Arbitraje cripto', 'Momentum en acciones', 'Pricing de opciones', 'Gestión de riesgos'],
+  },
+  {
+    id: 'healthtech',
+    icon: 'solar:heart-pulse-linear',
+    title: t.ai.services.healthtech.title,
+    subtitle: t.ai.services.healthtech.subtitle,
+    description: t.ai.services.healthtech.description,
+    color: 'red',
+    features: [
+      'Planificación de comidas personalizada',
+      'Optimización de nutrientes',
+      'Análisis de biomarcadores',
+      'Recomendaciones fitness',
+      'Cumplimiento HIPAA',
+      'Aprendizaje federado',
+    ],
+    useCases: ['Apps de dietas', 'Plataformas fitness', 'Telemedicina', 'Investigación clínica'],
+  },
+];
+
+const aiAgents = [
+  {
+    icon: 'solar:megaphone-linear',
+    title: t.ai.agents.advertising.title,
+    description: t.ai.agents.advertising.description,
+    capabilities: [
+      'Generación de copy',
+      'Segmentación de audiencia',
+      'Optimización creativa',
+      'Gestión multiplataforma',
+      'Analítica de rendimiento',
+      'Maximización de ROI',
+    ],
+    metrics: [
+      { value: '3x', label: 'Mejora ROAS' },
+      { value: '60%', label: 'Reducción de Costos' },
+    ],
+  },
+  {
+    icon: 'solar:phone-calling-linear',
+    title: t.ai.agents.calls.title,
+    description: t.ai.agents.calls.description,
+    capabilities: [
+      'Síntesis de voz natural',
+      'Reconocimiento de intención',
+      'Detección de sentimiento',
+      'Integración CRM',
+      'Enrutamiento de llamadas',
+      'Soporte multiidioma',
+    ],
+    metrics: [
+      { value: '24/7', label: 'Disponibilidad' },
+      { value: '90%', label: 'Tasa de Resolución' },
+    ],
+  },
+  {
+    icon: 'solar:users-group-two-rounded-linear',
+    title: t.ai.agents.classification.title,
+    description: t.ai.agents.classification.description,
+    capabilities: [
+      'Scoring de leads',
+      'Descubrimiento de segmentos',
+      'Predicción de churn',
+      'Modelado LTV',
+      'Clustering conductual',
+      'Actualizaciones en tiempo real',
+    ],
+    metrics: [
+      { value: '40%', label: 'Aumento en Conversión' },
+      { value: '85%', label: 'Precisión' },
+    ],
+  },
+];
+
+const stats = [
+  { value: '50B+', label: t.ai.stats.parameters, icon: 'solar:cpu-bolt-linear' },
+  { value: '99.9%', label: t.ai.stats.uptime, icon: 'solar:shield-check-linear' },
+  { value: '<10ms', label: t.ai.stats.latency, icon: 'solar:bolt-linear' },
+  { value: '500+', label: t.ai.stats.models, icon: 'solar:rocket-2-linear' },
+];
+
+const colorClasses: Record<string, { bg: string; border: string; text: string; glow: string }> = {
+  blue: { bg: 'bg-blue-500/10', border: 'border-blue-500/30', text: 'text-blue-500', glow: 'rgba(59,130,246,0.15)' },
+  green: { bg: 'bg-green-500/10', border: 'border-green-500/30', text: 'text-green-500', glow: 'rgba(34,197,94,0.15)' },
+  red: { bg: 'bg-red-500/10', border: 'border-red-500/30', text: 'text-red-500', glow: 'rgba(239,68,68,0.15)' },
+};
+---
+
+<Layout seo={seo} lang="es">
+  <WhatsAppButton />
+  <Header />
+
+  <main class="relative z-10 pt-16 min-h-screen bg-fidubit-black">
+    <!-- Hero Section -->
+    <section class="relative py-24 border-b border-white/5 overflow-hidden">
+      <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.08)_0%,transparent_40%)]"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(168,85,247,0.08)_0%,transparent_40%)]"></div>
+      </div>
+      <div class="absolute inset-0 grid-pattern opacity-20"></div>
+      
+      <div class="max-w-6xl mx-auto px-6 relative z-10">
+        <div class="text-center max-w-3xl mx-auto">
+          <div class="flex items-center justify-center gap-2 text-xs font-mono text-zinc-600 mb-8">
+            <a href="/es" class="hover:text-white transition-colors">{t.common.home}</a>
+            <span>/</span>
+            <span class="text-purple-500">{t.nav.ai}</span>
+          </div>
+          
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-8">
+            <span class="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></span>
+            <span class="text-xs font-mono text-purple-400 uppercase tracking-wider">{t.ai.badge}</span>
+          </div>
+          
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-medium text-white uppercase tracking-tight mb-6 leading-[0.9]">
+            {t.ai.title}
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-500 to-cyan-400 block">
+              {t.ai.titleHighlight}
+            </span>
+          </h1>
+          
+          <p class="text-lg text-zinc-400 font-mono leading-relaxed mb-10 max-w-2xl mx-auto">
+            {t.ai.description}
+          </p>
+          
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button variant="primary" href="#contact-ai" icon="solar:arrow-right-linear" size="lg">
+              {t.ai.cta}
+            </Button>
+            <Button variant="outline" href="#services" icon="solar:cpu-bolt-linear" iconPosition="left">
+              {t.ai.explore}
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="border-b border-white/5 py-12">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {stats.map((stat) => (
+            <GlassPanel padding="md" rounded="lg" class="text-center hover:border-purple-500/30 transition-colors">
+              <iconify-icon icon={stat.icon} class="text-purple-500 text-2xl mb-2"></iconify-icon>
+              <div class="text-2xl font-bold text-white">{stat.value}</div>
+              <div class="text-[10px] text-zinc-500 font-mono uppercase tracking-wide">{stat.label}</div>
+            </GlassPanel>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Main AI Services -->
+    <section id="services" class="border-b border-white/5 py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-medium text-white uppercase tracking-tight mb-4">
+            {t.ai.services.title}
+          </h2>
+          <p class="text-zinc-500 font-mono text-sm max-w-xl mx-auto">
+            {t.ai.services.description}
+          </p>
+        </div>
+
+        <div class="space-y-8">
+          {aiServices.map((service, index) => {
+            const colors = colorClasses[service.color];
+            const isEven = index % 2 === 0;
+            return (
+              <GlassPanel padding="none" rounded="2xl" class="overflow-hidden hover:border-white/20 transition-all">
+                <div class:list={["grid grid-cols-1 lg:grid-cols-2", !isEven && "lg:flex-row-reverse"]}>
+                  <div class="p-8 lg:p-12">
+                    <div class="flex items-center gap-4 mb-6">
+                      <div class:list={["w-14 h-14 rounded-xl flex items-center justify-center", colors.bg, colors.border, "border"]}>
+                        <iconify-icon icon={service.icon} class:list={["text-2xl", colors.text]}></iconify-icon>
+                      </div>
+                      <div>
+                        <h3 class="text-2xl font-medium text-white">{service.title}</h3>
+                        <span class:list={["text-xs font-mono uppercase tracking-wide", colors.text]}>{service.subtitle}</span>
+                      </div>
+                    </div>
+                    
+                    <p class="text-zinc-400 font-mono text-sm leading-relaxed mb-8">{service.description}</p>
+                    
+                    <div class="grid grid-cols-2 gap-3 mb-8">
+                      {service.features.map((feature) => (
+                        <div class="flex items-center gap-2 text-xs font-mono text-zinc-400">
+                          <iconify-icon icon="solar:check-circle-linear" class:list={[colors.text]}></iconify-icon>
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
+                    
+                    <Button variant="outline" href="#contact-ai" icon="solar:arrow-right-linear" size="sm">
+                      {t.common.learnMore}
+                    </Button>
+                  </div>
+                  
+                  <div class:list={["relative p-8 lg:p-12 flex items-center justify-center", isEven ? "lg:border-l" : "lg:border-r", "border-white/5"]}>
+                    <div class="absolute inset-0 opacity-30" style={`background: radial-gradient(circle at center, ${colors.glow} 0%, transparent 70%)`}></div>
+                    <div class="relative z-10 w-full">
+                      <h4 class="text-xs font-mono text-zinc-600 uppercase tracking-wide mb-4">{t.common.useCases}</h4>
+                      <div class="grid grid-cols-2 gap-3">
+                        {service.useCases.map((useCase) => (
+                          <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5 text-center hover:border-white/10 transition-colors">
+                            <span class="text-sm text-zinc-400">{useCase}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </GlassPanel>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Agents Section -->
+    <section id="agents" class="border-b border-white/5 py-20 bg-fidubit-dark">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 mb-6">
+            <iconify-icon icon="solar:bot-linear" class="text-cyan-500"></iconify-icon>
+            <span class="text-xs font-mono text-cyan-400 uppercase tracking-wider">IA Autónoma</span>
+          </div>
+          <h2 class="text-3xl font-medium text-white uppercase tracking-tight mb-4">
+            {t.ai.agents.title}
+          </h2>
+          <p class="text-zinc-500 font-mono text-sm max-w-xl mx-auto">
+            {t.ai.agents.description}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {aiAgents.map((agent) => (
+            <GlassPanel padding="lg" rounded="xl" class="hover:border-cyan-500/30 transition-all group relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 blur-[60px] rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              
+              <div class="relative z-10">
+                <div class="w-14 h-14 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6 group-hover:bg-cyan-500/20 transition-colors">
+                  <iconify-icon icon={agent.icon} class="text-cyan-500 text-2xl"></iconify-icon>
+                </div>
+                
+                <h3 class="text-xl font-medium text-white mb-3">{agent.title}</h3>
+                <p class="text-sm text-zinc-500 font-mono leading-relaxed mb-6">{agent.description}</p>
+                
+                <div class="grid grid-cols-2 gap-3 mb-6">
+                  {agent.metrics.map((metric) => (
+                    <div class="p-3 rounded-lg bg-white/[0.02] border border-white/5 text-center">
+                      <div class="text-lg font-bold text-cyan-400">{metric.value}</div>
+                      <div class="text-[10px] font-mono text-zinc-600 uppercase">{metric.label}</div>
+                    </div>
+                  ))}
+                </div>
+                
+                <h4 class="text-[10px] font-mono text-zinc-600 uppercase tracking-wide mb-3">{t.common.capabilities}</h4>
+                <div class="flex flex-wrap gap-2">
+                  {agent.capabilities.map((cap) => (
+                    <span class="text-[10px] font-mono px-2 py-1 rounded-full bg-white/5 text-zinc-500 border border-white/5">
+                      {cap}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </GlassPanel>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact-ai" class="py-24 relative">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.05)_0%,transparent_50%)]"></div>
+      
+      <div class="max-w-4xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-medium text-white uppercase tracking-tight mb-4">
+            {t.ai.contact.title}
+          </h2>
+          <p class="text-zinc-500 font-mono text-sm">
+            {t.ai.contact.description}
+          </p>
+        </div>
+
+        <GlassPanel padding="lg" rounded="2xl" class="relative overflow-hidden">
+          <form class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="text-xs font-mono text-zinc-400 uppercase tracking-wide">{t.contact.form.company}</label>
+                <input type="text" placeholder="Tu Empresa" class="smart-input w-full" required />
+              </div>
+              <div class="space-y-2">
+                <label class="text-xs font-mono text-zinc-400 uppercase tracking-wide">{t.contact.form.email}</label>
+                <input type="email" placeholder="tu@empresa.com" class="smart-input w-full" required />
+              </div>
+            </div>
+            
+            <div class="space-y-2">
+              <label class="text-xs font-mono text-zinc-400 uppercase tracking-wide">{t.contact.form.message}</label>
+              <textarea rows="4" placeholder="Describe tu proyecto de IA..." class="smart-input w-full resize-none"></textarea>
+            </div>
+
+            <button type="submit" class="btn-cta w-full group">
+              <span>{t.contact.form.submit}</span>
+              <iconify-icon icon="solar:arrow-right-linear" class="group-hover:translate-x-1 transition-transform" width="16"></iconify-icon>
+            </button>
+          </form>
+        </GlassPanel>
+      </div>
+    </section>
+
+    <Footer />
+  </main>
+</Layout>

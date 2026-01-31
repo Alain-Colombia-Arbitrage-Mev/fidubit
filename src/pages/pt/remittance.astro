@@ -1,0 +1,95 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import WhatsAppButton from '@/components/ui/WhatsAppButton.astro';
+import GlassPanel from '@/components/ui/GlassPanel.astro';
+import Button from '@/components/ui/Button.astro';
+import { useTranslations } from '@/i18n';
+
+const t = useTranslations('pt');
+
+const seo = {
+  title: 'Remessas e Pagamentos Internacionais - FIDUBIT',
+  description: 'Soluções de remessas internacionais para América Latina, EUA, Europa e Ásia.',
+  keywords: ['remessas', 'transferências internacionais', 'pagamentos transfronteiriços'],
+};
+
+const stats = [
+  { value: '50+', label: t.remittance.stats.currencies, icon: 'solar:dollar-linear' },
+  { value: '180+', label: t.remittance.stats.countries, icon: 'solar:global-linear' },
+  { value: 'T+0', label: t.remittance.stats.settlement, icon: 'solar:clock-circle-linear' },
+  { value: '0.5%', label: t.remittance.stats.fees, icon: 'solar:tag-price-linear' },
+];
+---
+
+<Layout seo={seo} lang="pt">
+  <WhatsAppButton />
+  <Header />
+  <main class="relative z-10 pt-16 min-h-screen bg-fidubit-black">
+    <section class="relative py-24 border-b border-white/5 overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_center,rgba(234,179,8,0.08)_0%,transparent_50%)]"></div>
+      <div class="max-w-6xl mx-auto px-6 relative z-10">
+        <div class="text-center max-w-3xl mx-auto">
+          <div class="flex items-center justify-center gap-2 text-xs font-mono text-zinc-600 mb-8">
+            <a href="/pt" class="hover:text-white transition-colors">{t.common.home}</a>
+            <span>/</span>
+            <span class="text-yellow-500">{t.nav.remittance}</span>
+          </div>
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/20 mb-8">
+            <span class="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></span>
+            <span class="text-xs font-mono text-yellow-400 uppercase tracking-wider">{t.remittance.badge}</span>
+          </div>
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-medium text-white uppercase tracking-tight mb-6 leading-[0.9]">
+            {t.remittance.title}
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 block">{t.remittance.titleHighlight}</span>
+          </h1>
+          <p class="text-lg text-zinc-400 font-mono leading-relaxed mb-10 max-w-2xl mx-auto">{t.remittance.description}</p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button variant="primary" href="#contact-remittance" icon="solar:arrow-right-linear" size="lg">{t.remittance.cta}</Button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="border-b border-white/5 py-12">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {stats.map((stat) => (
+            <GlassPanel padding="md" rounded="lg" class="text-center hover:border-yellow-500/30 transition-colors">
+              <iconify-icon icon={stat.icon} class="text-yellow-500 text-2xl mb-2"></iconify-icon>
+              <div class="text-2xl font-bold text-white">{stat.value}</div>
+              <div class="text-[10px] text-zinc-500 font-mono uppercase tracking-wide">{stat.label}</div>
+            </GlassPanel>
+          ))}
+        </div>
+      </div>
+    </section>
+    <section id="contact-remittance" class="py-24 relative">
+      <div class="max-w-4xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-medium text-white uppercase tracking-tight mb-4">{t.remittance.contact.title}</h2>
+          <p class="text-zinc-500 font-mono text-sm">{t.remittance.contact.description}</p>
+        </div>
+        <GlassPanel padding="lg" rounded="2xl">
+          <form class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="text-xs font-mono text-zinc-400 uppercase">{t.contact.form.company}</label>
+                <input type="text" class="smart-input w-full" required />
+              </div>
+              <div class="space-y-2">
+                <label class="text-xs font-mono text-zinc-400 uppercase">{t.contact.form.email}</label>
+                <input type="email" class="smart-input w-full" required />
+              </div>
+            </div>
+            <button type="submit" class="btn-cta w-full group">
+              <span>{t.contact.form.submit}</span>
+              <iconify-icon icon="solar:arrow-right-linear" class="group-hover:translate-x-1 transition-transform" width="16"></iconify-icon>
+            </button>
+          </form>
+        </GlassPanel>
+      </div>
+    </section>
+    <Footer />
+  </main>
+</Layout>

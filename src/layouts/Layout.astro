@@ -1,16 +1,25 @@
 ---
 /**
  * FIDUBIT - Main Layout
- * Optimized for SEO with comprehensive meta tags
+ * Optimized for SEO with comprehensive meta tags and i18n support
  */
 import type { SEOProps } from '@/types';
 import '@/styles/global.css';
+import { languages, getLangFromUrl, getAlternateLinks, type Language } from '@/i18n';
 
 interface Props {
   seo: SEOProps;
+  lang?: Language;
 }
 
-const { seo } = Astro.props;
+const { seo, lang: propLang } = Astro.props;
+
+// Get current language
+const currentLang = propLang || getLangFromUrl(Astro.url);
+const langData = languages[currentLang];
+
+// Generate alternate language links for SEO
+const alternateLinks = getAlternateLinks(Astro.url.pathname);
 
 const defaultSEO: SEOProps = {
   title: 'FIDUBIT - Fintech & Media Infrastructure',
@@ -116,7 +125,7 @@ const servicesSchema = {
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="bg-fidubit-black">
+<html lang={langData.locale} class="bg-fidubit-black">
   <head>
     <!-- Primary Meta Tags -->
     <meta charset="UTF-8" />
@@ -132,6 +141,12 @@ const servicesSchema = {
     <!-- Canonical URL -->
     <link rel="canonical" href={canonicalURL} />
     
+    <!-- Alternate Language Links (hreflang) for SEO -->
+    {alternateLinks.map((alt) => (
+      <link rel="alternate" hreflang={languages[alt.lang].locale.split('-')[0]} href={alt.href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href="https://fidubit.com/" />
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={meta.type || 'website'} />
     <meta property="og:url" content={canonicalURL} />
@@ -139,7 +154,7 @@ const servicesSchema = {
     <meta property="og:description" content={meta.description} />
     <meta property="og:image" content={meta.image || 'https://fidubit.com/og-image.png'} />
     <meta property="og:site_name" content="FIDUBIT" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={langData.locale.replace('-', '_')} />
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />

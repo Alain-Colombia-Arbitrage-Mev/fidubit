@@ -1,0 +1,34 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Hero from '@/components/sections/Hero.astro';
+import CardsSection from '@/components/sections/CardsSection.astro';
+import InfrastructureSection from '@/components/sections/InfrastructureSection.astro';
+import StaffTeaser from '@/components/sections/StaffTeaser.astro';
+import MusicSection from '@/components/sections/MusicSection.astro';
+import CorporateSection from '@/components/sections/CorporateSection.astro';
+import ContactSection from '@/components/sections/ContactSection.astro';
+import WhatsAppButton from '@/components/ui/WhatsAppButton.astro';
+
+const seo = {
+  title: 'FIDUBIT - 金融科技基础设施、卡片发行和人员扩充',
+  description: '香港卡片发行、核心金融科技开发、区块链解决方案和工程人员扩充。',
+  keywords: ['金融科技', '卡片发行', '区块链', '人员扩充', '香港'],
+};
+---
+
+<Layout seo={seo} lang="zh">
+  <WhatsAppButton />
+  <Header />
+  <main class="relative z-10">
+    <Hero />
+    <CardsSection />
+    <InfrastructureSection />
+    <StaffTeaser />
+    <MusicSection />
+    <CorporateSection />
+    <ContactSection />
+    <Footer />
+  </main>
+</Layout>

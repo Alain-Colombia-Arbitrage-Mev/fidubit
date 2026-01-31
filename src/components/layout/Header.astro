@@ -4,6 +4,8 @@
  * Premium glass header with state management and navigation
  */
 import { navigation, siteConfig } from '@/data/site';
+import LanguageSelector from '@/components/ui/LanguageSelector.astro';
+import { getLangFromUrl, useTranslations } from '@/i18n';
 
 interface Props {
   class?: string;
@@ -11,6 +13,10 @@ interface Props {
 }
 
 const { class: className } = Astro.props;
+
+// i18n
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 // Get current path for active state
 const currentPath = Astro.url.pathname;
@@ -133,6 +139,11 @@ const getHref = (href: string) => {
 
   <!-- Right Section -->
   <div class="flex items-stretch ml-auto">
+    <!-- Language Selector -->
+    <div class="flex items-center px-3 border-l border-white/5">
+      <LanguageSelector currentPath={currentPath} />
+    </div>
+    
     <!-- Status -->
     <div class="hidden md:flex items-center px-4 border-l border-white/5 gap-2">
       <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
@@ -223,13 +234,20 @@ const getHref = (href: string) => {
     </div>
   </nav>
   
+  <!-- Mobile Language Selector -->
+  <div class="p-4 border-t border-white/5">
+    <div class="flex items-center justify-center">
+      <LanguageSelector currentPath={currentPath} class="w-full max-w-xs" />
+    </div>
+  </div>
+  
   <!-- Mobile CTA -->
   <div class="p-4 border-t border-white/5">
     <a 
       href={currentPath === '/' ? '#contact-section' : '/#contact-section'}
       class="mobile-nav-link flex items-center justify-center gap-2 w-full py-4 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-xl text-black font-bold text-sm uppercase tracking-wider"
     >
-      <span>Start Project</span>
+      <span>{t.nav.getStarted}</span>
       <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
     </a>
     

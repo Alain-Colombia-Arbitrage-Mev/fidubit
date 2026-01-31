@@ -1,0 +1,137 @@
+---
+/**
+ * FIDUBIT - Staff Augmentation Page (Spanish)
+ */
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import StaffSection from '@/components/sections/StaffSection.astro';
+import WhatsAppButton from '@/components/ui/WhatsAppButton.astro';
+import GlassPanel from '@/components/ui/GlassPanel.astro';
+import Button from '@/components/ui/Button.astro';
+import { useTranslations } from '@/i18n';
+
+const t = useTranslations('es');
+
+const seo = {
+  title: 'Staff Augmentation - Ingenieros Fintech y Blockchain | FIDUBIT',
+  description: 'Escala tu equipo de desarrollo con ingenieros senior especializados en fintech y blockchain. Modelos de contratación flexibles, disponibilidad inmediata.',
+  keywords: [
+    'staff augmentation',
+    'ingenieros fintech',
+    'desarrolladores blockchain',
+    'equipos remotos',
+    'contratación de desarrolladores',
+    'talento tecnológico',
+    'nearshore',
+  ],
+};
+---
+
+<Layout seo={seo} lang="es">
+  <WhatsAppButton />
+  <Header />
+
+  <main class="relative z-10 pt-16 min-h-screen bg-fidubit-black">
+    <!-- Hero Section -->
+    <section class="relative py-24 border-b border-white/5 overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_center,rgba(59,130,246,0.08)_0%,transparent_50%)]"></div>
+      <div class="absolute inset-0 grid-pattern opacity-20"></div>
+      
+      <div class="max-w-6xl mx-auto px-6 relative z-10">
+        <div class="text-center max-w-3xl mx-auto">
+          <div class="flex items-center justify-center gap-2 text-xs font-mono text-zinc-600 mb-8">
+            <a href="/es" class="hover:text-white transition-colors">{t.common.home}</a>
+            <span>/</span>
+            <span class="text-blue-500">{t.nav.staff}</span>
+          </div>
+          
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8">
+            <span class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+            <span class="text-xs font-mono text-blue-400 uppercase tracking-wider">{t.staffPage.badge}</span>
+          </div>
+          
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-medium text-white uppercase tracking-tight mb-6 leading-[0.9]">
+            {t.staffPage.title}
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-500 block">
+              {t.staffPage.titleHighlight}
+            </span>
+          </h1>
+          
+          <p class="text-lg text-zinc-400 font-mono leading-relaxed mb-10 max-w-2xl mx-auto">
+            {t.staffPage.description}
+          </p>
+          
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button variant="primary" href="#contact-staff" icon="solar:arrow-right-linear" size="lg">
+              {t.staffPage.cta}
+            </Button>
+            <Button variant="outline" href="#roles" icon="solar:users-group-rounded-linear" iconPosition="left">
+              {t.staffPage.howItWorks}
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Staff Section Content -->
+    <div id="roles">
+      <StaffSection />
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact-staff" class="py-24 relative">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.05)_0%,transparent_50%)]"></div>
+      
+      <div class="max-w-4xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-medium text-white uppercase tracking-tight mb-4">
+            {t.staffPage.cta}
+          </h2>
+          <p class="text-zinc-500 font-mono text-sm">
+            Cuéntanos sobre tus necesidades de talento y te ayudamos a escalar tu equipo.
+          </p>
+        </div>
+
+        <GlassPanel padding="lg" rounded="2xl" class="relative overflow-hidden">
+          <form class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="text-xs font-mono text-zinc-400 uppercase tracking-wide">{t.contact.form.company}</label>
+                <input type="text" placeholder="Tu Empresa" class="smart-input w-full" required />
+              </div>
+              <div class="space-y-2">
+                <label class="text-xs font-mono text-zinc-400 uppercase tracking-wide">{t.contact.form.email}</label>
+                <input type="email" placeholder="tu@empresa.com" class="smart-input w-full" required />
+              </div>
+            </div>
+            
+            <div class="space-y-2">
+              <label class="text-xs font-mono text-zinc-400 uppercase tracking-wide">Roles Necesarios</label>
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                {['Backend', 'Frontend', 'Full Stack', 'DevOps', 'Blockchain', 'Mobile'].map((role) => (
+                  <label class="flex items-center gap-2 p-3 rounded-lg bg-white/[0.02] border border-white/5 hover:border-blue-500/30 cursor-pointer transition-colors">
+                    <input type="checkbox" name="roles" value={role.toLowerCase()} class="accent-blue-500" />
+                    <span class="text-xs font-mono text-zinc-400">{role}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label class="text-xs font-mono text-zinc-400 uppercase tracking-wide">{t.contact.form.message}</label>
+              <textarea rows="3" placeholder="Describe tu proyecto y requisitos del equipo..." class="smart-input w-full resize-none"></textarea>
+            </div>
+
+            <button type="submit" class="btn-cta w-full group">
+              <span>{t.contact.form.submit}</span>
+              <iconify-icon icon="solar:arrow-right-linear" class="group-hover:translate-x-1 transition-transform" width="16"></iconify-icon>
+            </button>
+          </form>
+        </GlassPanel>
+      </div>
+    </section>
+
+    <Footer />
+  </main>
+</Layout>

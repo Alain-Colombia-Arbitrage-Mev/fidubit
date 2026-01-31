@@ -1,0 +1,140 @@
+---
+/**
+ * Language Selector Component
+ * Dropdown with flags for language selection
+ * Mobile-friendly design
+ */
+import { languages, type Language, getLangFromUrl, getLocalizedPath } from '@/i18n';
+
+interface Props {
+  currentPath?: string;
+  class?: string;
+}
+
+const { currentPath = '/', class: className = '' } = Astro.props;
+
+// Get current language from URL
+const currentLang = getLangFromUrl(Astro.url);
+const currentLangData = languages[currentLang];
+
+// Generate links for all languages
+const languageLinks = Object.entries(languages).map(([code, data]) => ({
+  code: code as Language,
+  ...data,
+  href: getLocalizedPath(currentPath, code as Language),
+  active: code === currentLang,
+}));
+---
+
+<div class:list={["lang-selector relative", className]} data-lang-selector>
+  <!-- Trigger Button -->
+  <button 
+    type="button"
+    class="lang-trigger flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.03] border border-white/10 hover:border-white/20 hover:bg-white/[0.05] transition-all duration-200 cursor-pointer"
+    aria-label="Select language"
+    aria-expanded="false"
+    aria-haspopup="listbox"
+  >
+    <span class="text-base">{currentLangData.flag}</span>
+    <span class="text-xs font-mono text-zinc-400 hidden sm:inline">{currentLang.toUpperCase()}</span>
+    <iconify-icon 
+      icon="solar:alt-arrow-down-linear" 
+      class="text-zinc-500 text-sm transition-transform duration-200 lang-arrow"
+    ></iconify-icon>
+  </button>
+
+  <!-- Dropdown Menu -->
+  <div 
+    class="lang-dropdown absolute right-0 top-full mt-2 py-2 min-w-[160px] rounded-xl bg-fidubit-dark/95 backdrop-blur-xl border border-white/10 shadow-2xl opacity-0 invisible translate-y-2 transition-all duration-200 z-50"
+    role="listbox"
+    aria-label="Available languages"
+  >
+    {languageLinks.map((lang) => (
+      <a 
+        href={lang.href}
+        class:list={[
+          "lang-option flex items-center gap-3 px-4 py-2.5 hover:bg-white/5 transition-colors",
+          lang.active && "bg-white/[0.03]"
+        ]}
+        role="option"
+        aria-selected={lang.active}
+        data-lang={lang.code}
+      >
+        <span class="text-lg">{lang.flag}</span>
+        <div class="flex-1">
+          <span class:list={[
+            "text-sm font-medium",
+            lang.active ? "text-yellow-500" : "text-white"
+          ]}>
+            {lang.label}
+          </span>
+        </div>
+        {lang.active && (
+          <iconify-icon icon="solar:check-circle-bold" class="text-yellow-500 text-sm"></iconify-icon>
+        )}
+      </a>
+    ))}
+  </div>
+</div>
+
+<style>
+  .lang-selector[data-open="true"] .lang-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .lang-selector[data-open="true"] .lang-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .lang-selector[data-open="true"] .lang-trigger {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+  }
+</style>
+
+<script>
+  function initLanguageSelectors() {
+    document.querySelectorAll('[data-lang-selector]').forEach((selector) => {
+      const trigger = selector.querySelector('.lang-trigger');
+      
+      if (!trigger) return;
+
+      // Toggle dropdown
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = selector.getAttribute('data-open') === 'true';
+        
+        // Close all other selectors
+        document.querySelectorAll('[data-lang-selector]').forEach((s) => {
+          s.setAttribute('data-open', 'false');
+        });
+        
+        // Toggle current
+        selector.setAttribute('data-open', isOpen ? 'false' : 'true');
+        trigger.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      });
+
+      // Close on outside click
+      document.addEventListener('click', () => {
+        selector.setAttribute('data-open', 'false');
+        trigger.setAttribute('aria-expanded', 'false');
+      });
+
+      // Close on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          selector.setAttribute('data-open', 'false');
+          trigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  }
+
+  // Initialize on page load
+  initLanguageSelectors();
+
+  // Re-initialize on Astro page transitions
+  document.addEventListener('astro:page-load', initLanguageSelectors);
+</script>

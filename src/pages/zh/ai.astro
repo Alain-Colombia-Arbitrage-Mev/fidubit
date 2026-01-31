@@ -1,0 +1,95 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import WhatsAppButton from '@/components/ui/WhatsAppButton.astro';
+import GlassPanel from '@/components/ui/GlassPanel.astro';
+import Button from '@/components/ui/Button.astro';
+import { useTranslations } from '@/i18n';
+
+const t = useTranslations('zh');
+
+const seo = {
+  title: 'AI解决方案 - 模型训练和AI代理 | FIDUBIT',
+  description: '企业AI解决方案：大数据模型训练、HFT交易模型、健康科技AI和定制AI代理。',
+  keywords: ['AI模型训练', '机器学习', '大数据', 'AI交易', 'AI代理'],
+};
+
+const stats = [
+  { value: '50B+', label: t.ai.stats.parameters, icon: 'solar:cpu-bolt-linear' },
+  { value: '99.9%', label: t.ai.stats.uptime, icon: 'solar:shield-check-linear' },
+  { value: '<10ms', label: t.ai.stats.latency, icon: 'solar:bolt-linear' },
+  { value: '500+', label: t.ai.stats.models, icon: 'solar:rocket-2-linear' },
+];
+---
+
+<Layout seo={seo} lang="zh">
+  <WhatsAppButton />
+  <Header />
+  <main class="relative z-10 pt-16 min-h-screen bg-fidubit-black">
+    <section class="relative py-24 border-b border-white/5 overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.08)_0%,transparent_40%)]"></div>
+      <div class="max-w-6xl mx-auto px-6 relative z-10">
+        <div class="text-center max-w-3xl mx-auto">
+          <div class="flex items-center justify-center gap-2 text-xs font-mono text-zinc-600 mb-8">
+            <a href="/zh" class="hover:text-white transition-colors">{t.common.home}</a>
+            <span>/</span>
+            <span class="text-purple-500">{t.nav.ai}</span>
+          </div>
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-8">
+            <span class="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></span>
+            <span class="text-xs font-mono text-purple-400 uppercase tracking-wider">{t.ai.badge}</span>
+          </div>
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-medium text-white uppercase tracking-tight mb-6 leading-[0.9]">
+            {t.ai.title}
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-500 to-cyan-400 block">{t.ai.titleHighlight}</span>
+          </h1>
+          <p class="text-lg text-zinc-400 font-mono leading-relaxed mb-10 max-w-2xl mx-auto">{t.ai.description}</p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button variant="primary" href="#contact-ai" icon="solar:arrow-right-linear" size="lg">{t.ai.cta}</Button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="border-b border-white/5 py-12">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {stats.map((stat) => (
+            <GlassPanel padding="md" rounded="lg" class="text-center hover:border-purple-500/30 transition-colors">
+              <iconify-icon icon={stat.icon} class="text-purple-500 text-2xl mb-2"></iconify-icon>
+              <div class="text-2xl font-bold text-white">{stat.value}</div>
+              <div class="text-[10px] text-zinc-500 font-mono uppercase tracking-wide">{stat.label}</div>
+            </GlassPanel>
+          ))}
+        </div>
+      </div>
+    </section>
+    <section id="contact-ai" class="py-24 relative">
+      <div class="max-w-4xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-medium text-white uppercase tracking-tight mb-4">{t.ai.contact.title}</h2>
+          <p class="text-zinc-500 font-mono text-sm">{t.ai.contact.description}</p>
+        </div>
+        <GlassPanel padding="lg" rounded="2xl">
+          <form class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="text-xs font-mono text-zinc-400 uppercase">{t.contact.form.company}</label>
+                <input type="text" class="smart-input w-full" required />
+              </div>
+              <div class="space-y-2">
+                <label class="text-xs font-mono text-zinc-400 uppercase">{t.contact.form.email}</label>
+                <input type="email" class="smart-input w-full" required />
+              </div>
+            </div>
+            <button type="submit" class="btn-cta w-full group">
+              <span>{t.contact.form.submit}</span>
+              <iconify-icon icon="solar:arrow-right-linear" class="group-hover:translate-x-1 transition-transform" width="16"></iconify-icon>
+            </button>
+          </form>
+        </GlassPanel>
+      </div>
+    </section>
+    <Footer />
+  </main>
+</Layout>
