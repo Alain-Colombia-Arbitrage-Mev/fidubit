@@ -6,6 +6,54 @@
 import ModuleTag from '@/components/ui/ModuleTag.astro';
 import SectionLabel from '@/components/ui/SectionLabel.astro';
 import { cardProducts } from '@/data/site';
+import { getLangFromUrl, useTranslations } from '@/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const cardFeatures = {
+  en: [
+    'Multi-currency support (USD, EUR, GBP, HKD)',
+    'Real-time transaction notifications',
+    'White-label mobile app integration',
+    '3D Secure & EMV chip technology',
+  ],
+  es: [
+    'Soporte multi-moneda (USD, EUR, GBP, HKD)',
+    'Notificaciones de transacción en tiempo real',
+    'Integración de app móvil white-label',
+    'Tecnología 3D Secure y chip EMV',
+  ],
+  pt: [
+    'Suporte multi-moeda (USD, EUR, GBP, HKD)',
+    'Notificações de transação em tempo real',
+    'Integração de app móvel white-label',
+    'Tecnologia 3D Secure e chip EMV',
+  ],
+  zh: [
+    '多币种支持 (USD, EUR, GBP, HKD)',
+    '实时交易通知',
+    '白标移动应用集成',
+    '3D安全和EMV芯片技术',
+  ],
+  ar: [
+    'دعم متعدد العملات (USD, EUR, GBP, HKD)',
+    'إشعارات المعاملات في الوقت الفعلي',
+    'تكامل تطبيق الهاتف المحمول ذو العلامة البيضاء',
+    'تقنية 3D Secure وشريحة EMV',
+  ],
+};
+
+const cardDescriptions = {
+  en: 'Turnkey debit card programs for Fintechs. Direct BIN sponsorship from Hong Kong hubs with instant virtual issuance and premium physical metal cards.',
+  es: 'Programas de tarjetas de débito llave en mano para Fintechs. Patrocinio BIN directo desde Hong Kong con emisión virtual instantánea y tarjetas físicas premium de metal.',
+  pt: 'Programas de cartão de débito turnkey para Fintechs. Patrocínio BIN direto de Hong Kong com emissão virtual instantânea e cartões físicos premium de metal.',
+  zh: '面向金融科技公司的交钥匙借记卡计划。来自香港的直接BIN赞助，即时虚拟发行和高端实体金属卡。',
+  ar: 'برامج بطاقات الخصم الجاهزة للشركات المالية. رعاية BIN مباشرة من هونغ كونغ مع إصدار افتراضي فوري وبطاقات معدنية مادية متميزة.',
+};
+
+const features = cardFeatures[lang] || cardFeatures.en;
+const description = cardDescriptions[lang] || cardDescriptions.en;
 ---
 
 <section id="section-cards" class="border-b border-white/5 bg-fidubit-black relative overflow-hidden py-12">
@@ -19,38 +67,28 @@ import { cardProducts } from '@/data/site';
     <div class="lg:col-span-5 p-12 lg:p-16 flex flex-col justify-center border-r border-white/5 z-10 bg-fidubit-black/80 backdrop-blur-sm">
       
       <SectionLabel icon="solar:card-send-linear" color="yellow">
-        Card_Issuance
+        {t.cards.label}
       </SectionLabel>
       
       <h2 class="text-4xl lg:text-5xl font-medium text-white uppercase tracking-tight leading-none mb-6 sys-reveal sys-rise">
         Hong Kong
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-zinc-400 to-zinc-700 block">
-          Prepaid Cards
+          {t.cards.title}
         </span>
       </h2>
       
       <p class="text-sm text-zinc-500 font-mono leading-relaxed mb-6 sys-reveal sys-rise sys-delay-100">
-        Turnkey debit card programs for Fintechs. Direct BIN sponsorship from Hong Kong hubs with instant virtual issuance and premium physical metal cards. Launch your branded card program in weeks, not months.
+        {description}
       </p>
 
       <!-- Extended Features -->
       <ul class="space-y-3 mb-10 sys-reveal sys-rise sys-delay-100">
-        <li class="flex items-center text-xs font-mono text-zinc-400 gap-2">
-          <iconify-icon icon="solar:check-circle-linear" class="text-yellow-500"></iconify-icon>
-          Multi-currency support (USD, EUR, GBP, HKD)
-        </li>
-        <li class="flex items-center text-xs font-mono text-zinc-400 gap-2">
-          <iconify-icon icon="solar:check-circle-linear" class="text-yellow-500"></iconify-icon>
-          Real-time transaction notifications
-        </li>
-        <li class="flex items-center text-xs font-mono text-zinc-400 gap-2">
-          <iconify-icon icon="solar:check-circle-linear" class="text-yellow-500"></iconify-icon>
-          White-label mobile app integration
-        </li>
-        <li class="flex items-center text-xs font-mono text-zinc-400 gap-2">
-          <iconify-icon icon="solar:check-circle-linear" class="text-yellow-500"></iconify-icon>
-          3D Secure & EMV chip technology
-        </li>
+        {features.map((feature) => (
+          <li class="flex items-center text-xs font-mono text-zinc-400 gap-2">
+            <iconify-icon icon="solar:check-circle-linear" class="text-yellow-500"></iconify-icon>
+            {feature}
+          </li>
+        ))}
       </ul>
 
       <!-- Slider Controls -->

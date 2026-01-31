@@ -6,6 +6,101 @@
 import ModuleTag from '@/components/ui/ModuleTag.astro';
 import GlassPanel from '@/components/ui/GlassPanel.astro';
 import { infrastructureServices } from '@/data/site';
+import { getLangFromUrl, useTranslations } from '@/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Translated service content
+const serviceTranslations: Record<string, Record<string, { title: string; description: string; features: string[] }>> = {
+  en: {
+    fintech: {
+      title: 'Fintech Developer',
+      description: 'Custom fintech ledger systems built for scale. We deliver white-label IBAN generation, Swift/SEPA integration, and high-performance transaction engines.',
+      features: ['White-label UI/UX Design', 'API-First Architecture', 'Real-time Ledger Systems', 'Multi-tenant Infrastructure'],
+    },
+    blockchain: {
+      title: 'Blockchain & Tokens',
+      description: 'End-to-end Smart Contract development. Asset tokenization (RWA), Stablecoin issuance infrastructure, and secure custodial wallet integration.',
+      features: ['RWA Tokenization', 'Stablecoin Infrastructure', 'Multi-sig Custody'],
+    },
+    otc: {
+      title: 'Institutional OTC',
+      description: 'Deep liquidity pools for high-volume fiat/crypto ramps with T+0 settlement. Direct market access to tier-1 liquidity providers.',
+      features: ['T+0 Settlement', 'Deep Liquidity Access', 'Competitive Spreads'],
+    },
+  },
+  es: {
+    fintech: {
+      title: 'Desarrollo Fintech',
+      description: 'Sistemas de ledger fintech personalizados a escala. Generación de IBAN white-label, integración Swift/SEPA y motores de transacciones de alto rendimiento.',
+      features: ['Diseño UI/UX White-label', 'Arquitectura API-First', 'Sistemas Ledger en Tiempo Real', 'Infraestructura Multi-tenant'],
+    },
+    blockchain: {
+      title: 'Blockchain y Tokens',
+      description: 'Desarrollo de Smart Contracts end-to-end. Tokenización de activos (RWA), infraestructura de Stablecoins e integración de wallets custodiales.',
+      features: ['Tokenización RWA', 'Infraestructura Stablecoin', 'Custodia Multi-firma'],
+    },
+    otc: {
+      title: 'OTC Institucional',
+      description: 'Pools de liquidez profunda para rampas fiat/cripto de alto volumen con liquidación T+0. Acceso directo a proveedores de liquidez tier-1.',
+      features: ['Liquidación T+0', 'Acceso a Liquidez Profunda', 'Spreads Competitivos'],
+    },
+  },
+  pt: {
+    fintech: {
+      title: 'Desenvolvimento Fintech',
+      description: 'Sistemas de ledger fintech personalizados para escala. Geração de IBAN white-label, integração Swift/SEPA e motores de transações de alto desempenho.',
+      features: ['Design UI/UX White-label', 'Arquitetura API-First', 'Sistemas Ledger em Tempo Real', 'Infraestrutura Multi-tenant'],
+    },
+    blockchain: {
+      title: 'Blockchain e Tokens',
+      description: 'Desenvolvimento de Smart Contracts end-to-end. Tokenização de ativos (RWA), infraestrutura de Stablecoins e integração de wallets custodiais.',
+      features: ['Tokenização RWA', 'Infraestrutura Stablecoin', 'Custódia Multi-assinatura'],
+    },
+    otc: {
+      title: 'OTC Institucional',
+      description: 'Pools de liquidez profunda para rampas fiat/cripto de alto volume com liquidação T+0. Acesso direto a provedores de liquidez tier-1.',
+      features: ['Liquidação T+0', 'Acesso a Liquidez Profunda', 'Spreads Competitivos'],
+    },
+  },
+  zh: {
+    fintech: {
+      title: '金融科技开发',
+      description: '为规模化构建的定制金融科技账本系统。提供白标IBAN生成、Swift/SEPA集成和高性能交易引擎。',
+      features: ['白标UI/UX设计', 'API优先架构', '实时账本系统', '多租户基础设施'],
+    },
+    blockchain: {
+      title: '区块链与代币',
+      description: '端到端智能合约开发。资产代币化(RWA)、稳定币发行基础设施和安全托管钱包集成。',
+      features: ['RWA代币化', '稳定币基础设施', '多签托管'],
+    },
+    otc: {
+      title: '机构OTC',
+      description: '高容量法币/加密货币通道的深度流动性池，T+0结算。直接访问一级流动性提供商。',
+      features: ['T+0结算', '深度流动性访问', '有竞争力的点差'],
+    },
+  },
+  ar: {
+    fintech: {
+      title: 'تطوير التكنولوجيا المالية',
+      description: 'أنظمة دفتر الأستاذ المالية المخصصة للتوسع. توليد IBAN ذو العلامة البيضاء وتكامل Swift/SEPA ومحركات معاملات عالية الأداء.',
+      features: ['تصميم UI/UX ذو العلامة البيضاء', 'بنية API أولاً', 'أنظمة دفتر الأستاذ في الوقت الفعلي', 'بنية تحتية متعددة المستأجرين'],
+    },
+    blockchain: {
+      title: 'البلوكتشين والتوكنات',
+      description: 'تطوير العقود الذكية من البداية إلى النهاية. ترميز الأصول (RWA) وبنية إصدار العملات المستقرة وتكامل المحافظ الحفظية.',
+      features: ['ترميز RWA', 'بنية العملات المستقرة', 'حفظ متعدد التوقيعات'],
+    },
+    otc: {
+      title: 'OTC المؤسسي',
+      description: 'مجمعات سيولة عميقة لقنوات العملات الورقية/المشفرة عالية الحجم مع تسوية T+0. وصول مباشر لمزودي السيولة من المستوى الأول.',
+      features: ['تسوية T+0', 'الوصول إلى السيولة العميقة', 'فروق أسعار تنافسية'],
+    },
+  },
+};
+
+const currentTranslations = serviceTranslations[lang] || serviceTranslations.en;
 
 const colorClasses = {
   blue: {
@@ -87,24 +182,28 @@ const colorClasses = {
           
           <!-- Content -->
           <div class="relative z-10 mt-auto">
-            <h3 class="text-xl font-medium text-white uppercase tracking-tight mb-3">
-              {service.title}
-            </h3>
-            <p class="text-xs text-zinc-500 font-mono leading-relaxed mb-4">
-              {service.description}
-            </p>
-            
-            <!-- Features List -->
-            {service.features && (
-              <ul class="space-y-2 mb-4">
-                {service.features.map((feature) => (
-                  <li class="flex items-center text-[10px] font-mono text-zinc-400 gap-2">
-                    <iconify-icon icon="solar:check-circle-linear" class={colors.text}></iconify-icon>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            )}
+            {(() => {
+              const key = service.tag === 'INFRA_DEV' ? 'fintech' : service.tag === 'WEB3_LAYER' ? 'blockchain' : 'otc';
+              const trans = currentTranslations[key];
+              return (
+                <>
+                  <h3 class="text-xl font-medium text-white uppercase tracking-tight mb-3">
+                    {trans.title}
+                  </h3>
+                  <p class="text-xs text-zinc-500 font-mono leading-relaxed mb-4">
+                    {trans.description}
+                  </p>
+                  <ul class="space-y-2 mb-4">
+                    {trans.features.map((feature) => (
+                      <li class="flex items-center text-[10px] font-mono text-zinc-400 gap-2">
+                        <iconify-icon icon="solar:check-circle-linear" class={colors.text}></iconify-icon>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              );
+            })()}
             
             <!-- Badges -->
             {service.badges && (

@@ -99,9 +99,11 @@ export default {
   // Corporate Section
   corporate: {
     module: 'وحدة_الشركات',
-    label: 'الخدمات',
+    label: 'الهيكل_المؤسسي',
     title: 'خدمات الشركات',
     description: 'تأسيس الشركات، الامتثال والبنية التحتية التشغيلية في الولايات القضائية الاستراتيجية حول العالم.',
+    holding: 'هيكل القابضة',
+    multiJurisdiction: 'متعدد الولايات القضائية',
   },
   
   // Contact Section

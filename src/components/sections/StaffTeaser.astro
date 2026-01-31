@@ -5,6 +5,60 @@
  */
 import GlassPanel from '@/components/ui/GlassPanel.astro';
 import { staffStats, techStacks } from '@/data/site';
+import { getLangFromUrl, useTranslations } from '@/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const staffContent: Record<string, { badge: string; title: string; subtitle: string; description: string; cta: string; techCoverage: string; moreEngineers: string }> = {
+  en: {
+    badge: 'Staff Augmentation',
+    title: 'Scale Your Engineering Team',
+    subtitle: 'On Demand',
+    description: 'Access our network of 50+ senior engineers specialized in fintech, blockchain, and high-scale systems. Deploy in 48 hours, scale as needed.',
+    cta: 'View Available Engineers',
+    techCoverage: 'Tech Coverage',
+    moreEngineers: '+45 more engineers',
+  },
+  es: {
+    badge: 'Staff Augmentation',
+    title: 'Escala tu Equipo de Ingeniería',
+    subtitle: 'Bajo Demanda',
+    description: 'Accede a nuestra red de 50+ ingenieros senior especializados en fintech, blockchain y sistemas de alta escala. Despliega en 48 horas, escala según necesites.',
+    cta: 'Ver Ingenieros Disponibles',
+    techCoverage: 'Cobertura Tecnológica',
+    moreEngineers: '+45 ingenieros más',
+  },
+  pt: {
+    badge: 'Staff Augmentation',
+    title: 'Escale sua Equipe de Engenharia',
+    subtitle: 'Sob Demanda',
+    description: 'Acesse nossa rede de 50+ engenheiros seniores especializados em fintech, blockchain e sistemas de alta escala. Implante em 48 horas, escale conforme necessário.',
+    cta: 'Ver Engenheiros Disponíveis',
+    techCoverage: 'Cobertura Tecnológica',
+    moreEngineers: '+45 engenheiros mais',
+  },
+  zh: {
+    badge: '人员增强',
+    title: '扩展您的工程团队',
+    subtitle: '按需服务',
+    description: '访问我们50+名专注于金融科技、区块链和高规模系统的高级工程师网络。48小时部署，按需扩展。',
+    cta: '查看可用工程师',
+    techCoverage: '技术覆盖',
+    moreEngineers: '+45名工程师',
+  },
+  ar: {
+    badge: 'تعزيز الموظفين',
+    title: 'وسع فريق الهندسة الخاص بك',
+    subtitle: 'حسب الطلب',
+    description: 'الوصول إلى شبكتنا من 50+ مهندس كبير متخصص في التكنولوجيا المالية والبلوكتشين وأنظمة النطاق العالي. النشر في 48 ساعة، التوسع حسب الحاجة.',
+    cta: 'عرض المهندسين المتاحين',
+    techCoverage: 'التغطية التقنية',
+    moreEngineers: '+45 مهندس آخر',
+  },
+};
+
+const content = staffContent[lang] || staffContent.en;
 ---
 
 <section class="relative border-b border-white/5 bg-fidubit-black py-16 overflow-hidden">
@@ -28,19 +82,18 @@ import { staffStats, techStacks } from '@/data/site';
             <!-- Badge -->
             <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
               <iconify-icon icon="solar:users-group-rounded-linear" class="text-blue-500" width="14"></iconify-icon>
-              <span class="text-[10px] font-mono text-blue-400 uppercase tracking-wider">Staff Augmentation</span>
+              <span class="text-[10px] font-mono text-blue-400 uppercase tracking-wider">{content.badge}</span>
             </div>
             
             <!-- Title -->
             <h2 class="text-2xl lg:text-3xl font-medium text-white uppercase tracking-tight mb-4 group-hover:text-blue-400 transition-colors">
-              Scale Your Engineering Team
-              <span class="text-zinc-600 block text-xl lg:text-2xl">On Demand</span>
+              {content.title}
+              <span class="text-zinc-600 block text-xl lg:text-2xl">{content.subtitle}</span>
             </h2>
             
             <!-- Description -->
             <p class="text-sm text-zinc-500 font-mono leading-relaxed mb-6 max-w-lg">
-              Access our network of 50+ senior engineers specialized in fintech, blockchain, and high-scale systems. 
-              Deploy in 48 hours, scale as needed.
+              {content.description}
             </p>
             
             <!-- Mini Stats -->
@@ -55,7 +108,7 @@ import { staffStats, techStacks } from '@/data/site';
             
             <!-- CTA -->
             <div class="flex items-center gap-2 text-blue-400 group-hover:text-blue-300 transition-colors">
-              <span class="text-xs font-mono uppercase tracking-wider">View Available Engineers</span>
+              <span class="text-xs font-mono uppercase tracking-wider">{content.cta}</span>
               <iconify-icon 
                 icon="solar:arrow-right-linear" 
                 width="16" 
@@ -67,7 +120,7 @@ import { staffStats, techStacks } from '@/data/site';
           <!-- Right Visual -->
           <div class="lg:col-span-5 bg-gradient-to-br from-blue-500/5 to-purple-500/5 p-8 lg:p-12 border-t lg:border-t-0 lg:border-l border-white/5 flex flex-col justify-center">
             <!-- Tech Stack Preview -->
-            <div class="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-4">Tech Coverage</div>
+            <div class="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-4">{content.techCoverage}</div>
             <div class="flex flex-wrap gap-3">
               {techStacks.slice(0, 8).map((tech) => (
                 <div class="flex items-center gap-1.5 px-2 py-1 rounded bg-white/5 border border-white/5 group-hover:border-white/10 transition-colors">
@@ -86,7 +139,7 @@ import { staffStats, techStacks } from '@/data/site';
                   </div>
                 ))}
               </div>
-              <span class="text-[10px] font-mono text-zinc-600">+45 more engineers</span>
+              <span class="text-[10px] font-mono text-zinc-600">{content.moreEngineers}</span>
             </div>
           </div>
           

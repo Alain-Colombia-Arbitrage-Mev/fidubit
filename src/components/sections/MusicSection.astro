@@ -7,6 +7,75 @@ import ModuleTag from '@/components/ui/ModuleTag.astro';
 import SectionLabel from '@/components/ui/SectionLabel.astro';
 import GlassPanel from '@/components/ui/GlassPanel.astro';
 import { musicVideos } from '@/data/site';
+import { getLangFromUrl, useTranslations } from '@/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const musicContent: Record<string, { title: string; highlight: string; description: string; services: Array<{ title: string; desc: string }>; cta: string }> = {
+  en: {
+    title: 'Music Marketing',
+    highlight: 'Distribution Network',
+    description: 'Amplifying frequency. Global distribution and data-driven marketing strategies for high-fidelity talent. We power the artists of tomorrow.',
+    services: [
+      { title: 'Global Distribution', desc: '200+ DSPs worldwide' },
+      { title: 'Playlist Pitching', desc: 'Editorial placement' },
+      { title: 'Advanced Analytics', desc: 'Real-time insights' },
+      { title: 'Royalty Collection', desc: '100% transparent' },
+    ],
+    cta: 'Submit your music',
+  },
+  es: {
+    title: 'Marketing Musical',
+    highlight: 'Red de Distribución',
+    description: 'Amplificando frecuencia. Distribución global y estrategias de marketing basadas en datos para talento de alta fidelidad.',
+    services: [
+      { title: 'Distribución Global', desc: '200+ DSPs en el mundo' },
+      { title: 'Pitching de Playlists', desc: 'Placement editorial' },
+      { title: 'Analítica Avanzada', desc: 'Insights en tiempo real' },
+      { title: 'Cobro de Regalías', desc: '100% transparente' },
+    ],
+    cta: 'Envía tu música',
+  },
+  pt: {
+    title: 'Marketing Musical',
+    highlight: 'Rede de Distribuição',
+    description: 'Amplificando frequência. Distribuição global e estratégias de marketing baseadas em dados para talentos de alta fidelidade.',
+    services: [
+      { title: 'Distribuição Global', desc: '200+ DSPs no mundo' },
+      { title: 'Pitching de Playlists', desc: 'Placement editorial' },
+      { title: 'Análise Avançada', desc: 'Insights em tempo real' },
+      { title: 'Cobrança de Royalties', desc: '100% transparente' },
+    ],
+    cta: 'Envie sua música',
+  },
+  zh: {
+    title: '音乐营销',
+    highlight: '分销网络',
+    description: '放大频率。为高保真人才提供全球分销和数据驱动的营销策略。我们为明日之星赋能。',
+    services: [
+      { title: '全球分销', desc: '200+全球DSP' },
+      { title: '播放列表推广', desc: '编辑推荐' },
+      { title: '高级分析', desc: '实时洞察' },
+      { title: '版税收取', desc: '100%透明' },
+    ],
+    cta: '提交您的音乐',
+  },
+  ar: {
+    title: 'تسويق الموسيقى',
+    highlight: 'شبكة التوزيع',
+    description: 'تضخيم التردد. التوزيع العالمي واستراتيجيات التسويق المبنية على البيانات للمواهب عالية الدقة.',
+    services: [
+      { title: 'التوزيع العالمي', desc: '200+ DSP حول العالم' },
+      { title: 'ترويج قوائم التشغيل', desc: 'التنسيب التحريري' },
+      { title: 'تحليلات متقدمة', desc: 'رؤى في الوقت الفعلي' },
+      { title: 'تحصيل العائدات', desc: '100% شفافية' },
+    ],
+    cta: 'أرسل موسيقاك',
+  },
+};
+
+const content = musicContent[lang] || musicContent.en;
 
 const statusConfig = {
   live: { label: 'Campaign Active', icon: 'solar:soundwave-linear', class: 'text-fuchsia-500 animate-pulse' },
@@ -31,20 +100,19 @@ const statusConfig = {
     <!-- Section Header -->
     <div class="mb-16">
       <SectionLabel icon="solar:music-note-slider-linear" color="fuchsia">
-        Sonic_Branding
+        {t.music.label}
       </SectionLabel>
       
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
           <h2 class="text-4xl font-medium text-white uppercase tracking-tight mb-4 sys-reveal sys-rise">
-            Music Marketing<br>
+            {content.title}<br>
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-purple-600">
-              Distribution Network
+              {content.highlight}
             </span>
           </h2>
           <p class="text-zinc-400 font-mono text-sm max-w-xl sys-reveal sys-rise sys-delay-100">
-            Amplifying frequency. Global distribution and data-driven marketing strategies for high-fidelity talent. 
-            We power the artists of tomorrow with direct DSP relationships, playlist pitching, and comprehensive analytics.
+            {content.description}
           </p>
         </div>
         
@@ -66,26 +134,26 @@ const statusConfig = {
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
       <GlassPanel padding="md" rounded="lg" borderColor="fuchsia" class="sys-reveal sys-rise">
         <iconify-icon icon="solar:music-note-2-linear" class="text-fuchsia-500 text-2xl mb-2"></iconify-icon>
-        <h4 class="text-white text-sm font-medium mb-1">Global Distribution</h4>
-        <p class="text-[10px] text-zinc-500 font-mono">200+ DSPs worldwide</p>
+        <h4 class="text-white text-sm font-medium mb-1">{content.services[0].title}</h4>
+        <p class="text-[10px] text-zinc-500 font-mono">{content.services[0].desc}</p>
       </GlassPanel>
       
       <GlassPanel padding="md" rounded="lg" borderColor="fuchsia" class="sys-reveal sys-rise sys-delay-100">
         <iconify-icon icon="solar:playlist-minimalistic-linear" class="text-fuchsia-500 text-2xl mb-2"></iconify-icon>
-        <h4 class="text-white text-sm font-medium mb-1">Playlist Pitching</h4>
-        <p class="text-[10px] text-zinc-500 font-mono">Editorial placement</p>
+        <h4 class="text-white text-sm font-medium mb-1">{content.services[1].title}</h4>
+        <p class="text-[10px] text-zinc-500 font-mono">{content.services[1].desc}</p>
       </GlassPanel>
       
       <GlassPanel padding="md" rounded="lg" borderColor="fuchsia" class="sys-reveal sys-rise sys-delay-200">
         <iconify-icon icon="solar:chart-2-linear" class="text-fuchsia-500 text-2xl mb-2"></iconify-icon>
-        <h4 class="text-white text-sm font-medium mb-1">Advanced Analytics</h4>
-        <p class="text-[10px] text-zinc-500 font-mono">Real-time insights</p>
+        <h4 class="text-white text-sm font-medium mb-1">{content.services[2].title}</h4>
+        <p class="text-[10px] text-zinc-500 font-mono">{content.services[2].desc}</p>
       </GlassPanel>
       
       <GlassPanel padding="md" rounded="lg" borderColor="fuchsia" class="sys-reveal sys-rise sys-delay-300">
         <iconify-icon icon="solar:hand-money-linear" class="text-fuchsia-500 text-2xl mb-2"></iconify-icon>
-        <h4 class="text-white text-sm font-medium mb-1">Royalty Collection</h4>
-        <p class="text-[10px] text-zinc-500 font-mono">100% transparent</p>
+        <h4 class="text-white text-sm font-medium mb-1">{content.services[3].title}</h4>
+        <p class="text-[10px] text-zinc-500 font-mono">{content.services[3].desc}</p>
       </GlassPanel>
     </div>
 
@@ -145,7 +213,7 @@ const statusConfig = {
         href="#contact-section"
         class="inline-flex items-center gap-2 text-fuchsia-400 hover:text-fuchsia-300 font-mono text-xs uppercase tracking-widest transition-colors group"
       >
-        Submit your music
+        {content.cta}
         <iconify-icon icon="solar:arrow-right-linear" class="group-hover:translate-x-1 transition-transform"></iconify-icon>
       </a>
     </div>

@@ -99,9 +99,11 @@ export default {
   // Corporate Section
   corporate: {
     module: 'MÓDULO_CORP',
-    label: 'Serviços',
+    label: 'Estrutura_Corporativa',
     title: 'Serviços Corporativos',
     description: 'Constituição de empresas, compliance e infraestrutura operacional em jurisdições estratégicas em todo o mundo.',
+    holding: 'Estrutura Holding',
+    multiJurisdiction: 'Multi-Jurisdição',
   },
   
   // Contact Section

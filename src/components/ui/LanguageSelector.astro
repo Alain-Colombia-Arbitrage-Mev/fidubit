@@ -35,7 +35,14 @@ const languageLinks = Object.entries(languages).map(([code, data]) => ({
     aria-expanded="false"
     aria-haspopup="listbox"
   >
-    <span class="text-base">{currentLangData.flag}</span>
+    <img 
+      src={`https://flagcdn.com/w20/${currentLangData.flag}.png`}
+      srcset={`https://flagcdn.com/w40/${currentLangData.flag}.png 2x`}
+      width="20"
+      height="15"
+      alt={currentLangData.label}
+      class="rounded-sm"
+    />
     <span class="text-xs font-mono text-zinc-400 hidden sm:inline">{currentLang.toUpperCase()}</span>
     <iconify-icon 
       icon="solar:alt-arrow-down-linear" 
@@ -60,7 +67,14 @@ const languageLinks = Object.entries(languages).map(([code, data]) => ({
         aria-selected={lang.active}
         data-lang={lang.code}
       >
-        <span class="text-lg">{lang.flag}</span>
+        <img 
+          src={`https://flagcdn.com/w20/${lang.flag}.png`}
+          srcset={`https://flagcdn.com/w40/${lang.flag}.png 2x`}
+          width="20"
+          height="15"
+          alt={lang.label}
+          class="rounded-sm"
+        />
         <div class="flex-1">
           <span class:list={[
             "text-sm font-medium",

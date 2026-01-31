@@ -99,9 +99,11 @@ export default {
   // Corporate Section
   corporate: {
     module: '企业模块',
-    label: '服务',
+    label: '企业结构',
     title: '企业服务',
     description: '在全球战略司法管辖区提供公司成立、合规和运营基础设施。',
+    holding: '控股结构',
+    multiJurisdiction: '多司法管辖区',
   },
   
   // Contact Section

@@ -6,6 +6,60 @@
 import ModuleTag from '@/components/ui/ModuleTag.astro';
 import SectionLabel from '@/components/ui/SectionLabel.astro';
 import { corporateServices } from '@/data/site';
+import { getLangFromUrl, useTranslations } from '@/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const corpContent: Record<string, { title: string; description: string; services: Array<{ title: string; description: string }> }> = {
+  en: {
+    title: 'Global Company Constitution',
+    description: "We don't just build the tech; we build the legal entity. Full service company formation in Hong Kong, Singapore, and Offshore jurisdictions optimized for Fintech, Web3, and digital commerce.",
+    services: [
+      { title: 'Company Incorporation', description: 'End-to-end entity setup with nominee directors, registered address, and banking introduction.' },
+      { title: 'Compliance & Licensing', description: 'MSB, MTL, EMI licensing support and ongoing compliance monitoring.' },
+      { title: 'Tax Optimization', description: 'Strategic jurisdiction selection and transfer pricing structures.' },
+    ],
+  },
+  es: {
+    title: 'Constitución Global de Empresas',
+    description: 'No solo construimos la tecnología; construimos la entidad legal. Formación completa de empresas en Hong Kong, Singapur y jurisdicciones offshore optimizadas para Fintech, Web3 y comercio digital.',
+    services: [
+      { title: 'Incorporación de Empresas', description: 'Configuración completa con directores nominados, dirección registrada e introducción bancaria.' },
+      { title: 'Compliance y Licencias', description: 'Soporte para licencias MSB, MTL, EMI y monitoreo continuo de compliance.' },
+      { title: 'Optimización Fiscal', description: 'Selección estratégica de jurisdicciones y estructuras de precios de transferencia.' },
+    ],
+  },
+  pt: {
+    title: 'Constituição Global de Empresas',
+    description: 'Não construímos apenas a tecnologia; construímos a entidade legal. Formação completa de empresas em Hong Kong, Singapura e jurisdições offshore otimizadas para Fintech, Web3 e comércio digital.',
+    services: [
+      { title: 'Incorporação de Empresas', description: 'Configuração completa com diretores nominados, endereço registrado e introdução bancária.' },
+      { title: 'Compliance e Licenças', description: 'Suporte para licenças MSB, MTL, EMI e monitoramento contínuo de compliance.' },
+      { title: 'Otimização Fiscal', description: 'Seleção estratégica de jurisdições e estruturas de preços de transferência.' },
+    ],
+  },
+  zh: {
+    title: '全球公司设立',
+    description: '我们不仅构建技术；我们还构建法律实体。在香港、新加坡和离岸司法管辖区提供完整的公司设立服务，专为金融科技、Web3和数字商务优化。',
+    services: [
+      { title: '公司注册', description: '完整的实体设置，包括代名董事、注册地址和银行开户介绍。' },
+      { title: '合规与牌照', description: 'MSB、MTL、EMI牌照支持和持续合规监控。' },
+      { title: '税务优化', description: '战略性司法管辖区选择和转让定价结构。' },
+    ],
+  },
+  ar: {
+    title: 'تأسيس الشركات العالمية',
+    description: 'نحن لا نبني التكنولوجيا فحسب؛ بل نبني الكيان القانوني. تأسيس شركات كاملة الخدمات في هونغ كونغ وسنغافورة والولايات القضائية الخارجية المحسنة للتكنولوجيا المالية وWeb3 والتجارة الرقمية.',
+    services: [
+      { title: 'تأسيس الشركات', description: 'إعداد كيان شامل مع مديرين مرشحين وعنوان مسجل ومقدمة مصرفية.' },
+      { title: 'الامتثال والترخيص', description: 'دعم تراخيص MSB وMTL وEMI ومراقبة الامتثال المستمر.' },
+      { title: 'تحسين الضرائب', description: 'اختيار الولاية القضائية الاستراتيجية وهياكل أسعار التحويل.' },
+    ],
+  },
+};
+
+const content = corpContent[lang] || corpContent.en;
 ---
 
 <section id="section-corp" class="py-24 border-b border-white/5 bg-fidubit-black relative">
@@ -20,15 +74,15 @@ import { corporateServices } from '@/data/site';
       <div class="space-y-8">
         <div>
           <SectionLabel icon="solar:city-linear" color="yellow">
-            Corporate_Structure
+            {t.corporate.label}
           </SectionLabel>
           
           <h2 class="text-4xl font-medium text-white uppercase tracking-tight mb-6 sys-reveal sys-rise">
-            Global Company<br> Constitution
+            {content.title}
           </h2>
           
           <p class="text-zinc-400 font-mono text-sm leading-relaxed border-l-2 border-zinc-700 pl-4 sys-reveal sys-rise sys-delay-100">
-            We don't just build the tech; we build the legal entity. Full service company formation in Hong Kong, Singapore, and Offshore jurisdictions optimized for Fintech, Web3, and digital commerce operations.
+            {content.description}
           </p>
         </div>
 
@@ -43,7 +97,7 @@ import { corporateServices } from '@/data/site';
 
         <!-- Services List -->
         <div class="space-y-4">
-          {corporateServices.map((service, index) => (
+          {content.services.map((service, index) => (
             <div 
               class:list={[
                 "flex items-start gap-4 p-4 glass-panel rounded border border-white/5",
@@ -53,7 +107,7 @@ import { corporateServices } from '@/data/site';
               ]}
             >
               <iconify-icon 
-                icon={service.icon} 
+                icon={corporateServices[index]?.icon || 'solar:building-linear'} 
                 class="text-zinc-500 group-hover:text-yellow-500 text-xl mt-1 transition-colors"
               ></iconify-icon>
               <div>
@@ -122,8 +176,8 @@ import { corporateServices } from '@/data/site';
 
         <!-- Labels -->
         <div class="absolute bottom-6 left-6 right-6 flex justify-between text-[9px] font-mono text-zinc-600 uppercase">
-          <span>Holding Structure</span>
-          <span>Multi-Jurisdiction</span>
+          <span>{t.corporate.holding}</span>
+          <span>{t.corporate.multiJurisdiction}</span>
         </div>
       </div>
     </div>

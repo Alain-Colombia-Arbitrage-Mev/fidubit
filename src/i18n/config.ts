@@ -4,11 +4,11 @@
  */
 
 export const languages = {
-  en: { label: 'English', flag: '🇺🇸', locale: 'en-US' },
-  es: { label: 'Español', flag: '🇪🇸', locale: 'es-ES' },
-  pt: { label: 'Português', flag: '🇧🇷', locale: 'pt-BR' },
-  zh: { label: '中文', flag: '🇨🇳', locale: 'zh-CN' },
-  ar: { label: 'العربية', flag: '🇸🇦', locale: 'ar-SA' },
+  en: { label: 'English', flag: 'us', locale: 'en-US' },
+  es: { label: 'Español', flag: 'es', locale: 'es-ES' },
+  pt: { label: 'Português', flag: 'br', locale: 'pt-BR' },
+  zh: { label: '中文', flag: 'cn', locale: 'zh-CN' },
+  ar: { label: 'العربية', flag: 'sa', locale: 'ar-SA' },
 } as const;
 
 export type Language = keyof typeof languages;
