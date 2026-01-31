@@ -4,6 +4,7 @@
  */
 import Layout from '@/layouts/Layout.astro';
 import Header from '@/components/layout/Header.astro';
+import Sidebar from '@/components/layout/Sidebar.astro';
 import Footer from '@/components/layout/Footer.astro';
 import Hero from '@/components/sections/Hero.astro';
 import CardsSection from '@/components/sections/CardsSection.astro';
@@ -24,14 +25,39 @@ const seo = {
 <Layout seo={seo} lang="pt">
   <WhatsAppButton />
   <Header />
-  <main class="relative z-10">
-    <Hero />
-    <CardsSection />
-    <InfrastructureSection />
-    <StaffTeaser />
-    <MusicSection />
-    <CorporateSection />
-    <ContactSection />
-    <Footer />
+  
+  <main class="relative z-10 flex-1 flex flex-col md:flex-row pt-16">
+    <Sidebar />
+    <div class="flex-1 flex flex-col min-w-0 md:ml-16 relative">
+      <Hero />
+      <CardsSection />
+      <InfrastructureSection />
+      <StaffTeaser />
+      <MusicSection />
+      <CorporateSection />
+      <ContactSection />
+      <Footer />
+    </div>
   </main>
 </Layout>
+
+<script>
+  const observerOptions: IntersectionObserverInit = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sys-active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.sys-reveal').forEach(el => {
+    observer.observe(el);
+  });
+</script>

@@ -112,6 +112,7 @@ const languageLinks = Object.entries(languages).map(([code, data]) => ({
   function initLanguageSelectors() {
     document.querySelectorAll('[data-lang-selector]').forEach((selector) => {
       const trigger = selector.querySelector('.lang-trigger');
+      const options = selector.querySelectorAll('.lang-option');
       
       if (!trigger) return;
 
@@ -128,6 +129,23 @@ const languageLinks = Object.entries(languages).map(([code, data]) => ({
         // Toggle current
         selector.setAttribute('data-open', isOpen ? 'false' : 'true');
         trigger.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      });
+
+      // Close mobile menu when selecting a language
+      options.forEach((option) => {
+        option.addEventListener('click', () => {
+          // Close this selector
+          selector.setAttribute('data-open', 'false');
+          trigger.setAttribute('aria-expanded', 'false');
+          
+          // Close mobile menu if open
+          const mobileMenu = document.getElementById('mobile-menu');
+          if (mobileMenu && mobileMenu.classList.contains('flex')) {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            document.body.style.overflow = '';
+          }
+        });
       });
 
       // Close on outside click
