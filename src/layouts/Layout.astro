@@ -1,0 +1,183 @@
+---
+/**
+ * FIDUBIT - Main Layout
+ * Optimized for SEO with comprehensive meta tags
+ */
+import type { SEOProps } from '@/types';
+import '@/styles/global.css';
+
+interface Props {
+  seo: SEOProps;
+}
+
+const { seo } = Astro.props;
+
+const defaultSEO: SEOProps = {
+  title: 'FIDUBIT - Fintech & Media Infrastructure',
+  description: 'Hong Kong Card Issuance, E-Banking Core Development & Digital Music Distribution. We incorporate companies and build the financial & media rails they run on.',
+  keywords: [
+    'fintech',
+    'card issuance',
+    'hong kong',
+    'e-banking',
+    'core banking',
+    'blockchain',
+    'tokenization',
+    'music distribution',
+    'company incorporation',
+    'digital payments',
+    'BIN sponsorship',
+    'prepaid cards',
+    'stablecoin',
+    'RWA tokenization',
+  ],
+  type: 'website',
+  author: 'FIDUBIT Systems Ltd',
+  twitterHandle: '@fidubit',
+};
+
+const meta = { ...defaultSEO, ...seo };
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://fidubit.com');
+
+// Structured Data for Organization
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'FIDUBIT',
+  description: meta.description,
+  url: 'https://fidubit.com',
+  logo: 'https://fidubit.com/logo.png',
+  sameAs: [
+    'https://twitter.com/fidubit',
+    'https://linkedin.com/company/fidubit',
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Hong Kong',
+    addressRegion: 'Hong Kong SAR',
+    addressCountry: 'HK',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+852-1234-5678',
+    contactType: 'sales',
+    availableLanguage: ['English', 'Chinese'],
+  },
+};
+
+// Structured Data for Services
+const servicesSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Fintech Infrastructure',
+  provider: {
+    '@type': 'Organization',
+    name: 'FIDUBIT',
+  },
+  areaServed: {
+    '@type': 'GeoCircle',
+    geoMidpoint: {
+      '@type': 'GeoCoordinates',
+      latitude: 22.3193,
+      longitude: 114.1694,
+    },
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Fintech Services',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Card Issuance Program',
+          description: 'Turnkey debit card programs with direct BIN sponsorship from Hong Kong',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'E-Banking Development',
+          description: 'Custom core banking ledger systems with white-label UI/UX',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Blockchain Solutions',
+          description: 'Smart contract development, RWA tokenization, and stablecoin infrastructure',
+        },
+      },
+    ],
+  },
+};
+---
+
+<!DOCTYPE html>
+<html lang="en" class="bg-fidubit-black">
+  <head>
+    <!-- Primary Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <title>{meta.title}</title>
+    <meta name="title" content={meta.title} />
+    <meta name="description" content={meta.description} />
+    {meta.keywords && <meta name="keywords" content={meta.keywords.join(', ')} />}
+    {meta.author && <meta name="author" content={meta.author} />}
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={meta.type || 'website'} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={meta.title} />
+    <meta property="og:description" content={meta.description} />
+    <meta property="og:image" content={meta.image || 'https://fidubit.com/og-image.png'} />
+    <meta property="og:site_name" content="FIDUBIT" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={meta.title} />
+    <meta name="twitter:description" content={meta.description} />
+    <meta name="twitter:image" content={meta.image || 'https://fidubit.com/og-image.png'} />
+    {meta.twitterHandle && <meta name="twitter:site" content={meta.twitterHandle} />}
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://code.iconify.design" />
+    <link rel="preconnect" href="https://www.youtube.com" />
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://videos.pexels.com" />
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#050505" />
+    <meta name="msapplication-TileColor" content="#050505" />
+    
+    <!-- Robots -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(servicesSchema)} />
+    
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js" defer></script>
+  </head>
+  
+  <body class="text-zinc-400 min-h-screen flex flex-col selection:bg-yellow-500 selection:text-black bg-fidubit-black overflow-x-hidden">
+    <slot />
+  </body>
+</html>

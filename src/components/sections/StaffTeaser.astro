@@ -1,0 +1,97 @@
+---
+/**
+ * FIDUBIT - Staff Augmentation Teaser
+ * Compact banner linking to the full staff page
+ */
+import GlassPanel from '@/components/ui/GlassPanel.astro';
+import { staffStats, techStacks } from '@/data/site';
+---
+
+<section class="relative border-b border-white/5 bg-fidubit-black py-16 overflow-hidden">
+  <!-- Background -->
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.05)_0%,transparent_60%)]"></div>
+  
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+    <a 
+      href="/staff" 
+      class="block group"
+    >
+      <GlassPanel 
+        padding="none" 
+        rounded="xl" 
+        class="border border-white/5 hover:border-blue-500/30 transition-all duration-500 overflow-hidden"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+          
+          <!-- Left Content -->
+          <div class="lg:col-span-7 p-8 lg:p-12">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
+              <iconify-icon icon="solar:users-group-rounded-linear" class="text-blue-500" width="14"></iconify-icon>
+              <span class="text-[10px] font-mono text-blue-400 uppercase tracking-wider">Staff Augmentation</span>
+            </div>
+            
+            <!-- Title -->
+            <h2 class="text-2xl lg:text-3xl font-medium text-white uppercase tracking-tight mb-4 group-hover:text-blue-400 transition-colors">
+              Scale Your Engineering Team
+              <span class="text-zinc-600 block text-xl lg:text-2xl">On Demand</span>
+            </h2>
+            
+            <!-- Description -->
+            <p class="text-sm text-zinc-500 font-mono leading-relaxed mb-6 max-w-lg">
+              Access our network of 50+ senior engineers specialized in fintech, blockchain, and high-scale systems. 
+              Deploy in 48 hours, scale as needed.
+            </p>
+            
+            <!-- Mini Stats -->
+            <div class="flex flex-wrap gap-6 mb-6">
+              {staffStats.slice(0, 3).map((stat) => (
+                <div class="text-center">
+                  <div class="text-xl font-bold text-white">{stat.value}</div>
+                  <div class="text-[9px] text-zinc-600 font-mono uppercase">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+            
+            <!-- CTA -->
+            <div class="flex items-center gap-2 text-blue-400 group-hover:text-blue-300 transition-colors">
+              <span class="text-xs font-mono uppercase tracking-wider">View Available Engineers</span>
+              <iconify-icon 
+                icon="solar:arrow-right-linear" 
+                width="16" 
+                class="group-hover:translate-x-2 transition-transform"
+              ></iconify-icon>
+            </div>
+          </div>
+          
+          <!-- Right Visual -->
+          <div class="lg:col-span-5 bg-gradient-to-br from-blue-500/5 to-purple-500/5 p-8 lg:p-12 border-t lg:border-t-0 lg:border-l border-white/5 flex flex-col justify-center">
+            <!-- Tech Stack Preview -->
+            <div class="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-4">Tech Coverage</div>
+            <div class="flex flex-wrap gap-3">
+              {techStacks.slice(0, 8).map((tech) => (
+                <div class="flex items-center gap-1.5 px-2 py-1 rounded bg-white/5 border border-white/5 group-hover:border-white/10 transition-colors">
+                  <iconify-icon icon={tech.icon} width="14" class="grayscale group-hover:grayscale-0 transition-all"></iconify-icon>
+                  <span class="text-[10px] font-mono text-zinc-500">{tech.name}</span>
+                </div>
+              ))}
+            </div>
+            
+            <!-- Decorative -->
+            <div class="mt-8 flex items-center gap-2">
+              <div class="flex -space-x-2">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <div class="w-8 h-8 rounded-full bg-gradient-to-br from-zinc-700 to-zinc-800 border-2 border-fidubit-black flex items-center justify-center">
+                    <iconify-icon icon="solar:user-linear" width="14" class="text-zinc-500"></iconify-icon>
+                  </div>
+                ))}
+              </div>
+              <span class="text-[10px] font-mono text-zinc-600">+45 more engineers</span>
+            </div>
+          </div>
+          
+        </div>
+      </GlassPanel>
+    </a>
+  </div>
+</section>

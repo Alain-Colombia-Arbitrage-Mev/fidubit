@@ -1,0 +1,188 @@
+---
+/**
+ * FIDUBIT - Staff Augmentation Section
+ * Tech talent content for dedicated page
+ */
+import GlassPanel from '@/components/ui/GlassPanel.astro';
+import Button from '@/components/ui/Button.astro';
+import { staffStats, techStacks, staffRoles, engagementModels } from '@/data/site';
+
+const availabilityConfig = {
+  'immediate': { label: 'Deploy Now', class: 'text-green-400 bg-green-500/10 border-green-500/30' },
+  'within-week': { label: '1 Week Deploy', class: 'text-yellow-400 bg-yellow-500/10 border-yellow-500/30' },
+  'within-month': { label: '2-4 Weeks', class: 'text-blue-400 bg-blue-500/10 border-blue-500/30' },
+};
+---
+
+<section class="relative bg-fidubit-black">
+  
+  <!-- Stats Section -->
+  <div class="border-b border-white/5 py-12">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {staffStats.map((stat) => (
+          <GlassPanel padding="md" rounded="lg" borderColor="white" class="text-center hover:border-blue-500/30 transition-colors">
+            <iconify-icon icon={stat.icon} class="text-blue-500 text-2xl mb-2"></iconify-icon>
+            <div class="text-2xl font-bold text-white">{stat.value}</div>
+            <div class="text-[10px] text-zinc-500 font-mono uppercase tracking-wide">{stat.label}</div>
+          </GlassPanel>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Tech Stack -->
+  <div class="border-b border-white/5 py-8">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-4">Tech Stack Coverage</div>
+      <div class="flex flex-wrap gap-4 items-center">
+        {techStacks.map((tech) => (
+          <div class="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors group px-3 py-2 rounded-lg bg-white/[0.02] border border-white/5 hover:border-white/10">
+            <iconify-icon icon={tech.icon} width="20" class="grayscale group-hover:grayscale-0 transition-all"></iconify-icon>
+            <span class="text-xs font-mono">{tech.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Engineers Grid -->
+  <div class="border-b border-white/5 py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-2xl font-medium text-white uppercase tracking-tight">Engineers We Provide</h2>
+        <div class="flex items-center gap-4 text-[10px] font-mono text-zinc-500">
+          <span class="flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-green-500"></span> Ready Now
+          </span>
+          <span class="flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-yellow-500"></span> 1 Week
+          </span>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {staffRoles.map((role) => {
+          const availability = availabilityConfig[role.availability];
+          
+          return (
+            <article class="group glass-panel rounded-xl p-6 border border-white/5 hover:border-blue-500/30 transition-all duration-300">
+              <div class="flex items-start justify-between mb-4">
+                <div class="p-3 bg-blue-500/10 rounded-lg text-blue-500 border border-blue-500/20">
+                  <iconify-icon icon={role.icon} width="24"></iconify-icon>
+                </div>
+                <span class:list={["text-[9px] font-mono px-2 py-1 rounded border", availability.class]}>
+                  {availability.label}
+                </span>
+              </div>
+              
+              <h3 class="text-lg font-medium text-white mb-2">{role.title}</h3>
+              <p class="text-xs text-zinc-500 font-mono leading-relaxed mb-4">{role.description}</p>
+              
+              <div class="flex flex-wrap gap-2">
+                {role.skills.map((skill) => (
+                  <span class="text-[9px] border border-white/10 text-zinc-400 px-2 py-1 rounded bg-white/5">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+
+  <!-- Engagement Models -->
+  <div class="border-b border-white/5 py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <h2 class="text-2xl font-medium text-white uppercase tracking-tight mb-8">Engagement Models</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {engagementModels.map((model) => (
+          <article class:list={[
+            "group relative glass-panel rounded-xl p-6 border transition-all duration-300",
+            model.recommended 
+              ? "border-blue-500/50 bg-blue-500/5" 
+              : "border-white/5 hover:border-blue-500/30"
+          ]}>
+            {model.recommended && (
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span class="text-[9px] font-mono px-3 py-1 bg-blue-500 text-black rounded-full uppercase tracking-wider font-bold">
+                  Recommended
+                </span>
+              </div>
+            )}
+            
+            <div class:list={[
+              "w-12 h-12 rounded-lg flex items-center justify-center mb-4",
+              model.recommended ? "bg-blue-500/20 text-blue-400" : "bg-white/5 text-zinc-400 group-hover:text-blue-400"
+            ]}>
+              <iconify-icon icon={model.icon} width="24"></iconify-icon>
+            </div>
+            
+            <h3 class="text-lg font-medium text-white mb-2">{model.title}</h3>
+            <p class="text-xs text-zinc-500 font-mono leading-relaxed mb-4">{model.description}</p>
+            
+            <ul class="space-y-2">
+              {model.features.map((feature) => (
+                <li class="flex items-start gap-2 text-[11px] font-mono text-zinc-400">
+                  <iconify-icon icon="solar:check-circle-linear" class="text-blue-500 mt-0.5 shrink-0"></iconify-icon>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Process Timeline -->
+  <div class="py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <GlassPanel padding="lg" rounded="xl">
+        <h2 class="text-xl font-medium text-white uppercase tracking-tight mb-8">How It Works</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div class="relative">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-full bg-blue-500/20 border border-blue-500/50 flex items-center justify-center text-blue-400 font-bold">1</div>
+              <div class="hidden md:block flex-1 h-px bg-gradient-to-r from-blue-500/50 to-transparent"></div>
+            </div>
+            <h3 class="text-white text-sm font-medium mb-1">Requirements Call</h3>
+            <p class="text-[11px] text-zinc-500 font-mono">30-min call to understand your tech stack, team dynamics, and project scope.</p>
+          </div>
+          
+          <div class="relative">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-full bg-blue-500/20 border border-blue-500/50 flex items-center justify-center text-blue-400 font-bold">2</div>
+              <div class="hidden md:block flex-1 h-px bg-gradient-to-r from-blue-500/50 to-transparent"></div>
+            </div>
+            <h3 class="text-white text-sm font-medium mb-1">Candidate Matching</h3>
+            <p class="text-[11px] text-zinc-500 font-mono">We present 2-3 pre-vetted candidates within 24-48 hours.</p>
+          </div>
+          
+          <div class="relative">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-full bg-blue-500/20 border border-blue-500/50 flex items-center justify-center text-blue-400 font-bold">3</div>
+              <div class="hidden md:block flex-1 h-px bg-gradient-to-r from-blue-500/50 to-transparent"></div>
+            </div>
+            <h3 class="text-white text-sm font-medium mb-1">Technical Interview</h3>
+            <p class="text-[11px] text-zinc-500 font-mono">You interview and select. No commitment until you're satisfied.</p>
+          </div>
+          
+          <div class="relative">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-full bg-green-500/20 border border-green-500/50 flex items-center justify-center text-green-400">
+                <iconify-icon icon="solar:check-linear" width="18"></iconify-icon>
+              </div>
+            </div>
+            <h3 class="text-white text-sm font-medium mb-1">Kickoff & Onboard</h3>
+            <p class="text-[11px] text-zinc-500 font-mono">Engineer starts contributing from day one with full support.</p>
+          </div>
+        </div>
+      </GlassPanel>
+    </div>
+  </div>
+</section>

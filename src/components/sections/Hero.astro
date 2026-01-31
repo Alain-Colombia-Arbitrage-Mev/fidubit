@@ -1,0 +1,127 @@
+---
+/**
+ * FIDUBIT - Hero Section
+ * Main landing section with video background
+ */
+import GlassPanel from '@/components/ui/GlassPanel.astro';
+import Button from '@/components/ui/Button.astro';
+import { siteConfig, systemModules } from '@/data/site';
+---
+
+<section class="flex-1 flex flex-col min-w-0 transition-opacity duration-500">
+  <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[650px] border-b border-white/5 relative overflow-hidden">
+    
+    <!-- Video Background -->
+    <div class="absolute inset-0 z-0 bg-fidubit-black">
+      <video 
+        autoplay 
+        muted 
+        loop 
+        playsinline 
+        class="video-bg opacity-30 mix-blend-screen"
+        aria-hidden="true"
+      >
+        <source 
+          src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_24fps.mp4" 
+          type="video/mp4"
+        />
+      </video>
+      <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+      <div class="absolute inset-0 scanlines z-10"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="lg:col-span-8 md:p-16 flex flex-col border-white/5 border-r pt-16 pr-8 pb-8 pl-8 relative z-10 justify-between">
+      
+      <!-- Top Label -->
+      <div class="font-mono text-xs text-yellow-500 mb-8 uppercase tracking-widest flex items-center gap-2">
+        <span 
+          class="w-2 h-2 bg-yellow-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(234,179,8,0.8)]"
+          aria-hidden="true"
+        ></span>
+        // {siteConfig.tagline}
+      </div>
+
+      <!-- Headline -->
+      <div class="space-y-6">
+        <h1 class="uppercase leading-[0.9] md:text-8xl text-5xl font-medium text-white tracking-tight sys-reveal sys-rise drop-shadow-2xl">
+          Banking
+          <span class="text-zinc-700 block blur-[1px]">Architecture</span>
+        </h1>
+        
+        <GlassPanel 
+          padding="md" 
+          rounded="lg" 
+          class="max-w-xl border-l-2 border-yellow-500 rounded-l-none sys-reveal sys-rise sys-delay-100"
+        >
+          <p class="text-sm text-zinc-400 font-mono leading-relaxed">
+            {siteConfig.description}
+          </p>
+        </GlassPanel>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="pt-12 flex flex-wrap gap-4">
+        <Button 
+          variant="primary" 
+          href="#contact-section" 
+          icon="solar:arrow-right-linear"
+          class="sys-reveal sys-rise sys-delay-200"
+        >
+          Request Access
+        </Button>
+        
+        <Button 
+          variant="secondary" 
+          href="#section-music"
+          icon="solar:music-library-2-linear"
+          iconPosition="left"
+          class="sys-reveal sys-rise sys-delay-300"
+        >
+          Media Division
+        </Button>
+      </div>
+    </div>
+
+    <!-- Right Visual Module -->
+    <div class="lg:col-span-4 relative bg-zinc-900/40 overflow-hidden group border-t lg:border-t-0 border-white/5 backdrop-blur-sm hidden lg:block">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-fidubit-black/50 to-fidubit-black z-10"></div>
+      
+      <div class="absolute inset-0 z-20 pointer-events-none p-6 flex flex-col justify-end items-end pb-12">
+        <GlassPanel 
+          padding="md" 
+          rounded="sm" 
+          borderColor="yellow" 
+          class="w-full space-y-4"
+        >
+          <!-- Header -->
+          <div class="flex justify-between items-center pb-2 border-b border-white/10">
+            <span class="text-[10px] text-zinc-500 font-mono uppercase">System Modules</span>
+            <div class="flex gap-1" aria-hidden="true">
+              <div class="w-1 h-1 bg-zinc-500 rounded-full"></div>
+              <div class="w-1 h-1 bg-zinc-500 rounded-full"></div>
+            </div>
+          </div>
+          
+          <!-- Module Status List -->
+          <div class="space-y-3">
+            {systemModules.map((module) => (
+              <div class="flex items-center justify-between text-xs font-mono text-zinc-400">
+                <span class="flex items-center gap-2">
+                  <iconify-icon 
+                    icon={module.icon} 
+                    class={`text-${module.accentColor}-500`}
+                  ></iconify-icon>
+                  {module.name}
+                </span>
+                <span class={`text-${module.status === 'active' ? 'green' : module.status === 'synced' ? 'green' : 'yellow'}-500 capitalize`}>
+                  {module.status}
+                </span>
+              </div>
+            ))}
+          </div>
+        </GlassPanel>
+      </div>
+    </div>
+  </div>
+</section>

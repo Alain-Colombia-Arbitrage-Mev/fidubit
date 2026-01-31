@@ -1,0 +1,109 @@
+---
+/**
+ * FIDUBIT - Homepage
+ * Main landing page for Fintech & Media Infrastructure
+ */
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/layout/Header.astro';
+import Sidebar from '@/components/layout/Sidebar.astro';
+import Footer from '@/components/layout/Footer.astro';
+import WhatsAppButton from '@/components/ui/WhatsAppButton.astro';
+
+import Hero from '@/components/sections/Hero.astro';
+import CardsSection from '@/components/sections/CardsSection.astro';
+import InfrastructureSection from '@/components/sections/InfrastructureSection.astro';
+import MusicSection from '@/components/sections/MusicSection.astro';
+import CorporateSection from '@/components/sections/CorporateSection.astro';
+import ContactSection from '@/components/sections/ContactSection.astro';
+import StaffTeaser from '@/components/sections/StaffTeaser.astro';
+
+const seo = {
+  title: 'FIDUBIT - Hong Kong Fintech & Media Infrastructure',
+  description: 'Premium card issuance, e-banking development, blockchain solutions, staff augmentation, and digital music distribution. We incorporate companies and build the financial & media rails they run on. Based in Hong Kong SAR.',
+  keywords: [
+    'fintech hong kong',
+    'card issuance program',
+    'BIN sponsorship',
+    'prepaid debit cards',
+    'e-banking development',
+    'core banking system',
+    'blockchain development',
+    'RWA tokenization',
+    'stablecoin infrastructure',
+    'staff augmentation',
+    'fintech developers',
+    'engineering team',
+    'tech talent',
+    'music distribution',
+    'company incorporation hong kong',
+    'offshore company formation',
+    'MSO license',
+    'OTC crypto liquidity',
+  ],
+};
+---
+
+<Layout seo={seo}>
+  <!-- Floating WhatsApp Button -->
+  <WhatsAppButton />
+
+  <!-- Fixed Header -->
+  <Header />
+
+  <!-- Main Content -->
+  <main class="relative z-10 flex-1 flex flex-col md:flex-row pt-16">
+    <!-- Fixed Sidebar -->
+    <Sidebar />
+
+    <!-- Content Container -->
+    <div class="flex-1 flex flex-col min-w-0 md:ml-16 relative">
+      <!-- Hero Section -->
+      <Hero />
+
+      <!-- Cards Section -->
+      <CardsSection />
+
+      <!-- Infrastructure Section -->
+      <InfrastructureSection />
+
+      <!-- Staff Augmentation Teaser -->
+      <StaffTeaser />
+
+      <!-- Music & Media Section -->
+      <MusicSection />
+
+      <!-- Corporate Services Section -->
+      <CorporateSection />
+
+      <!-- Contact Section -->
+      <ContactSection />
+
+      <!-- Footer -->
+      <Footer />
+    </div>
+  </main>
+</Layout>
+
+<!-- Scroll Reveal Animation Script -->
+<script>
+  // Intersection Observer for scroll animations
+  const observerOptions: IntersectionObserverInit = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sys-active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all elements with sys-reveal class
+  document.querySelectorAll('.sys-reveal').forEach(el => {
+    observer.observe(el);
+  });
+</script>

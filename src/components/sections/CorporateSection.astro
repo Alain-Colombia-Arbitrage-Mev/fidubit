@@ -1,0 +1,132 @@
+---
+/**
+ * FIDUBIT - Corporate Services Section
+ * Company incorporation and compliance
+ */
+import ModuleTag from '@/components/ui/ModuleTag.astro';
+import SectionLabel from '@/components/ui/SectionLabel.astro';
+import GlassPanel from '@/components/ui/GlassPanel.astro';
+import { corporateServices } from '@/data/site';
+---
+
+<section id="section-corp" class="py-24 border-b border-white/5 bg-fidubit-black relative">
+  <!-- Module Tag -->
+  <div class="absolute top-0 right-0 p-4 z-20">
+    <ModuleTag number="03" />
+  </div>
+  
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <!-- Left Content -->
+      <div class="space-y-8">
+        <div>
+          <SectionLabel icon="solar:city-linear" color="yellow">
+            Corporate_Structure
+          </SectionLabel>
+          
+          <h2 class="text-4xl font-medium text-white uppercase tracking-tight mb-6 sys-reveal sys-rise">
+            Global Company<br> Constitution
+          </h2>
+          
+          <p class="text-zinc-400 font-mono text-sm leading-relaxed border-l-2 border-zinc-700 pl-4 sys-reveal sys-rise sys-delay-100">
+            We don't just build the tech; we build the legal entity. Full service company formation in Hong Kong, Singapore, and Offshore jurisdictions optimized for Fintech, Web3, and digital commerce operations.
+          </p>
+        </div>
+
+        <!-- Jurisdictions -->
+        <div class="flex flex-wrap gap-2 sys-reveal sys-rise sys-delay-100">
+          {['Hong Kong', 'Singapore', 'BVI', 'Cayman', 'Seychelles', 'UK', 'Delaware'].map((jurisdiction) => (
+            <span class="text-[9px] border border-yellow-500/30 text-yellow-400 px-3 py-1 rounded bg-yellow-500/5 font-mono uppercase">
+              {jurisdiction}
+            </span>
+          ))}
+        </div>
+
+        <!-- Services List -->
+        <div class="space-y-4">
+          {corporateServices.map((service, index) => (
+            <div 
+              class:list={[
+                "flex items-start gap-4 p-4 glass-panel rounded border border-white/5",
+                "hover:border-yellow-500/30 transition-colors cursor-pointer group",
+                "sys-reveal sys-rise",
+                index > 0 && `sys-delay-${index}00`
+              ]}
+            >
+              <iconify-icon 
+                icon={service.icon} 
+                class="text-zinc-500 group-hover:text-yellow-500 text-xl mt-1 transition-colors"
+              ></iconify-icon>
+              <div>
+                <h4 class="text-white text-sm font-medium uppercase">{service.title}</h4>
+                <p class="text-[11px] text-zinc-500 font-mono mt-1 leading-relaxed">{service.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right Visual -->
+      <div class="relative h-[500px] glass-panel border border-white/10 rounded-xl overflow-hidden flex items-center justify-center bg-zinc-900/20 sys-reveal sys-slide-r">
+        <!-- Grid Background -->
+        <div class="absolute inset-0 grid grid-cols-[repeat(20,1fr)] grid-rows-[repeat(20,1fr)] opacity-10" aria-hidden="true">
+          <div class="border-r border-b border-white"></div>
+        </div>
+        
+        <!-- Corporate Structure Diagram -->
+        <div class="relative w-72 h-72">
+          <!-- Central Node -->
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-yellow-500/10 rounded-full border border-yellow-500 flex items-center justify-center z-10 shadow-[0_0_30px_rgba(234,179,8,0.2)]">
+            <iconify-icon icon="solar:buildings-2-linear" class="text-yellow-500 text-3xl"></iconify-icon>
+          </div>
+          
+          <!-- Orbiting Satellites -->
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-12 bg-zinc-800 rounded-full border border-zinc-700 flex items-center justify-center text-zinc-400 hover:border-yellow-500/50 hover:text-yellow-500 transition-colors">
+            <iconify-icon icon="solar:user-id-linear" width="20"></iconify-icon>
+          </div>
+          <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-12 bg-zinc-800 rounded-full border border-zinc-700 flex items-center justify-center text-zinc-400 hover:border-yellow-500/50 hover:text-yellow-500 transition-colors">
+            <iconify-icon icon="solar:wallet-money-linear" width="20"></iconify-icon>
+          </div>
+          <div class="absolute left-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-zinc-800 rounded-full border border-zinc-700 flex items-center justify-center text-zinc-400 hover:border-yellow-500/50 hover:text-yellow-500 transition-colors">
+            <iconify-icon icon="solar:file-check-linear" width="20"></iconify-icon>
+          </div>
+          <div class="absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-zinc-800 rounded-full border border-zinc-700 flex items-center justify-center text-zinc-400 hover:border-yellow-500/50 hover:text-yellow-500 transition-colors">
+            <iconify-icon icon="solar:global-linear" width="20"></iconify-icon>
+          </div>
+
+          <!-- Diagonal Satellites -->
+          <div class="absolute top-[15%] left-[15%] w-10 h-10 bg-zinc-800/50 rounded-full border border-zinc-700/50 flex items-center justify-center text-zinc-500 hover:border-yellow-500/30 hover:text-yellow-500/70 transition-colors">
+            <iconify-icon icon="solar:shield-check-linear" width="16"></iconify-icon>
+          </div>
+          <div class="absolute top-[15%] right-[15%] w-10 h-10 bg-zinc-800/50 rounded-full border border-zinc-700/50 flex items-center justify-center text-zinc-500 hover:border-yellow-500/30 hover:text-yellow-500/70 transition-colors">
+            <iconify-icon icon="solar:chart-linear" width="16"></iconify-icon>
+          </div>
+          <div class="absolute bottom-[15%] left-[15%] w-10 h-10 bg-zinc-800/50 rounded-full border border-zinc-700/50 flex items-center justify-center text-zinc-500 hover:border-yellow-500/30 hover:text-yellow-500/70 transition-colors">
+            <iconify-icon icon="solar:scale-linear" width="16"></iconify-icon>
+          </div>
+          <div class="absolute bottom-[15%] right-[15%] w-10 h-10 bg-zinc-800/50 rounded-full border border-zinc-700/50 flex items-center justify-center text-zinc-500 hover:border-yellow-500/30 hover:text-yellow-500/70 transition-colors">
+            <iconify-icon icon="solar:lock-keyhole-linear" width="16"></iconify-icon>
+          </div>
+
+          <!-- Connecting Lines -->
+          <svg class="absolute inset-0 w-full h-full pointer-events-none text-zinc-700" style="z-index: 0;" aria-hidden="true">
+            <line x1="50%" y1="50%" x2="50%" y2="8%" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4"></line>
+            <line x1="50%" y1="50%" x2="50%" y2="92%" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4"></line>
+            <line x1="50%" y1="50%" x2="8%" y2="50%" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4"></line>
+            <line x1="50%" y1="50%" x2="92%" y2="50%" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4"></line>
+            <line x1="50%" y1="50%" x2="20%" y2="20%" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"></line>
+            <line x1="50%" y1="50%" x2="80%" y2="20%" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"></line>
+            <line x1="50%" y1="50%" x2="20%" y2="80%" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"></line>
+            <line x1="50%" y1="50%" x2="80%" y2="80%" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"></line>
+          </svg>
+        </div>
+
+        <!-- Labels -->
+        <div class="absolute bottom-6 left-6 right-6 flex justify-between text-[9px] font-mono text-zinc-600 uppercase">
+          <span>Holding Structure</span>
+          <span>Multi-Jurisdiction</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

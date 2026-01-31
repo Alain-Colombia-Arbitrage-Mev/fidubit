@@ -1,0 +1,207 @@
+---
+/**
+ * FIDUBIT - Cards Section
+ * Card issuance showcase with 3D slider
+ */
+import ModuleTag from '@/components/ui/ModuleTag.astro';
+import SectionLabel from '@/components/ui/SectionLabel.astro';
+import { cardProducts } from '@/data/site';
+---
+
+<section id="section-cards" class="border-b border-white/5 bg-fidubit-black relative overflow-hidden py-12">
+  <!-- Module Tag -->
+  <div class="absolute top-0 right-0 p-4 z-20">
+    <ModuleTag number="01" />
+  </div>
+  
+  <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[600px]">
+    <!-- Left Content -->
+    <div class="lg:col-span-5 p-12 lg:p-16 flex flex-col justify-center border-r border-white/5 z-10 bg-fidubit-black/80 backdrop-blur-sm">
+      
+      <SectionLabel icon="solar:card-send-linear" color="yellow">
+        Card_Issuance
+      </SectionLabel>
+      
+      <h2 class="text-4xl lg:text-5xl font-medium text-white uppercase tracking-tight leading-none mb-6 sys-reveal sys-rise">
+        Hong Kong
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-zinc-400 to-zinc-700 block">
+          Prepaid Cards
+        </span>
+      </h2>
+      
+      <p class="text-sm text-zinc-500 font-mono leading-relaxed mb-6 sys-reveal sys-rise sys-delay-100">
+        Turnkey debit card programs for Fintechs. Direct BIN sponsorship from Hong Kong hubs with instant virtual issuance and premium physical metal cards. Launch your branded card program in weeks, not months.
+      </p>
+
+      <!-- Extended Features -->
+      <ul class="space-y-3 mb-10 sys-reveal sys-rise sys-delay-100">
+        <li class="flex items-center text-xs font-mono text-zinc-400 gap-2">
+          <iconify-icon icon="solar:check-circle-linear" class="text-yellow-500"></iconify-icon>
+          Multi-currency support (USD, EUR, GBP, HKD)
+        </li>
+        <li class="flex items-center text-xs font-mono text-zinc-400 gap-2">
+          <iconify-icon icon="solar:check-circle-linear" class="text-yellow-500"></iconify-icon>
+          Real-time transaction notifications
+        </li>
+        <li class="flex items-center text-xs font-mono text-zinc-400 gap-2">
+          <iconify-icon icon="solar:check-circle-linear" class="text-yellow-500"></iconify-icon>
+          White-label mobile app integration
+        </li>
+        <li class="flex items-center text-xs font-mono text-zinc-400 gap-2">
+          <iconify-icon icon="solar:check-circle-linear" class="text-yellow-500"></iconify-icon>
+          3D Secure & EMV chip technology
+        </li>
+      </ul>
+
+      <!-- Slider Controls -->
+      <div class="flex items-center gap-4 mb-12 sys-reveal sys-rise sys-delay-200">
+        <button 
+          id="prevBtn" 
+          class="w-12 h-12 border border-zinc-700 hover:border-yellow-500 hover:text-yellow-500 text-white flex items-center justify-center transition-all rounded-sm glass-panel hover:bg-white/5"
+          aria-label="Previous card"
+        >
+          <iconify-icon icon="solar:arrow-left-linear" width="20"></iconify-icon>
+        </button>
+        <div class="text-xs font-mono text-zinc-500 flex gap-2">
+          <span id="currentSlide" class="text-white">01</span>
+          <span class="text-zinc-700">/</span>
+          <span>03</span>
+        </div>
+        <button 
+          id="nextBtn" 
+          class="w-12 h-12 border border-zinc-700 hover:border-yellow-500 hover:text-yellow-500 text-white flex items-center justify-center transition-all rounded-sm glass-panel hover:bg-white/5"
+          aria-label="Next card"
+        >
+          <iconify-icon icon="solar:arrow-right-linear" width="20"></iconify-icon>
+        </button>
+      </div>
+      
+      <!-- Card Info Display -->
+      <div class="flex flex-col gap-4">
+        <div id="cardInfo" class="transition-opacity duration-300 border-l-2 border-white/20 pl-4">
+          <h4 class="text-lg text-white font-medium uppercase tracking-tight mb-1" id="cardTitle">
+            {cardProducts[0].title}
+          </h4>
+          <p class="text-[10px] text-zinc-500 font-mono" id="cardDesc">
+            {cardProducts[0].description}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Card Slider -->
+    <div class="lg:col-span-7 relative flex items-center justify-center overflow-hidden min-h-[500px] bg-zinc-900/10">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0%,transparent_70%)]"></div>
+      
+      <div class="relative w-[380px] h-[240px] card-slide-container z-20">
+        <!-- Card 1: Black Elite -->
+        <div class="f-card active glass-card-premium rounded-xl p-8 flex flex-col justify-between border-l border-yellow-500/20" data-index="0">
+          <div class="absolute inset-0 bg-black/60 rounded-xl -z-10"></div>
+          <div class="flex justify-between items-start">
+            <div class="w-12 h-9 rounded bg-gradient-to-br from-yellow-600/30 to-yellow-900/30 border border-yellow-600/30 relative overflow-hidden backdrop-blur-sm">
+              <div class="absolute inset-0 grid grid-cols-2 grid-rows-2 gap-px bg-yellow-900/20"></div>
+            </div>
+            <iconify-icon icon="solar:wireless-charge-linear" class="text-yellow-500/40 rotate-90" width="24"></iconify-icon>
+          </div>
+          <div class="space-y-4 relative">
+            <div class="text-xl font-mono text-white tracking-[0.2em] opacity-90">{cardProducts[0].cardNumber}</div>
+            <div class="flex justify-between items-end">
+              <div class="space-y-1">
+                <div class="text-[8px] font-mono text-white/40 uppercase tracking-widest">Cardholder</div>
+                <div class="text-sm font-medium text-white uppercase tracking-wider">{cardProducts[0].holderName}</div>
+              </div>
+              <iconify-icon icon="logos:visa" width="48" class="opacity-80 grayscale brightness-200 contrast-200"></iconify-icon>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 2: Platinum Business -->
+        <div class="f-card next glass-card-premium rounded-xl p-8 flex flex-col justify-between" data-index="1">
+          <div class="absolute inset-0 bg-gradient-to-br from-zinc-300 to-zinc-500 rounded-xl -z-10"></div>
+          <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/brushed-alum.png')] opacity-30 mix-blend-multiply rounded-xl -z-10"></div>
+          <div class="flex justify-between items-start">
+            <div class="w-12 h-9 rounded bg-zinc-400 border border-zinc-500"></div>
+          </div>
+          <div class="space-y-4 relative">
+            <div class="text-xl font-mono text-black tracking-[0.2em]">{cardProducts[1].cardNumber}</div>
+            <div class="flex justify-between items-end">
+              <div class="text-sm font-medium text-black">{cardProducts[1].holderName}</div>
+              <iconify-icon icon="logos:mastercard" width="36" class="opacity-80 grayscale"></iconify-icon>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 3: Corporate Metal -->
+        <div class="f-card prev glass-card-premium rounded-xl p-8 flex flex-col justify-between" data-index="2">
+          <div class="absolute inset-0 bg-gradient-to-br from-yellow-600 to-yellow-800 rounded-xl -z-10"></div>
+          <div class="flex justify-between items-start">
+            <div class="w-12 h-9 rounded bg-white/20 border border-white/20"></div>
+          </div>
+          <div class="space-y-4 relative">
+            <div class="text-xl font-mono text-white tracking-[0.2em]">{cardProducts[2].cardNumber}</div>
+            <div class="flex justify-between items-end">
+              <div class="text-sm font-medium text-white">{cardProducts[2].holderName}</div>
+              <iconify-icon icon="logos:visa" width="48" class="opacity-90 brightness-200"></iconify-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ cardProducts }}>
+  // Card Slider Logic
+  const cards = document.querySelectorAll('.f-card');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const currentSlideEl = document.getElementById('currentSlide');
+  const cardTitle = document.getElementById('cardTitle');
+  const cardDesc = document.getElementById('cardDesc');
+  
+  let currentIndex = 0;
+
+  function updateCards() {
+    cards.forEach((card, index) => {
+      card.className = 'f-card glass-card-premium rounded-xl p-8 flex flex-col justify-between';
+      
+      if (index === currentIndex) {
+        card.classList.add('active');
+        if(index === 0) card.classList.add('border-l', 'border-yellow-500/20');
+      } else if (index === (currentIndex + 1) % cards.length) {
+        card.classList.add('next');
+      } else {
+        card.classList.add('prev');
+      }
+    });
+    
+    // Update Text with fade effect
+    const infoContainer = document.getElementById('cardInfo');
+    if (infoContainer) {
+      infoContainer.style.opacity = '0';
+      
+      setTimeout(() => {
+        if (currentSlideEl) currentSlideEl.innerText = `0${currentIndex + 1}`;
+        if (cardTitle) cardTitle.innerText = cardProducts[currentIndex].title;
+        if (cardDesc) cardDesc.innerText = cardProducts[currentIndex].description;
+        infoContainer.style.opacity = '1';
+      }, 300);
+    }
+  }
+
+  nextBtn?.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % cards.length;
+    updateCards();
+  });
+
+  prevBtn?.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+    updateCards();
+  });
+
+  // Auto rotate every 6 seconds
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % cards.length;
+    updateCards();
+  }, 6000);
+</script>

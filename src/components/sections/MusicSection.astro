@@ -1,0 +1,154 @@
+---
+/**
+ * FIDUBIT - Music & Media Section
+ * Digital music distribution and marketing showcase
+ */
+import ModuleTag from '@/components/ui/ModuleTag.astro';
+import SectionLabel from '@/components/ui/SectionLabel.astro';
+import GlassPanel from '@/components/ui/GlassPanel.astro';
+import { musicVideos } from '@/data/site';
+
+const statusConfig = {
+  live: { label: 'Campaign Active', icon: 'solar:soundwave-linear', class: 'text-fuchsia-500 animate-pulse' },
+  trending: { label: 'Trending', icon: 'solar:graph-up-linear', class: 'text-green-500' },
+  new: { label: 'New Release', icon: '', class: '' },
+};
+---
+
+<section id="section-music" class="relative border-b border-white/5 bg-fidubit-black py-20">
+  <!-- Radial Gradient Background -->
+  <div 
+    class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,70,239,0.05)_0%,transparent_50%)]"
+    aria-hidden="true"
+  ></div>
+  
+  <!-- Module Tag -->
+  <div class="absolute top-0 right-0 p-4 z-20">
+    <ModuleTag number="04" label="Media" variant="fuchsia" />
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+    <!-- Section Header -->
+    <div class="mb-16">
+      <SectionLabel icon="solar:music-note-slider-linear" color="fuchsia">
+        Sonic_Branding
+      </SectionLabel>
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+          <h2 class="text-4xl font-medium text-white uppercase tracking-tight mb-4 sys-reveal sys-rise">
+            Music Marketing<br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-purple-600">
+              Distribution Network
+            </span>
+          </h2>
+          <p class="text-zinc-400 font-mono text-sm max-w-xl sys-reveal sys-rise sys-delay-100">
+            Amplifying frequency. Global distribution and data-driven marketing strategies for high-fidelity talent. 
+            We power the artists of tomorrow with direct DSP relationships, playlist pitching, and comprehensive analytics.
+          </p>
+        </div>
+        
+        <!-- Audio Visualizer -->
+        <div class="flex gap-1 items-end h-8 mb-2 sys-reveal sys-rise sys-delay-200" aria-hidden="true">
+          <div class="w-1 bg-fuchsia-500 audio-bar" style="animation-duration: 474ms;"></div>
+          <div class="w-1 bg-fuchsia-500 audio-bar" style="animation-duration: 433ms;"></div>
+          <div class="w-1 bg-fuchsia-500 audio-bar" style="animation-duration: 407ms;"></div>
+          <div class="w-1 bg-fuchsia-500 audio-bar" style="animation-duration: 458ms;"></div>
+          <div class="w-1 bg-fuchsia-500 audio-bar" style="animation-duration: 400ms;"></div>
+          <div class="w-1 bg-fuchsia-500 audio-bar" style="animation-duration: 427ms;"></div>
+          <div class="w-1 bg-fuchsia-500 audio-bar" style="animation-duration: 441ms;"></div>
+          <div class="w-1 bg-fuchsia-500 audio-bar" style="animation-duration: 419ms;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Services Overview -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+      <GlassPanel padding="md" rounded="lg" borderColor="fuchsia" class="sys-reveal sys-rise">
+        <iconify-icon icon="solar:music-note-2-linear" class="text-fuchsia-500 text-2xl mb-2"></iconify-icon>
+        <h4 class="text-white text-sm font-medium mb-1">Global Distribution</h4>
+        <p class="text-[10px] text-zinc-500 font-mono">200+ DSPs worldwide</p>
+      </GlassPanel>
+      
+      <GlassPanel padding="md" rounded="lg" borderColor="fuchsia" class="sys-reveal sys-rise sys-delay-100">
+        <iconify-icon icon="solar:playlist-minimalistic-linear" class="text-fuchsia-500 text-2xl mb-2"></iconify-icon>
+        <h4 class="text-white text-sm font-medium mb-1">Playlist Pitching</h4>
+        <p class="text-[10px] text-zinc-500 font-mono">Editorial placement</p>
+      </GlassPanel>
+      
+      <GlassPanel padding="md" rounded="lg" borderColor="fuchsia" class="sys-reveal sys-rise sys-delay-200">
+        <iconify-icon icon="solar:chart-2-linear" class="text-fuchsia-500 text-2xl mb-2"></iconify-icon>
+        <h4 class="text-white text-sm font-medium mb-1">Advanced Analytics</h4>
+        <p class="text-[10px] text-zinc-500 font-mono">Real-time insights</p>
+      </GlassPanel>
+      
+      <GlassPanel padding="md" rounded="lg" borderColor="fuchsia" class="sys-reveal sys-rise sys-delay-300">
+        <iconify-icon icon="solar:hand-money-linear" class="text-fuchsia-500 text-2xl mb-2"></iconify-icon>
+        <h4 class="text-white text-sm font-medium mb-1">Royalty Collection</h4>
+        <p class="text-[10px] text-zinc-500 font-mono">100% transparent</p>
+      </GlassPanel>
+    </div>
+
+    <!-- Video Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {musicVideos.map((video, index) => {
+        const status = statusConfig[video.status];
+        const delayClass = index === 0 ? '' : index === 1 ? 'sys-delay-100' : 'sys-delay-200';
+        
+        return (
+          <article 
+            class:list={[
+              "group glass-panel rounded-xl border border-white/5 overflow-hidden",
+              "hover:border-fuchsia-500/30 transition-colors sys-reveal sys-rise",
+              delayClass
+            ]}
+          >
+            <!-- Header -->
+            <div class="p-4 border-b border-white/5 flex justify-between items-center bg-white/5">
+              <div class="flex items-center gap-2 text-white font-mono text-xs tracking-wider uppercase">
+                <iconify-icon icon="solar:play-circle-linear" class="text-fuchsia-500"></iconify-icon>
+                {video.artist} - {video.title}
+              </div>
+              <div class="text-[9px] text-zinc-500 font-mono">LIVE</div>
+            </div>
+            
+            <!-- Video Embed -->
+            <div class="aspect-video w-full bg-black relative">
+              <iframe 
+                class="w-full h-full absolute inset-0"
+                src={`https://www.youtube.com/embed/${video.youtubeId}`}
+                title={`${video.artist} - ${video.title}`}
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+            
+            <!-- Footer -->
+            <div class="p-4 flex justify-between items-center">
+              <div class="text-[10px] text-zinc-500 font-mono uppercase">{status.label}</div>
+              {status.icon ? (
+                <iconify-icon icon={status.icon} class={status.class}></iconify-icon>
+              ) : (
+                <div class="h-1.5 w-1.5 bg-fuchsia-500 rounded-full animate-ping"></div>
+              )}
+            </div>
+          </article>
+        );
+      })}
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-12 text-center sys-reveal sys-rise sys-delay-300">
+      <a 
+        href="#contact-section"
+        class="inline-flex items-center gap-2 text-fuchsia-400 hover:text-fuchsia-300 font-mono text-xs uppercase tracking-widest transition-colors group"
+      >
+        Submit your music
+        <iconify-icon icon="solar:arrow-right-linear" class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+      </a>
+    </div>
+  </div>
+</section>

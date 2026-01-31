@@ -1,0 +1,64 @@
+---
+/**
+ * FIDUBIT - Glass Panel Component
+ * Reusable glass morphism container
+ */
+interface Props {
+  variant?: 'default' | 'premium' | 'header';
+  class?: string;
+  padding?: 'none' | 'sm' | 'md' | 'lg';
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+  border?: boolean;
+  borderColor?: 'white' | 'yellow' | 'fuchsia' | 'purple';
+}
+
+const { 
+  variant = 'default',
+  class: className,
+  padding = 'md',
+  rounded = 'lg',
+  border = true,
+  borderColor = 'white'
+} = Astro.props;
+
+const paddingClasses = {
+  none: '',
+  sm: 'p-3',
+  md: 'p-6',
+  lg: 'p-8',
+};
+
+const roundedClasses = {
+  none: '',
+  sm: 'rounded-sm',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  xl: 'rounded-xl',
+  '2xl': 'rounded-2xl',
+};
+
+const borderColorClasses = {
+  white: 'border-white/10',
+  yellow: 'border-yellow-500/20',
+  fuchsia: 'border-fuchsia-500/20',
+  purple: 'border-purple-500/20',
+};
+
+const variantClasses = {
+  default: 'glass-panel',
+  premium: 'glass-card-premium',
+  header: 'glass-header',
+};
+---
+
+<div 
+  class:list={[
+    variantClasses[variant],
+    paddingClasses[padding],
+    roundedClasses[rounded],
+    border && `border ${borderColorClasses[borderColor]}`,
+    className
+  ]}
+>
+  <slot />
+</div>

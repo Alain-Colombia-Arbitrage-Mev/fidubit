@@ -1,0 +1,114 @@
+---
+/**
+ * FIDUBIT - Footer Component
+ * Site footer with legal links
+ */
+import { siteConfig, footerLinks } from '@/data/site';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<footer 
+  class:list={[
+    "border-t border-white/5 bg-fidubit-darker py-12 px-8 mt-auto",
+    className
+  ]}
+>
+  <div class="max-w-7xl mx-auto">
+    <!-- Main Footer Content -->
+    <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-12">
+      <!-- Brand -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 bg-yellow-500 rounded-none shadow-[0_0_10px_rgba(234,179,8,0.4)]"></div>
+          <span class="text-lg font-bold text-white tracking-tight">{siteConfig.name}</span>
+        </div>
+        <p class="text-xs text-zinc-600 font-mono max-w-xs leading-relaxed">
+          Building the financial and media infrastructure for the next generation of digital commerce.
+        </p>
+      </div>
+      
+      <!-- Services Quick Links -->
+      <div class="grid grid-cols-2 gap-x-12 gap-y-3">
+        <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest col-span-2 mb-2">Services</span>
+        <a href="#section-cards" class="text-xs text-zinc-500 hover:text-yellow-500 transition-colors font-mono">Card Issuance</a>
+        <a href="#section-infra" class="text-xs text-zinc-500 hover:text-yellow-500 transition-colors font-mono">E-Banking Dev</a>
+        <a href="#section-infra" class="text-xs text-zinc-500 hover:text-yellow-500 transition-colors font-mono">Blockchain</a>
+        <a href="#section-music" class="text-xs text-zinc-500 hover:text-fuchsia-500 transition-colors font-mono">Music & Media</a>
+        <a href="#section-corp" class="text-xs text-zinc-500 hover:text-yellow-500 transition-colors font-mono">Incorporation</a>
+        <a href="#section-infra" class="text-xs text-zinc-500 hover:text-yellow-500 transition-colors font-mono">OTC Liquidity</a>
+      </div>
+      
+      <!-- Contact Info -->
+      <div class="space-y-3">
+        <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block mb-2">Contact</span>
+        <a 
+          href={`mailto:${siteConfig.email}`}
+          class="flex items-center gap-2 text-xs text-zinc-500 hover:text-yellow-500 transition-colors font-mono"
+        >
+          <iconify-icon icon="solar:letter-linear" class="text-zinc-600"></iconify-icon>
+          {siteConfig.email}
+        </a>
+        <a 
+          href={`https://wa.me/${siteConfig.whatsapp.replace(/\s/g, '')}`}
+          class="flex items-center gap-2 text-xs text-zinc-500 hover:text-green-500 transition-colors font-mono"
+        >
+          <iconify-icon icon="logos:whatsapp-icon" width="14" class="grayscale opacity-50"></iconify-icon>
+          {siteConfig.whatsapp}
+        </a>
+        <div class="flex items-center gap-2 text-xs text-zinc-600 font-mono">
+          <iconify-icon icon="solar:map-point-linear" class="text-zinc-600"></iconify-icon>
+          {siteConfig.location}
+        </div>
+      </div>
+    </div>
+    
+    <!-- Bottom Bar -->
+    <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="text-xs text-zinc-600 font-mono">
+        &copy; {siteConfig.year} {siteConfig.name} SYSTEMS LTD. {siteConfig.location}.
+      </div>
+      
+      <!-- Legal Links -->
+      <div class="flex gap-6">
+        {footerLinks.map((link) => (
+          <a 
+            href={link.href} 
+            class="text-zinc-600 hover:text-yellow-500 transition-colors text-xs uppercase font-mono"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+      
+      <!-- Social Links -->
+      <div class="flex gap-4">
+        <a 
+          href="#" 
+          class="text-zinc-600 hover:text-white transition-colors"
+          aria-label="Twitter"
+        >
+          <iconify-icon icon="ri:twitter-x-line" width="18"></iconify-icon>
+        </a>
+        <a 
+          href="#" 
+          class="text-zinc-600 hover:text-white transition-colors"
+          aria-label="LinkedIn"
+        >
+          <iconify-icon icon="ri:linkedin-line" width="18"></iconify-icon>
+        </a>
+        <a 
+          href="#" 
+          class="text-zinc-600 hover:text-white transition-colors"
+          aria-label="GitHub"
+        >
+          <iconify-icon icon="ri:github-line" width="18"></iconify-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

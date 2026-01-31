@@ -1,0 +1,36 @@
+---
+/**
+ * FIDUBIT - Section Label Component
+ * Mono label with icon for section headers
+ */
+interface Props {
+  icon?: string;
+  color?: 'yellow' | 'fuchsia' | 'purple' | 'blue' | 'green';
+  class?: string;
+}
+
+const { 
+  icon,
+  color = 'yellow',
+  class: className 
+} = Astro.props;
+
+const colorClasses = {
+  yellow: 'text-yellow-500',
+  fuchsia: 'text-fuchsia-500',
+  purple: 'text-purple-500',
+  blue: 'text-blue-500',
+  green: 'text-green-500',
+};
+---
+
+<div 
+  class:list={[
+    "text-[10px] font-mono uppercase tracking-widest flex items-center gap-2 mb-4",
+    colorClasses[color],
+    className
+  ]}
+>
+  {icon && <iconify-icon icon={icon}></iconify-icon>}
+  <span>// <slot /></span>
+</div>

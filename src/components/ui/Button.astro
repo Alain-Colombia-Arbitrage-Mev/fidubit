@@ -1,0 +1,76 @@
+---
+/**
+ * FIDUBIT - Button Component
+ * Reusable button with multiple variants
+ */
+interface Props {
+  variant?: 'primary' | 'secondary' | 'cta' | 'outline' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  class?: string;
+  icon?: string;
+  iconPosition?: 'left' | 'right';
+  fullWidth?: boolean;
+  type?: 'button' | 'submit' | 'reset';
+}
+
+const { 
+  variant = 'primary',
+  size = 'md',
+  href,
+  class: className,
+  icon,
+  iconPosition = 'right',
+  fullWidth = false,
+  type = 'button'
+} = Astro.props;
+
+const isLink = !!href;
+const Tag = isLink ? 'a' : 'button';
+
+const sizeClasses = {
+  sm: 'px-4 py-2 text-[10px]',
+  md: 'px-8 py-4 text-xs',
+  lg: 'px-10 py-5 text-sm',
+};
+
+const variantClasses = {
+  primary: 'bg-yellow-500/10 hover:bg-yellow-500 text-yellow-500 hover:text-black border border-yellow-500/50 rounded-sm backdrop-blur-md font-semibold',
+  secondary: 'bg-white/5 hover:bg-fuchsia-500/20 text-zinc-300 hover:text-fuchsia-300 hover:border-fuchsia-500/50 border border-white/10 rounded-sm',
+  cta: 'bg-yellow-500 hover:bg-yellow-400 text-black font-bold rounded-lg hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(234,179,8,0.4)]',
+  outline: 'bg-transparent hover:bg-white/5 text-zinc-400 hover:text-white border border-zinc-700 hover:border-yellow-500 rounded-sm',
+  ghost: 'bg-transparent hover:bg-white/5 text-zinc-400 hover:text-white',
+};
+---
+
+<Tag
+  href={isLink ? href : undefined}
+  type={!isLink ? type : undefined}
+  class:list={[
+    "uppercase tracking-widest font-mono transition-all duration-300 flex items-center justify-center gap-3 group",
+    sizeClasses[size],
+    variantClasses[variant],
+    fullWidth && 'w-full',
+    className
+  ]}
+>
+  {icon && iconPosition === 'left' && (
+    <iconify-icon 
+      icon={icon} 
+      width="16" 
+      class="group-hover:-translate-x-1 transition-transform"
+    ></iconify-icon>
+  )}
+  
+  <span class="relative z-10">
+    <slot />
+  </span>
+  
+  {icon && iconPosition === 'right' && (
+    <iconify-icon 
+      icon={icon} 
+      width="16" 
+      class="group-hover:translate-x-1 transition-transform"
+    ></iconify-icon>
+  )}
+</Tag>

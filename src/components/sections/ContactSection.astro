@@ -1,0 +1,242 @@
+---
+/**
+ * FIDUBIT - Contact Section
+ * Lead capture form with smart inputs
+ */
+import GlassPanel from '@/components/ui/GlassPanel.astro';
+import { contactOptions } from '@/data/site';
+---
+
+<section id="contact-section" class="border-t border-b border-white/5 bg-fidubit-black relative py-24">
+  <!-- Grid Pattern Background -->
+  <div class="absolute inset-0 grid-pattern" aria-hidden="true"></div>
+  
+  <div class="max-w-4xl mx-auto px-6 relative z-10">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <span class="text-yellow-500 font-mono text-xs uppercase tracking-widest border border-yellow-500/30 px-3 py-1 rounded-full bg-yellow-500/10 mb-4 inline-block">
+        Direct Line
+      </span>
+      <h2 class="text-4xl font-medium text-white mb-4 sys-reveal sys-rise">Start Integration</h2>
+      <p class="text-zinc-500 font-mono text-sm sys-reveal sys-rise sys-delay-100">
+        Fill in your verified contact details. Our team will reach out within 24 hours to discuss your requirements.
+      </p>
+    </div>
+
+    <!-- Form Container -->
+    <GlassPanel 
+      padding="lg" 
+      rounded="2xl" 
+      class="relative overflow-hidden sys-reveal sys-rise sys-delay-200"
+    >
+      <!-- Decorative Glow -->
+      <div 
+        class="absolute top-0 right-0 w-32 h-32 bg-yellow-500/20 blur-[60px] rounded-full pointer-events-none"
+        aria-hidden="true"
+      ></div>
+      
+      <form id="contact-form" class="space-y-6">
+        <!-- Row 1: Email & WhatsApp -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-2">
+            <label for="email" class="text-xs font-mono text-zinc-400 uppercase tracking-wide">
+              Business Email
+            </label>
+            <div class="relative">
+              <iconify-icon 
+                icon="solar:letter-linear" 
+                class="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500"
+              ></iconify-icon>
+              <input 
+                type="email" 
+                id="email"
+                name="email"
+                placeholder="name@company.com" 
+                required
+                class="smart-input w-full pl-12"
+              />
+            </div>
+          </div>
+          
+          <div class="space-y-2">
+            <label for="whatsapp" class="text-xs font-mono text-zinc-400 uppercase tracking-wide">
+              WhatsApp Number
+            </label>
+            <div class="relative">
+              <iconify-icon 
+                icon="logos:whatsapp-icon" 
+                class="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 grayscale opacity-50" 
+                width="16"
+              ></iconify-icon>
+              <input 
+                type="tel" 
+                id="whatsapp"
+                name="whatsapp"
+                placeholder="+1 (555) 000-0000"
+                class="smart-input w-full pl-12 focus:border-green-500"
+              />
+            </div>
+          </div>
+        </div>
+        
+        <!-- Row 2: Company & Volume -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-2">
+            <label for="company" class="text-xs font-mono text-zinc-400 uppercase tracking-wide">
+              Company Name
+            </label>
+            <div class="relative">
+              <iconify-icon 
+                icon="solar:buildings-linear" 
+                class="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500"
+              ></iconify-icon>
+              <input 
+                type="text" 
+                id="company"
+                name="company"
+                placeholder="Your Company Ltd." 
+                class="smart-input w-full pl-12"
+              />
+            </div>
+          </div>
+          
+          <div class="space-y-2">
+            <label for="volume" class="text-xs font-mono text-zinc-400 uppercase tracking-wide">
+              Expected Monthly Volume
+            </label>
+            <div class="relative">
+              <iconify-icon 
+                icon="solar:chart-2-linear" 
+                class="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500"
+              ></iconify-icon>
+              <select 
+                id="volume"
+                name="volume"
+                class="smart-input w-full pl-12 pr-10 appearance-none cursor-pointer"
+              >
+                <option value="" class="bg-black">Select volume</option>
+                <option value="0-50k" class="bg-black">&lt; $50,000</option>
+                <option value="50k-250k" class="bg-black">$50,000 - $250,000</option>
+                <option value="250k-1m" class="bg-black">$250,000 - $1,000,000</option>
+                <option value="1m+" class="bg-black">&gt; $1,000,000</option>
+              </select>
+              <iconify-icon 
+                icon="solar:alt-arrow-down-linear" 
+                class="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-500 pointer-events-none"
+              ></iconify-icon>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Row 3: Service Interest -->
+        <div class="space-y-2">
+          <label for="service" class="text-xs font-mono text-zinc-400 uppercase tracking-wide">
+            Service Interest
+          </label>
+          <div class="relative">
+            <iconify-icon 
+              icon="solar:list-check-linear" 
+              class="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500"
+            ></iconify-icon>
+            <select 
+              id="service"
+              name="service"
+              required
+              class="smart-input w-full pl-12 pr-10 appearance-none cursor-pointer"
+            >
+              {contactOptions.map((option) => (
+                <option value={option.value} class="bg-black">{option.label}</option>
+              ))}
+            </select>
+            <iconify-icon 
+              icon="solar:alt-arrow-down-linear" 
+              class="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-500 pointer-events-none"
+            ></iconify-icon>
+          </div>
+        </div>
+
+        <!-- Row 4: Message -->
+        <div class="space-y-2">
+          <label for="message" class="text-xs font-mono text-zinc-400 uppercase tracking-wide">
+            Project Details (Optional)
+          </label>
+          <textarea 
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="Tell us about your project, timeline, and specific requirements..."
+            class="smart-input w-full resize-none"
+          ></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button 
+          type="submit" 
+          class="btn-cta w-full group"
+        >
+          <span>Initialize Handshake</span>
+          <iconify-icon 
+            icon="solar:arrow-right-linear" 
+            class="group-hover:translate-x-1 transition-transform" 
+            width="16"
+          ></iconify-icon>
+        </button>
+        
+        <!-- Privacy Note -->
+        <p class="text-[10px] text-zinc-600 font-mono text-center">
+          By submitting, you agree to our 
+          <a href="/privacy" class="text-yellow-500/70 hover:text-yellow-500">Privacy Policy</a> 
+          and 
+          <a href="/terms" class="text-yellow-500/70 hover:text-yellow-500">Terms of Service</a>.
+        </p>
+      </form>
+    </GlassPanel>
+
+    <!-- Trust Indicators -->
+    <div class="mt-12 flex flex-wrap justify-center gap-8 sys-reveal sys-rise sys-delay-300">
+      <div class="flex items-center gap-2 text-zinc-600">
+        <iconify-icon icon="solar:shield-check-linear" class="text-green-500"></iconify-icon>
+        <span class="text-[10px] font-mono uppercase">256-bit Encrypted</span>
+      </div>
+      <div class="flex items-center gap-2 text-zinc-600">
+        <iconify-icon icon="solar:lock-keyhole-linear" class="text-green-500"></iconify-icon>
+        <span class="text-[10px] font-mono uppercase">GDPR Compliant</span>
+      </div>
+      <div class="flex items-center gap-2 text-zinc-600">
+        <iconify-icon icon="solar:clock-circle-linear" class="text-yellow-500"></iconify-icon>
+        <span class="text-[10px] font-mono uppercase">24h Response</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('contact-form');
+  
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(form as HTMLFormElement);
+    const data = Object.fromEntries(formData.entries());
+    
+    // Here you would typically send to your backend
+    console.log('Form submitted:', data);
+    
+    // Show success feedback
+    const button = form.querySelector('button[type="submit"]');
+    if (button) {
+      const originalText = button.innerHTML;
+      button.innerHTML = `
+        <iconify-icon icon="solar:check-circle-linear" class="text-black"></iconify-icon>
+        <span>Message Sent</span>
+      `;
+      button.classList.add('bg-green-500', 'hover:bg-green-400');
+      
+      setTimeout(() => {
+        button.innerHTML = originalText;
+        button.classList.remove('bg-green-500', 'hover:bg-green-400');
+        (form as HTMLFormElement).reset();
+      }, 3000);
+    }
+  });
+</script>

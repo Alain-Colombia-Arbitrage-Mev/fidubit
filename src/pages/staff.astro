@@ -1,0 +1,217 @@
+---
+/**
+ * FIDUBIT - Staff Augmentation Page
+ * Dedicated page for engineering talent services
+ */
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import WhatsAppButton from '@/components/ui/WhatsAppButton.astro';
+import StaffSection from '@/components/sections/StaffSection.astro';
+import GlassPanel from '@/components/ui/GlassPanel.astro';
+import Button from '@/components/ui/Button.astro';
+
+const seo = {
+  title: 'Staff Augmentation - FIDUBIT | Fintech Engineering Talent',
+  description: 'Scale your engineering team on demand with our network of 50+ senior engineers specialized in fintech, blockchain, and high-scale systems. Flexible engagement models, 48h average deployment.',
+  keywords: [
+    'staff augmentation',
+    'fintech developers',
+    'blockchain engineers',
+    'remote engineering team',
+    'software development outsourcing',
+    'dedicated development team',
+    'tech talent',
+    'engineering team scaling',
+    'senior developers',
+    'react developers',
+    'node.js developers',
+    'solidity developers',
+  ],
+};
+---
+
+<Layout seo={seo}>
+  <WhatsAppButton />
+  <Header />
+
+  <main class="relative z-10 pt-16 min-h-screen bg-fidubit-black">
+    
+    <!-- Hero Section -->
+    <section class="relative py-24 border-b border-white/5 overflow-hidden">
+      <!-- Background -->
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_center,rgba(59,130,246,0.08)_0%,transparent_50%)]"></div>
+      <div class="absolute inset-0 grid-pattern opacity-20"></div>
+      
+      <div class="max-w-6xl mx-auto px-6 relative z-10">
+        <div class="text-center max-w-3xl mx-auto">
+          <!-- Breadcrumb -->
+          <div class="flex items-center justify-center gap-2 text-xs font-mono text-zinc-600 mb-8">
+            <a href="/" class="hover:text-white transition-colors">Home</a>
+            <span>/</span>
+            <span class="text-blue-500">Staff Augmentation</span>
+          </div>
+          
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8">
+            <span class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+            <span class="text-xs font-mono text-blue-400 uppercase tracking-wider">Engineering Talent</span>
+          </div>
+          
+          <!-- Title -->
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-medium text-white uppercase tracking-tight mb-6 leading-[0.9]">
+            Scale Your
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 block">
+              Engineering Team
+            </span>
+          </h1>
+          
+          <!-- Description -->
+          <p class="text-lg text-zinc-400 font-mono leading-relaxed mb-10 max-w-2xl mx-auto">
+            Access our network of senior engineers specialized in fintech, blockchain, and high-scale systems. 
+            Deploy talent in 48 hours, scale up or down as needed.
+          </p>
+          
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button 
+              variant="primary" 
+              href="#contact-staff" 
+              icon="solar:arrow-right-linear"
+              size="lg"
+            >
+              Request Team Proposal
+            </Button>
+            <Button 
+              variant="outline" 
+              href="#engineers"
+              icon="solar:users-group-rounded-linear"
+              iconPosition="left"
+            >
+              View Engineers
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <div id="engineers">
+      <StaffSection />
+    </div>
+
+    <!-- Contact Section for Staff -->
+    <section id="contact-staff" class="py-24 border-t border-white/5 relative">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.05)_0%,transparent_50%)]"></div>
+      
+      <div class="max-w-4xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-medium text-white uppercase tracking-tight mb-4">
+            Request Your Team
+          </h2>
+          <p class="text-zinc-500 font-mono text-sm">
+            Tell us about your project and we'll propose the right engineers within 24 hours.
+          </p>
+        </div>
+
+        <GlassPanel padding="lg" rounded="2xl" class="relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-[60px] rounded-full pointer-events-none"></div>
+          
+          <form class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="text-xs font-mono text-zinc-400 uppercase tracking-wide">Your Name</label>
+                <input 
+                  type="text" 
+                  placeholder="John Doe" 
+                  class="smart-input w-full"
+                  required
+                />
+              </div>
+              <div class="space-y-2">
+                <label class="text-xs font-mono text-zinc-400 uppercase tracking-wide">Company</label>
+                <input 
+                  type="text" 
+                  placeholder="Acme Inc." 
+                  class="smart-input w-full"
+                />
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="text-xs font-mono text-zinc-400 uppercase tracking-wide">Email</label>
+                <input 
+                  type="email" 
+                  placeholder="john@company.com" 
+                  class="smart-input w-full"
+                  required
+                />
+              </div>
+              <div class="space-y-2">
+                <label class="text-xs font-mono text-zinc-400 uppercase tracking-wide">Team Size Needed</label>
+                <select class="smart-input w-full appearance-none cursor-pointer">
+                  <option value="" class="bg-black">Select size</option>
+                  <option value="1-2" class="bg-black">1-2 Engineers</option>
+                  <option value="3-5" class="bg-black">3-5 Engineers</option>
+                  <option value="6-10" class="bg-black">6-10 Engineers</option>
+                  <option value="10+" class="bg-black">10+ Engineers</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label class="text-xs font-mono text-zinc-400 uppercase tracking-wide">Roles Needed</label>
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                {['Backend', 'Frontend', 'Blockchain', 'DevOps', 'QA', 'PM'].map((role) => (
+                  <label class="flex items-center gap-2 p-3 rounded-lg bg-white/[0.02] border border-white/5 hover:border-blue-500/30 cursor-pointer transition-colors">
+                    <input type="checkbox" name="roles" value={role.toLowerCase()} class="accent-blue-500" />
+                    <span class="text-xs font-mono text-zinc-400">{role}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label class="text-xs font-mono text-zinc-400 uppercase tracking-wide">Project Details</label>
+              <textarea 
+                rows="4"
+                placeholder="Tell us about your tech stack, timeline, and specific requirements..."
+                class="smart-input w-full resize-none"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn-cta w-full group">
+              <span>Submit Request</span>
+              <iconify-icon icon="solar:arrow-right-linear" class="group-hover:translate-x-1 transition-transform" width="16"></iconify-icon>
+            </button>
+          </form>
+        </GlassPanel>
+      </div>
+    </section>
+
+    <Footer />
+  </main>
+</Layout>
+
+<script>
+  // Intersection Observer for scroll animations
+  const observerOptions: IntersectionObserverInit = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sys-active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.sys-reveal').forEach(el => {
+    observer.observe(el);
+  });
+</script>
