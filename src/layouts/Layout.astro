@@ -170,11 +170,11 @@ const servicesSchema = {
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     
     <!-- Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(servicesSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(servicesSchema)} />
     
     <!-- Iconify -->
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js" defer></script>
+    <script is:inline src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js" defer></script>
   </head>
   
   <body class="text-zinc-400 min-h-screen flex flex-col selection:bg-yellow-500 selection:text-black bg-fidubit-black overflow-x-hidden">

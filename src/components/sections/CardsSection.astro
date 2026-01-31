@@ -150,7 +150,7 @@ import { cardProducts } from '@/data/site';
   </div>
 </section>
 
-<script define:vars={{ cardProducts }}>
+<script is:inline define:vars={{ cardProducts }}>
   // Card Slider Logic
   const cards = document.querySelectorAll('.f-card');
   const prevBtn = document.getElementById('prevBtn');
