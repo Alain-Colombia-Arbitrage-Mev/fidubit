@@ -30,7 +30,7 @@ export const siteConfig = {
 export const navigation: NavItem[] = [
   { label: 'Cards', href: '/#section-cards', icon: 'solar:card-linear', accentColor: 'yellow' },
   { label: 'Software Dev', href: '/#section-infra', icon: 'solar:code-square-linear', accentColor: 'blue' },
-  { label: 'Blockchain', href: '/#section-infra', icon: 'solar:link-circle-linear', accentColor: 'purple' },
+  { label: 'AI Solutions', href: '/ai', icon: 'solar:cpu-bolt-linear', accentColor: 'purple' },
   { label: 'Remittance', href: '/remittance', icon: 'solar:hand-money-linear', accentColor: 'yellow' },
   { label: 'Staff', href: '/staff', icon: 'solar:users-group-rounded-linear', accentColor: 'blue' },
   { label: 'Media', href: '/#section-music', icon: 'solar:music-note-linear', accentColor: 'fuchsia' },
@@ -158,6 +158,7 @@ export const corporateServices: CorporateService[] = [
 export const contactOptions: ContactOption[] = [
   { value: 'card-issuance', label: 'Card Issuance Program' },
   { value: 'core-fintech', label: 'Core Fintech Development' },
+  { value: 'ai-solutions', label: 'AI Solutions / Model Training' },
   { value: 'remittance', label: 'Remittance / Cross-Border Payments' },
   { value: 'staff-augmentation', label: 'Staff Augmentation' },
   { value: 'incorporation', label: 'Company Incorporation' },
