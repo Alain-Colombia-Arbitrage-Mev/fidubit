@@ -1,6 +1,6 @@
 ---
 /**
- * FIDUBIT - Staff Augmentation Teaser
+ * TRACKWISE - Staff Augmentation Teaser
  * Compact banner linking to the full staff page
  */
 import GlassPanel from '@/components/ui/GlassPanel.astro';
@@ -61,7 +61,7 @@ const staffContent: Record<string, { badge: string; title: string; subtitle: str
 const content = staffContent[lang] || staffContent.en;
 ---
 
-<section class="relative border-b border-white/5 bg-fidubit-black py-16 overflow-hidden">
+<section class="relative border-b border-white/5 bg-tw-black py-16 overflow-hidden">
   <!-- Background -->
   <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.05)_0%,transparent_60%)]"></div>
   
@@ -134,7 +134,7 @@ const content = staffContent[lang] || staffContent.en;
             <div class="mt-8 flex items-center gap-2">
               <div class="flex -space-x-2">
                 {[1, 2, 3, 4, 5].map((_) => (
-                  <div class="w-8 h-8 rounded-full bg-gradient-to-br from-zinc-700 to-zinc-800 border-2 border-fidubit-black flex items-center justify-center">
+                  <div class="w-8 h-8 rounded-full bg-gradient-to-br from-zinc-700 to-zinc-800 border-2 border-tw-black flex items-center justify-center">
                     <iconify-icon icon="solar:user-linear" width="14" class="text-zinc-500"></iconify-icon>
                   </div>
                 ))}

@@ -1,9 +1,8 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  integrations: [tailwind()],
-  site: 'https://fidubit.com',
+  site: 'https://trackwise.com',
   compressHTML: true,
   i18n: {
     defaultLocale: 'en',
@@ -16,6 +15,7 @@ export default defineConfig({
     inlineStylesheets: 'auto'
   },
   vite: {
+    plugins: [tailwindcss()],
     build: {
       cssMinify: true
     }

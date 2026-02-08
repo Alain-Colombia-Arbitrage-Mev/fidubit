@@ -1,5 +1,5 @@
 // ============================================
-// FIDUBIT - Site Data & Content
+// TRACKWISE - Site Data & Content
 // ============================================
 
 import type { 
@@ -17,12 +17,12 @@ import type {
 } from '@/types';
 
 export const siteConfig = {
-  name: 'FIDUBIT',
+  name: 'TRACKWISE',
   tagline: 'Fintech & Media Infrastructure',
   description: 'Hong Kong Card Issuance, Fintech Core Development & Digital Music Distribution. We incorporate companies and build the financial & media rails they run on.',
-  url: 'https://fidubit.com',
+  url: 'https://trackwise.com',
   whatsapp: '+852 1234 5678',
-  email: 'contact@fidubit.com',
+  email: 'contact@trackwise.com',
   location: 'Hong Kong SAR',
   year: new Date().getFullYear(),
 };
@@ -34,6 +34,7 @@ export const navigation: NavItem[] = [
   { label: 'Remittance', href: '/remittance', icon: 'solar:hand-money-linear', accentColor: 'yellow' },
   { label: 'Staff', href: '/staff', icon: 'solar:users-group-rounded-linear', accentColor: 'blue' },
   { label: 'Media', href: '/#section-music', icon: 'solar:music-note-linear', accentColor: 'fuchsia' },
+  { label: 'Creators', href: '/creators', icon: 'solar:camera-linear', accentColor: 'fuchsia' },
 ];
 
 export const systemModules: SystemStatus[] = [
@@ -48,7 +49,7 @@ export const cardProducts: CardData[] = [
     title: 'Black Elite',
     description: 'Unlimited daily spend • 0% FX Fees • Priority Support 24/7',
     cardNumber: '4111 •••• •••• 8829',
-    holderName: 'FIDUBIT ELITE',
+    holderName: 'TRACKWISE ELITE',
     network: 'visa',
     variant: 'black',
   },
@@ -56,7 +57,7 @@ export const cardProducts: CardData[] = [
     title: 'Platinum Business',
     description: 'Multi-currency IBAN • API Access • Expense Management',
     cardNumber: '5248 •••• •••• 1092',
-    holderName: 'FIDUBIT PLATINUM',
+    holderName: 'TRACKWISE PLATINUM',
     network: 'mastercard',
     variant: 'platinum',
   },
@@ -64,7 +65,7 @@ export const cardProducts: CardData[] = [
     title: 'Corporate Metal',
     description: 'Team Cards • Real-time Controls • Accounting Integration',
     cardNumber: '4822 •••• •••• 5591',
-    holderName: 'FIDUBIT CORP',
+    holderName: 'TRACKWISE CORP',
     network: 'visa',
     variant: 'gold',
   },
@@ -164,6 +165,7 @@ export const contactOptions: ContactOption[] = [
   { value: 'incorporation', label: 'Company Incorporation' },
   { value: 'blockchain', label: 'Blockchain / Tokenization' },
   { value: 'music-marketing', label: 'Music Marketing / Distribution' },
+  { value: 'creators-ugc', label: 'Creator Branding / UGC' },
   { value: 'otc-liquidity', label: 'OTC Liquidity Services' },
   { value: 'other', label: 'Other Services' },
 ];

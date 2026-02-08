@@ -10,6 +10,7 @@ export default {
     remittance: '汇款',
     staff: '人才',
     media: '媒体',
+    creators: '创作者',
     contact: '联系我们',
     getStarted: '开始',
   },
@@ -130,6 +131,7 @@ export default {
       incorporation: '公司成立',
       blockchain: '区块链 / 代币化',
       musicMarketing: '音乐营销 / 发行',
+      creatorsUgc: '创作者品牌 / UGC',
       otcLiquidity: 'OTC流动性服务',
       other: '其他服务',
     },
@@ -285,7 +287,79 @@ export default {
     cta: '请求工程师',
     howItWorks: '如何运作',
   },
-  
+
+  // Creators Page
+  creators: {
+    badge: '创作者经济',
+    title: '将创作者',
+    titleHighlight: '打造成品牌',
+    description: 'UGC内容生成、TikTok和Instagram社交媒体增长、全球音视频制作工作室，以及创作者商业模式优化。',
+    cta: '打造你的品牌',
+    explore: '我们的服务',
+    stats: {
+      managed: '管理的创作者',
+      views: '生成的观看量',
+      growth: '平均收入增长',
+      countries: '覆盖国家',
+    },
+    services: {
+      title: '创作者服务',
+      description: '构建、发展和变现个人品牌所需的一切。',
+      ugc: {
+        title: 'UGC内容生成',
+        subtitle: '真实品牌内容',
+        description: '为品牌和创作者制作高转化的用户生成内容。从策略到制作，我们提供有机且推动互动的内容。',
+      },
+      brand: {
+        title: '从创作者到品牌',
+        subtitle: '个人品牌架构',
+        description: '将艺术家和内容创作者转变为可识别的品牌。从视觉识别和定位到受众策略和变现框架。',
+      },
+      social: {
+        title: '社交媒体增长',
+        subtitle: 'TikTok、Instagram和YouTube',
+        description: '数据驱动的社交媒体营销，帮助增长受众和互动。优化个人资料、制定内容日历、执行增长策略。',
+      },
+    },
+    studios: {
+      badge: '全球制作',
+      title: '制作工作室',
+      description: '横跨三大洲的专业音视频制作。',
+      dubai: '迪拜媒体城全方位制作工作室。4K/8K视频、播客工作室和绿幕设施。',
+      china: '深圳内容制作中心。专注产品摄影、开箱内容和电商媒体。',
+      usa: '迈阿密创意工作室，专注生活方式、音乐和娱乐内容。双语（英语/西班牙语）制作团队。',
+    },
+    business: {
+      title: '商业模式优化',
+      description: '我们不仅创建内容——我们围绕您的个人品牌建立可持续的业务。',
+      revenue: '收入来源',
+      revenueDesc: '通过品牌合作、周边商品、课程、订阅和联盟计划实现收入多元化。',
+      analytics: '分析与增长',
+      analyticsDesc: '基于数据的决策，包括受众洞察、内容表现指标和增长预测。',
+      partnerships: '品牌合作',
+      partnershipsDesc: '将创作者与符合其受众的品牌连接，实现真实的高价值合作。',
+      legal: '法律与架构',
+      legalDesc: '公司设立、合同管理、知识产权保护和创作者业务税务优化。',
+    },
+    process: {
+      title: '我们的流程',
+      audit: '审计',
+      auditDesc: '分析您当前的品牌和内容',
+      strategy: '策略',
+      strategyDesc: '制定增长和变现计划',
+      production: '制作',
+      productionDesc: '在全球工作室创建内容',
+      distribution: '分发',
+      distributionDesc: '在各平台发布和放大',
+      scale: '扩展',
+      scaleDesc: '优化、变现和增长收入',
+    },
+    contact: {
+      title: '打造你的品牌',
+      description: '告诉我们您的内容和目标——我们将设计您的增长策略。',
+    },
+  },
+
   // Common
   common: {
     learnMore: '了解更多',

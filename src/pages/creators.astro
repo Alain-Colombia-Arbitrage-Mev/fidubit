@@ -1,0 +1,563 @@
+---
+/**
+ * TRACKWISE - Creators & Digital Marketing Page
+ * UGC, social media marketing, brand building for creators
+ */
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import WhatsAppButton from '@/components/ui/WhatsAppButton.astro';
+import GlassPanel from '@/components/ui/GlassPanel.astro';
+import Button from '@/components/ui/Button.astro';
+
+const seo = {
+  title: 'Creator Economy & UGC | Digital Marketing, Brand Building & Production - TRACKWISE LLC',
+  description: 'TRACKWISE LLC transforms content creators into global brands. UGC content generation, TikTok & Instagram growth, audiovisual production studios in Dubai, China & USA, and business model optimization for creators.',
+  keywords: [
+    'UGC content creation',
+    'creator economy',
+    'digital marketing agency',
+    'TikTok marketing',
+    'Instagram growth',
+    'content creator brand building',
+    'audiovisual production Dubai',
+    'social media marketing',
+    'creator business model',
+    'influencer management',
+    'brand development creators',
+    'video production China',
+    'content strategy',
+    'creator monetization',
+    'TRACKWISE creators',
+  ],
+};
+
+const services = [
+  {
+    id: 'ugc',
+    icon: 'solar:camera-linear',
+    title: 'UGC Content Generation',
+    subtitle: 'Authentic Brand Content',
+    description: 'We create high-converting user-generated content for brands and creators. From strategy to production, we deliver content that feels organic and drives engagement across TikTok, Instagram, and YouTube.',
+    color: 'fuchsia',
+    features: [
+      'TikTok & Reels production',
+      'Product showcase videos',
+      'Testimonial content',
+      'Trend-based content',
+      'A/B content testing',
+      'Platform-optimized formats',
+    ],
+    useCases: ['E-Commerce brands', 'DTC products', 'App launches', 'Service businesses'],
+  },
+  {
+    id: 'brand-building',
+    icon: 'solar:star-ring-linear',
+    title: 'Creator to Brand',
+    subtitle: 'Personal Brand Architecture',
+    description: 'We transform artists and content creators into recognizable brands. From visual identity and positioning to audience strategy and monetization frameworks, we build brands that last.',
+    color: 'purple',
+    features: [
+      'Brand identity design',
+      'Content strategy roadmap',
+      'Audience growth systems',
+      'Monetization frameworks',
+      'Cross-platform presence',
+      'Partnership development',
+    ],
+    useCases: ['Musicians & artists', 'Lifestyle creators', 'Tech influencers', 'Fitness creators'],
+  },
+  {
+    id: 'social-growth',
+    icon: 'solar:graph-new-up-linear',
+    title: 'Social Media Growth',
+    subtitle: 'TikTok, Instagram & YouTube',
+    description: 'Data-driven social media marketing that grows your audience and engagement. We optimize profiles, develop content calendars, and execute growth strategies backed by analytics.',
+    color: 'blue',
+    features: [
+      'Profile optimization',
+      'Content calendar planning',
+      'Hashtag & SEO strategy',
+      'Community management',
+      'Analytics & reporting',
+      'Paid amplification',
+    ],
+    useCases: ['Account growth', 'Engagement boost', 'Viral campaigns', 'Brand awareness'],
+  },
+];
+
+const studios = [
+  {
+    city: 'Dubai',
+    country: 'UAE',
+    icon: 'solar:buildings-3-linear',
+    description: 'Full-service production studio in Dubai Media City. 4K/8K video, podcast studios, and green screen facilities.',
+    capabilities: ['4K/8K Video', 'Podcast Studio', 'Photo Studio', 'Green Screen'],
+    color: 'yellow',
+  },
+  {
+    city: 'Shenzhen',
+    country: 'China',
+    icon: 'solar:buildings-linear',
+    description: 'Content production hub in Shenzhen. Specialized in product videography, unboxing content, and e-commerce media.',
+    capabilities: ['Product Video', 'E-Commerce Media', 'Live Streaming', 'Post-Production'],
+    color: 'red',
+  },
+  {
+    city: 'Miami',
+    country: 'USA',
+    icon: 'solar:city-linear',
+    description: 'Creative studio in Miami focused on lifestyle, music, and entertainment content. Bilingual (EN/ES) production team.',
+    capabilities: ['Music Videos', 'Lifestyle Content', 'Bilingual Production', 'Event Coverage'],
+    color: 'fuchsia',
+  },
+];
+
+const stats = [
+  { value: '200+', label: 'Creators Managed', icon: 'solar:users-group-rounded-linear' },
+  { value: '500M+', label: 'Views Generated', icon: 'solar:eye-linear' },
+  { value: '3x', label: 'Avg. Revenue Growth', icon: 'solar:graph-up-linear' },
+  { value: '15+', label: 'Countries Reached', icon: 'solar:globus-linear' },
+];
+
+const process = [
+  { step: '1', title: 'Audit', description: 'Analyze your current brand & content', icon: 'solar:magnifer-linear' },
+  { step: '2', title: 'Strategy', description: 'Build your growth & monetization plan', icon: 'solar:clipboard-list-linear' },
+  { step: '3', title: 'Production', description: 'Create content at our global studios', icon: 'solar:videocamera-record-linear' },
+  { step: '4', title: 'Distribution', description: 'Publish & amplify across platforms', icon: 'solar:share-circle-linear' },
+  { step: '5', title: 'Scale', description: 'Optimize, monetize & grow revenue', icon: 'solar:rocket-2-linear' },
+];
+
+const colorClasses: Record<string, { bg: string; border: string; text: string; glow: string }> = {
+  fuchsia: { bg: 'bg-fuchsia-500/10', border: 'border-fuchsia-500/30', text: 'text-fuchsia-500', glow: 'rgba(217,70,239,0.15)' },
+  purple: { bg: 'bg-purple-500/10', border: 'border-purple-500/30', text: 'text-purple-500', glow: 'rgba(168,85,247,0.15)' },
+  blue: { bg: 'bg-blue-500/10', border: 'border-blue-500/30', text: 'text-blue-500', glow: 'rgba(59,130,246,0.15)' },
+  yellow: { bg: 'bg-yellow-500/10', border: 'border-yellow-500/30', text: 'text-yellow-500', glow: 'rgba(234,179,8,0.15)' },
+  red: { bg: 'bg-red-500/10', border: 'border-red-500/30', text: 'text-red-500', glow: 'rgba(239,68,68,0.15)' },
+};
+---
+
+<Layout seo={seo}>
+  <WhatsAppButton />
+  <Header />
+
+  <main class="relative z-10 pt-16 min-h-screen bg-tw-black">
+
+    <!-- Hero Section -->
+    <section class="relative py-24 border-b border-white/5 overflow-hidden">
+      <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(217,70,239,0.08)_0%,transparent_40%)]"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(168,85,247,0.08)_0%,transparent_40%)]"></div>
+      </div>
+      <div class="absolute inset-0 grid-pattern opacity-20"></div>
+
+      <div class="max-w-6xl mx-auto px-6 relative z-10">
+        <div class="text-center max-w-3xl mx-auto">
+          <!-- Breadcrumb -->
+          <div class="flex items-center justify-center gap-2 text-xs font-mono text-zinc-600 mb-8">
+            <a href="/" class="hover:text-white transition-colors">Home</a>
+            <span>/</span>
+            <span class="text-fuchsia-500">Creators</span>
+          </div>
+
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-fuchsia-500/10 border border-fuchsia-500/20 mb-8">
+            <span class="w-2 h-2 bg-fuchsia-500 rounded-full animate-pulse"></span>
+            <span class="text-xs font-mono text-fuchsia-400 uppercase tracking-wider">Creator Economy</span>
+          </div>
+
+          <!-- Title -->
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-medium text-white uppercase tracking-tight mb-6 leading-[0.9]">
+            Turn Creators
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 via-purple-500 to-pink-400 block">
+              Into Brands
+            </span>
+          </h1>
+
+          <!-- Description -->
+          <p class="text-lg text-zinc-400 font-mono leading-relaxed mb-10 max-w-2xl mx-auto">
+            UGC content generation, social media growth on TikTok & Instagram, audiovisual production studios worldwide, and business model optimization for creators.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button
+              variant="primary"
+              href="#contact-creators"
+              icon="solar:arrow-right-linear"
+              size="lg"
+            >
+              Start Your Brand
+            </Button>
+            <Button
+              variant="outline"
+              href="#services"
+              icon="solar:camera-linear"
+              iconPosition="left"
+            >
+              Our Services
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="border-b border-white/5 py-12">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {stats.map((stat) => (
+            <GlassPanel padding="md" rounded="lg" class="text-center hover:border-fuchsia-500/30 transition-colors">
+              <iconify-icon icon={stat.icon} class="text-fuchsia-500 text-2xl mb-2"></iconify-icon>
+              <div class="text-2xl font-bold text-white">{stat.value}</div>
+              <div class="text-[10px] text-zinc-500 font-mono uppercase tracking-wide">{stat.label}</div>
+            </GlassPanel>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Services -->
+    <section id="services" class="border-b border-white/5 py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-medium text-white uppercase tracking-tight mb-4">
+            Creator Services
+          </h2>
+          <p class="text-zinc-500 font-mono text-sm max-w-xl mx-auto">
+            Everything you need to build, grow, and monetize your personal brand.
+          </p>
+        </div>
+
+        <div class="space-y-8">
+          {services.map((service, index) => {
+            const colors = colorClasses[service.color];
+            const isEven = index % 2 === 0;
+            return (
+              <div class="group">
+                <GlassPanel padding="none" rounded="2xl" class="overflow-hidden hover:border-white/20 transition-all">
+                  <div class:list={["grid grid-cols-1 lg:grid-cols-2", !isEven && "lg:flex-row-reverse"]}>
+                    <!-- Content Side -->
+                    <div class="p-8 lg:p-12">
+                      <div class="flex items-center gap-4 mb-6">
+                        <div class:list={["w-14 h-14 rounded-xl flex items-center justify-center", colors.bg, colors.border, "border"]}>
+                          <iconify-icon icon={service.icon} class:list={["text-2xl", colors.text]}></iconify-icon>
+                        </div>
+                        <div>
+                          <h3 class="text-2xl font-medium text-white">{service.title}</h3>
+                          <span class:list={["text-xs font-mono uppercase tracking-wide", colors.text]}>{service.subtitle}</span>
+                        </div>
+                      </div>
+
+                      <p class="text-zinc-400 font-mono text-sm leading-relaxed mb-8">
+                        {service.description}
+                      </p>
+
+                      <div class="grid grid-cols-2 gap-3 mb-8">
+                        {service.features.map((feature) => (
+                          <div class="flex items-center gap-2 text-xs font-mono text-zinc-400">
+                            <iconify-icon icon="solar:check-circle-linear" class:list={[colors.text]}></iconify-icon>
+                            {feature}
+                          </div>
+                        ))}
+                      </div>
+
+                      <Button variant="outline" href="#contact-creators" icon="solar:arrow-right-linear" size="sm">
+                        Learn More
+                      </Button>
+                    </div>
+
+                    <!-- Visual Side -->
+                    <div class:list={["relative p-8 lg:p-12 flex items-center justify-center", isEven ? "lg:border-l" : "lg:border-r", "border-white/5"]}>
+                      <div class="absolute inset-0 opacity-30" style={`background: radial-gradient(circle at center, ${colors.glow} 0%, transparent 70%)`}></div>
+
+                      <div class="relative z-10 w-full">
+                        <h4 class="text-xs font-mono text-zinc-600 uppercase tracking-wide mb-4">Ideal For</h4>
+                        <div class="grid grid-cols-2 gap-3">
+                          {service.useCases.map((useCase) => (
+                            <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5 text-center hover:border-white/10 transition-colors">
+                              <span class="text-sm text-zinc-400">{useCase}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </GlassPanel>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    <!-- Production Studios -->
+    <section id="studios" class="border-b border-white/5 py-20 bg-tw-dark">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/20 mb-6">
+            <iconify-icon icon="solar:videocamera-record-linear" class="text-yellow-500"></iconify-icon>
+            <span class="text-xs font-mono text-yellow-400 uppercase tracking-wider">Global Production</span>
+          </div>
+          <h2 class="text-3xl font-medium text-white uppercase tracking-tight mb-4">
+            Production Studios
+          </h2>
+          <p class="text-zinc-500 font-mono text-sm max-w-xl mx-auto">
+            Professional audiovisual production across three continents. We create content where your audience lives.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {studios.map((studio) => {
+            const colors = colorClasses[studio.color];
+            return (
+              <GlassPanel padding="lg" rounded="xl" class="hover:border-white/20 transition-all group relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 blur-[60px] rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity" style={`background: ${colors.glow}`}></div>
+
+                <div class="relative z-10">
+                  <div class:list={["w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform", colors.bg, "border", colors.border]}>
+                    <iconify-icon icon={studio.icon} class:list={["text-2xl", colors.text]}></iconify-icon>
+                  </div>
+
+                  <div class="flex items-baseline gap-2 mb-2">
+                    <h3 class="text-xl font-medium text-white">{studio.city}</h3>
+                    <span class="text-xs font-mono text-zinc-600">{studio.country}</span>
+                  </div>
+
+                  <p class="text-sm text-zinc-500 font-mono leading-relaxed mb-6">{studio.description}</p>
+
+                  <h4 class="text-[10px] font-mono text-zinc-600 uppercase tracking-wide mb-3">Capabilities</h4>
+                  <div class="flex flex-wrap gap-2">
+                    {studio.capabilities.map((cap) => (
+                      <span class:list={["text-[10px] font-mono px-2 py-1 rounded-full bg-white/5 border border-white/5", `text-zinc-500`]}>
+                        {cap}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </GlassPanel>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    <!-- Business Model Section -->
+    <section class="border-b border-white/5 py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-medium text-white uppercase tracking-tight mb-4">
+            Business Model Optimization
+          </h2>
+          <p class="text-zinc-500 font-mono text-sm max-w-xl mx-auto">
+            We don't just create content — we build sustainable businesses around your personal brand.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <GlassPanel padding="md" rounded="xl" class="hover:border-fuchsia-500/30 transition-all group">
+            <div class="w-12 h-12 rounded-xl bg-fuchsia-500/10 border border-fuchsia-500/20 flex items-center justify-center mb-4">
+              <iconify-icon icon="solar:money-bag-linear" class="text-fuchsia-500 text-xl"></iconify-icon>
+            </div>
+            <h3 class="text-white font-medium mb-2">Revenue Streams</h3>
+            <p class="text-xs text-zinc-500 font-mono leading-relaxed">Diversify income with brand deals, merch, courses, subscriptions, and affiliate programs.</p>
+          </GlassPanel>
+
+          <GlassPanel padding="md" rounded="xl" class="hover:border-purple-500/30 transition-all group">
+            <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-4">
+              <iconify-icon icon="solar:chart-2-linear" class="text-purple-500 text-xl"></iconify-icon>
+            </div>
+            <h3 class="text-white font-medium mb-2">Analytics & Growth</h3>
+            <p class="text-xs text-zinc-500 font-mono leading-relaxed">Data-driven decisions with audience insights, content performance metrics, and growth forecasting.</p>
+          </GlassPanel>
+
+          <GlassPanel padding="md" rounded="xl" class="hover:border-blue-500/30 transition-all group">
+            <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4">
+              <iconify-icon icon="solar:handshake-linear" class="text-blue-500 text-xl"></iconify-icon>
+            </div>
+            <h3 class="text-white font-medium mb-2">Brand Partnerships</h3>
+            <p class="text-xs text-zinc-500 font-mono leading-relaxed">We connect creators with brands that align with their audience for authentic, high-value collaborations.</p>
+          </GlassPanel>
+
+          <GlassPanel padding="md" rounded="xl" class="hover:border-yellow-500/30 transition-all group">
+            <div class="w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center mb-4">
+              <iconify-icon icon="solar:shield-check-linear" class="text-yellow-500 text-xl"></iconify-icon>
+            </div>
+            <h3 class="text-white font-medium mb-2">Legal & Structure</h3>
+            <p class="text-xs text-zinc-500 font-mono leading-relaxed">Company setup, contract management, IP protection, and tax optimization for creator businesses.</p>
+          </GlassPanel>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="border-b border-white/5 py-20">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-medium text-white uppercase tracking-tight mb-4">
+            Our Process
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+          {process.map((step, index) => (
+            <div class="text-center">
+              <div class:list={[
+                "w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border",
+                index === process.length - 1
+                  ? "bg-green-500/10 border-green-500/30 text-green-500"
+                  : "bg-fuchsia-500/10 border-fuchsia-500/30 text-fuchsia-500"
+              ]}>
+                {index === process.length - 1
+                  ? <iconify-icon icon={step.icon} width="28"></iconify-icon>
+                  : <span class="text-xl font-bold">{step.step}</span>
+                }
+              </div>
+              <h3 class="text-white font-medium mb-2 text-sm">{step.title}</h3>
+              <p class="text-[10px] font-mono text-zinc-500">{step.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Platforms -->
+    <section class="border-b border-white/5 py-16">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <h2 class="text-xl font-medium text-white uppercase tracking-tight mb-2">
+            Platforms We Dominate
+          </h2>
+          <p class="text-zinc-600 font-mono text-xs">
+            We grow your presence across all major social platforms
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-8">
+          {[
+            { name: 'TikTok', icon: 'logos:tiktok-icon' },
+            { name: 'Instagram', icon: 'skill-icons:instagram' },
+            { name: 'YouTube', icon: 'logos:youtube-icon' },
+            { name: 'Spotify', icon: 'logos:spotify-icon' },
+            { name: 'X / Twitter', icon: 'simple-icons:x' },
+            { name: 'LinkedIn', icon: 'logos:linkedin-icon' },
+          ].map((platform) => (
+            <div class="flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity group">
+              <iconify-icon icon={platform.icon} width="32" class="grayscale group-hover:grayscale-0 transition-all"></iconify-icon>
+              <span class="text-[10px] font-mono text-zinc-600">{platform.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact-creators" class="py-24 relative">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(217,70,239,0.05)_0%,transparent_50%)]"></div>
+
+      <div class="max-w-4xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-medium text-white uppercase tracking-tight mb-4">
+            Build Your Brand
+          </h2>
+          <p class="text-zinc-500 font-mono text-sm">
+            Tell us about your content and goals — we'll design your growth strategy.
+          </p>
+        </div>
+
+        <GlassPanel padding="lg" rounded="2xl" class="relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-fuchsia-500/10 blur-[60px] rounded-full pointer-events-none"></div>
+
+          <form class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="text-xs font-mono text-zinc-400 uppercase tracking-wide">Your Name / Brand</label>
+                <input type="text" placeholder="Creator name or brand" class="smart-input w-full" required />
+              </div>
+              <div class="space-y-2">
+                <label class="text-xs font-mono text-zinc-400 uppercase tracking-wide">Email</label>
+                <input type="email" placeholder="you@email.com" class="smart-input w-full" required />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="text-xs font-mono text-zinc-400 uppercase tracking-wide">Service Interest</label>
+                <select class="smart-input w-full appearance-none cursor-pointer">
+                  <option value="" class="bg-black">Select a service</option>
+                  <option value="ugc" class="bg-black">UGC Content Generation</option>
+                  <option value="brand" class="bg-black">Creator to Brand</option>
+                  <option value="social" class="bg-black">Social Media Growth</option>
+                  <option value="production" class="bg-black">Audiovisual Production</option>
+                  <option value="business" class="bg-black">Business Model Optimization</option>
+                  <option value="full" class="bg-black">Full Service Package</option>
+                </select>
+              </div>
+              <div class="space-y-2">
+                <label class="text-xs font-mono text-zinc-400 uppercase tracking-wide">Main Platform</label>
+                <select class="smart-input w-full appearance-none cursor-pointer">
+                  <option value="" class="bg-black">Select platform</option>
+                  <option value="tiktok" class="bg-black">TikTok</option>
+                  <option value="instagram" class="bg-black">Instagram</option>
+                  <option value="youtube" class="bg-black">YouTube</option>
+                  <option value="spotify" class="bg-black">Spotify</option>
+                  <option value="multiple" class="bg-black">Multiple Platforms</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label class="text-xs font-mono text-zinc-400 uppercase tracking-wide">Content Type</label>
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {['Music', 'Lifestyle', 'Tech', 'Fitness', 'Fashion', 'Food', 'Business', 'Other'].map((type) => (
+                  <label class="flex items-center gap-2 p-3 rounded-lg bg-white/[0.02] border border-white/5 hover:border-fuchsia-500/30 cursor-pointer transition-colors">
+                    <input type="radio" name="content-type" value={type.toLowerCase()} class="accent-fuchsia-500" />
+                    <span class="text-xs font-mono text-zinc-400">{type}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label class="text-xs font-mono text-zinc-400 uppercase tracking-wide">Tell Us About Your Project</label>
+              <textarea
+                rows="4"
+                placeholder="Describe your content, audience, goals, and any specific needs..."
+                class="smart-input w-full resize-none"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn-cta w-full group">
+              <span>Get Your Growth Strategy</span>
+              <iconify-icon icon="solar:arrow-right-linear" class="group-hover:translate-x-1 transition-transform" width="16"></iconify-icon>
+            </button>
+          </form>
+        </GlassPanel>
+      </div>
+    </section>
+
+    <Footer />
+  </main>
+</Layout>
+
+<script>
+  // Intersection Observer for scroll animations
+  const observerOptions: IntersectionObserverInit = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sys-active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.sys-reveal').forEach(el => {
+    observer.observe(el);
+  });
+</script>

@@ -1,0 +1,420 @@
+---
+/**
+ * TRACKWISE - Creators & Digital Marketing Page (Spanish)
+ */
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import WhatsAppButton from '@/components/ui/WhatsAppButton.astro';
+import GlassPanel from '@/components/ui/GlassPanel.astro';
+import Button from '@/components/ui/Button.astro';
+import { useTranslations } from '@/i18n';
+
+const t = useTranslations('es');
+
+const seo = {
+  title: 'Economía de Creadores & UGC | Marketing Digital, Branding y Producción - TRACKWISE LLC',
+  description: 'TRACKWISE LLC transforma creadores de contenido en marcas globales. Generación de contenido UGC, crecimiento en TikTok e Instagram, estudios de producción audiovisual en Dubái, China y EE.UU.',
+  keywords: [
+    'creación de contenido UGC',
+    'economía de creadores',
+    'agencia de marketing digital',
+    'marketing en TikTok',
+    'crecimiento en Instagram',
+    'marca personal creadores',
+    'producción audiovisual Dubái',
+    'marketing en redes sociales',
+    'modelo de negocio creadores',
+    'gestión de influencers',
+    'TRACKWISE creadores',
+  ],
+};
+
+const services = [
+  {
+    id: 'ugc',
+    icon: 'solar:camera-linear',
+    title: t.creators.services.ugc.title,
+    subtitle: t.creators.services.ugc.subtitle,
+    description: t.creators.services.ugc.description,
+    color: 'fuchsia',
+    features: [
+      'Producción TikTok & Reels',
+      'Videos de exhibición de productos',
+      'Contenido testimonial',
+      'Contenido basado en tendencias',
+      'Testing A/B de contenido',
+      'Formatos optimizados por plataforma',
+    ],
+    useCases: ['Marcas E-Commerce', 'Productos DTC', 'Lanzamientos de apps', 'Negocios de servicios'],
+  },
+  {
+    id: 'brand-building',
+    icon: 'solar:star-ring-linear',
+    title: t.creators.services.brand.title,
+    subtitle: t.creators.services.brand.subtitle,
+    description: t.creators.services.brand.description,
+    color: 'purple',
+    features: [
+      'Diseño de identidad de marca',
+      'Hoja de ruta de contenido',
+      'Sistemas de crecimiento de audiencia',
+      'Marcos de monetización',
+      'Presencia multiplataforma',
+      'Desarrollo de alianzas',
+    ],
+    useCases: ['Músicos y artistas', 'Creadores de estilo de vida', 'Influencers tech', 'Creadores fitness'],
+  },
+  {
+    id: 'social-growth',
+    icon: 'solar:graph-new-up-linear',
+    title: t.creators.services.social.title,
+    subtitle: t.creators.services.social.subtitle,
+    description: t.creators.services.social.description,
+    color: 'blue',
+    features: [
+      'Optimización de perfiles',
+      'Planificación de calendario',
+      'Estrategia de hashtags y SEO',
+      'Gestión de comunidad',
+      'Analítica e informes',
+      'Amplificación pagada',
+    ],
+    useCases: ['Crecimiento de cuentas', 'Impulso de engagement', 'Campañas virales', 'Reconocimiento de marca'],
+  },
+];
+
+const studios = [
+  {
+    city: 'Dubái',
+    country: 'EAU',
+    icon: 'solar:buildings-3-linear',
+    description: t.creators.studios.dubai,
+    capabilities: ['Video 4K/8K', 'Estudio Podcast', 'Estudio Foto', 'Pantalla Verde'],
+    color: 'yellow',
+  },
+  {
+    city: 'Shenzhen',
+    country: 'China',
+    icon: 'solar:buildings-linear',
+    description: t.creators.studios.china,
+    capabilities: ['Video Producto', 'Media E-Commerce', 'Live Streaming', 'Post-Producción'],
+    color: 'red',
+  },
+  {
+    city: 'Miami',
+    country: 'EE.UU.',
+    icon: 'solar:city-linear',
+    description: t.creators.studios.usa,
+    capabilities: ['Videos Musicales', 'Contenido Lifestyle', 'Producción Bilingüe', 'Cobertura de Eventos'],
+    color: 'fuchsia',
+  },
+];
+
+const stats = [
+  { value: '200+', label: t.creators.stats.managed, icon: 'solar:users-group-rounded-linear' },
+  { value: '500M+', label: t.creators.stats.views, icon: 'solar:eye-linear' },
+  { value: '3x', label: t.creators.stats.growth, icon: 'solar:graph-up-linear' },
+  { value: '15+', label: t.creators.stats.countries, icon: 'solar:globus-linear' },
+];
+
+const colorClasses: Record<string, { bg: string; border: string; text: string; glow: string }> = {
+  fuchsia: { bg: 'bg-fuchsia-500/10', border: 'border-fuchsia-500/30', text: 'text-fuchsia-500', glow: 'rgba(217,70,239,0.15)' },
+  purple: { bg: 'bg-purple-500/10', border: 'border-purple-500/30', text: 'text-purple-500', glow: 'rgba(168,85,247,0.15)' },
+  blue: { bg: 'bg-blue-500/10', border: 'border-blue-500/30', text: 'text-blue-500', glow: 'rgba(59,130,246,0.15)' },
+  yellow: { bg: 'bg-yellow-500/10', border: 'border-yellow-500/30', text: 'text-yellow-500', glow: 'rgba(234,179,8,0.15)' },
+  red: { bg: 'bg-red-500/10', border: 'border-red-500/30', text: 'text-red-500', glow: 'rgba(239,68,68,0.15)' },
+};
+---
+
+<Layout seo={seo} lang="es">
+  <WhatsAppButton />
+  <Header />
+
+  <main class="relative z-10 pt-16 min-h-screen bg-tw-black">
+
+    <!-- Hero Section -->
+    <section class="relative py-24 border-b border-white/5 overflow-hidden">
+      <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(217,70,239,0.08)_0%,transparent_40%)]"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(168,85,247,0.08)_0%,transparent_40%)]"></div>
+      </div>
+      <div class="absolute inset-0 grid-pattern opacity-20"></div>
+
+      <div class="max-w-6xl mx-auto px-6 relative z-10">
+        <div class="text-center max-w-3xl mx-auto">
+          <div class="flex items-center justify-center gap-2 text-xs font-mono text-zinc-600 mb-8">
+            <a href="/es" class="hover:text-white transition-colors">{t.common.home}</a>
+            <span>/</span>
+            <span class="text-fuchsia-500">{t.nav.creators}</span>
+          </div>
+
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-fuchsia-500/10 border border-fuchsia-500/20 mb-8">
+            <span class="w-2 h-2 bg-fuchsia-500 rounded-full animate-pulse"></span>
+            <span class="text-xs font-mono text-fuchsia-400 uppercase tracking-wider">{t.creators.badge}</span>
+          </div>
+
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-medium text-white uppercase tracking-tight mb-6 leading-[0.9]">
+            {t.creators.title}
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 via-purple-500 to-pink-400 block">
+              {t.creators.titleHighlight}
+            </span>
+          </h1>
+
+          <p class="text-lg text-zinc-400 font-mono leading-relaxed mb-10 max-w-2xl mx-auto">
+            {t.creators.description}
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button variant="primary" href="#contact-creators" icon="solar:arrow-right-linear" size="lg">
+              {t.creators.cta}
+            </Button>
+            <Button variant="outline" href="#services" icon="solar:camera-linear" iconPosition="left">
+              {t.creators.explore}
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="border-b border-white/5 py-12">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {stats.map((stat) => (
+            <GlassPanel padding="md" rounded="lg" class="text-center hover:border-fuchsia-500/30 transition-colors">
+              <iconify-icon icon={stat.icon} class="text-fuchsia-500 text-2xl mb-2"></iconify-icon>
+              <div class="text-2xl font-bold text-white">{stat.value}</div>
+              <div class="text-[10px] text-zinc-500 font-mono uppercase tracking-wide">{stat.label}</div>
+            </GlassPanel>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Services -->
+    <section id="services" class="border-b border-white/5 py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-medium text-white uppercase tracking-tight mb-4">
+            {t.creators.services.title}
+          </h2>
+          <p class="text-zinc-500 font-mono text-sm max-w-xl mx-auto">
+            {t.creators.services.description}
+          </p>
+        </div>
+
+        <div class="space-y-8">
+          {services.map((service, index) => {
+            const colors = colorClasses[service.color];
+            const isEven = index % 2 === 0;
+            return (
+              <GlassPanel padding="none" rounded="2xl" class="overflow-hidden hover:border-white/20 transition-all">
+                <div class:list={["grid grid-cols-1 lg:grid-cols-2", !isEven && "lg:flex-row-reverse"]}>
+                  <div class="p-8 lg:p-12">
+                    <div class="flex items-center gap-4 mb-6">
+                      <div class:list={["w-14 h-14 rounded-xl flex items-center justify-center", colors.bg, colors.border, "border"]}>
+                        <iconify-icon icon={service.icon} class:list={["text-2xl", colors.text]}></iconify-icon>
+                      </div>
+                      <div>
+                        <h3 class="text-2xl font-medium text-white">{service.title}</h3>
+                        <span class:list={["text-xs font-mono uppercase tracking-wide", colors.text]}>{service.subtitle}</span>
+                      </div>
+                    </div>
+                    <p class="text-zinc-400 font-mono text-sm leading-relaxed mb-8">{service.description}</p>
+                    <div class="grid grid-cols-2 gap-3 mb-8">
+                      {service.features.map((feature) => (
+                        <div class="flex items-center gap-2 text-xs font-mono text-zinc-400">
+                          <iconify-icon icon="solar:check-circle-linear" class:list={[colors.text]}></iconify-icon>
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
+                    <Button variant="outline" href="#contact-creators" icon="solar:arrow-right-linear" size="sm">
+                      {t.common.learnMore}
+                    </Button>
+                  </div>
+                  <div class:list={["relative p-8 lg:p-12 flex items-center justify-center", isEven ? "lg:border-l" : "lg:border-r", "border-white/5"]}>
+                    <div class="absolute inset-0 opacity-30" style={`background: radial-gradient(circle at center, ${colors.glow} 0%, transparent 70%)`}></div>
+                    <div class="relative z-10 w-full">
+                      <h4 class="text-xs font-mono text-zinc-600 uppercase tracking-wide mb-4">{t.common.useCases}</h4>
+                      <div class="grid grid-cols-2 gap-3">
+                        {service.useCases.map((useCase) => (
+                          <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5 text-center hover:border-white/10 transition-colors">
+                            <span class="text-sm text-zinc-400">{useCase}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </GlassPanel>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    <!-- Production Studios -->
+    <section id="studios" class="border-b border-white/5 py-20 bg-tw-dark">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/20 mb-6">
+            <iconify-icon icon="solar:videocamera-record-linear" class="text-yellow-500"></iconify-icon>
+            <span class="text-xs font-mono text-yellow-400 uppercase tracking-wider">{t.creators.studios.badge}</span>
+          </div>
+          <h2 class="text-3xl font-medium text-white uppercase tracking-tight mb-4">
+            {t.creators.studios.title}
+          </h2>
+          <p class="text-zinc-500 font-mono text-sm max-w-xl mx-auto">
+            {t.creators.studios.description}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {studios.map((studio) => {
+            const colors = colorClasses[studio.color];
+            return (
+              <GlassPanel padding="lg" rounded="xl" class="hover:border-white/20 transition-all group relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 blur-[60px] rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity" style={`background: ${colors.glow}`}></div>
+                <div class="relative z-10">
+                  <div class:list={["w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform", colors.bg, "border", colors.border]}>
+                    <iconify-icon icon={studio.icon} class:list={["text-2xl", colors.text]}></iconify-icon>
+                  </div>
+                  <div class="flex items-baseline gap-2 mb-2">
+                    <h3 class="text-xl font-medium text-white">{studio.city}</h3>
+                    <span class="text-xs font-mono text-zinc-600">{studio.country}</span>
+                  </div>
+                  <p class="text-sm text-zinc-500 font-mono leading-relaxed mb-6">{studio.description}</p>
+                  <h4 class="text-[10px] font-mono text-zinc-600 uppercase tracking-wide mb-3">{t.common.capabilities}</h4>
+                  <div class="flex flex-wrap gap-2">
+                    {studio.capabilities.map((cap) => (
+                      <span class="text-[10px] font-mono px-2 py-1 rounded-full bg-white/5 text-zinc-500 border border-white/5">{cap}</span>
+                    ))}
+                  </div>
+                </div>
+              </GlassPanel>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    <!-- Business Model Section -->
+    <section class="border-b border-white/5 py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-medium text-white uppercase tracking-tight mb-4">
+            {t.creators.business.title}
+          </h2>
+          <p class="text-zinc-500 font-mono text-sm max-w-xl mx-auto">
+            {t.creators.business.description}
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <GlassPanel padding="md" rounded="xl" class="hover:border-fuchsia-500/30 transition-all">
+            <div class="w-12 h-12 rounded-xl bg-fuchsia-500/10 border border-fuchsia-500/20 flex items-center justify-center mb-4">
+              <iconify-icon icon="solar:money-bag-linear" class="text-fuchsia-500 text-xl"></iconify-icon>
+            </div>
+            <h3 class="text-white font-medium mb-2">{t.creators.business.revenue}</h3>
+            <p class="text-xs text-zinc-500 font-mono leading-relaxed">{t.creators.business.revenueDesc}</p>
+          </GlassPanel>
+          <GlassPanel padding="md" rounded="xl" class="hover:border-purple-500/30 transition-all">
+            <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-4">
+              <iconify-icon icon="solar:chart-2-linear" class="text-purple-500 text-xl"></iconify-icon>
+            </div>
+            <h3 class="text-white font-medium mb-2">{t.creators.business.analytics}</h3>
+            <p class="text-xs text-zinc-500 font-mono leading-relaxed">{t.creators.business.analyticsDesc}</p>
+          </GlassPanel>
+          <GlassPanel padding="md" rounded="xl" class="hover:border-blue-500/30 transition-all">
+            <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4">
+              <iconify-icon icon="solar:handshake-linear" class="text-blue-500 text-xl"></iconify-icon>
+            </div>
+            <h3 class="text-white font-medium mb-2">{t.creators.business.partnerships}</h3>
+            <p class="text-xs text-zinc-500 font-mono leading-relaxed">{t.creators.business.partnershipsDesc}</p>
+          </GlassPanel>
+          <GlassPanel padding="md" rounded="xl" class="hover:border-yellow-500/30 transition-all">
+            <div class="w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center mb-4">
+              <iconify-icon icon="solar:shield-check-linear" class="text-yellow-500 text-xl"></iconify-icon>
+            </div>
+            <h3 class="text-white font-medium mb-2">{t.creators.business.legal}</h3>
+            <p class="text-xs text-zinc-500 font-mono leading-relaxed">{t.creators.business.legalDesc}</p>
+          </GlassPanel>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="border-b border-white/5 py-20">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-medium text-white uppercase tracking-tight mb-4">{t.creators.process.title}</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-fuchsia-500/10 border border-fuchsia-500/30 flex items-center justify-center mx-auto mb-4 text-fuchsia-500 text-xl font-bold">1</div>
+            <h3 class="text-white font-medium mb-2 text-sm">{t.creators.process.audit}</h3>
+            <p class="text-[10px] font-mono text-zinc-500">{t.creators.process.auditDesc}</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-fuchsia-500/10 border border-fuchsia-500/30 flex items-center justify-center mx-auto mb-4 text-fuchsia-500 text-xl font-bold">2</div>
+            <h3 class="text-white font-medium mb-2 text-sm">{t.creators.process.strategy}</h3>
+            <p class="text-[10px] font-mono text-zinc-500">{t.creators.process.strategyDesc}</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-fuchsia-500/10 border border-fuchsia-500/30 flex items-center justify-center mx-auto mb-4 text-fuchsia-500 text-xl font-bold">3</div>
+            <h3 class="text-white font-medium mb-2 text-sm">{t.creators.process.production}</h3>
+            <p class="text-[10px] font-mono text-zinc-500">{t.creators.process.productionDesc}</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-fuchsia-500/10 border border-fuchsia-500/30 flex items-center justify-center mx-auto mb-4 text-fuchsia-500 text-xl font-bold">4</div>
+            <h3 class="text-white font-medium mb-2 text-sm">{t.creators.process.distribution}</h3>
+            <p class="text-[10px] font-mono text-zinc-500">{t.creators.process.distributionDesc}</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center mx-auto mb-4 text-green-500">
+              <iconify-icon icon="solar:rocket-2-linear" width="28"></iconify-icon>
+            </div>
+            <h3 class="text-white font-medium mb-2 text-sm">{t.creators.process.scale}</h3>
+            <p class="text-[10px] font-mono text-zinc-500">{t.creators.process.scaleDesc}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact-creators" class="py-24 relative">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(217,70,239,0.05)_0%,transparent_50%)]"></div>
+      <div class="max-w-4xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-medium text-white uppercase tracking-tight mb-4">{t.creators.contact.title}</h2>
+          <p class="text-zinc-500 font-mono text-sm">{t.creators.contact.description}</p>
+        </div>
+        <GlassPanel padding="lg" rounded="2xl" class="relative overflow-hidden">
+          <form class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="text-xs font-mono text-zinc-400 uppercase tracking-wide">{t.contact.form.name}</label>
+                <input type="text" placeholder="Tu nombre o marca" class="smart-input w-full" required />
+              </div>
+              <div class="space-y-2">
+                <label class="text-xs font-mono text-zinc-400 uppercase tracking-wide">{t.contact.form.email}</label>
+                <input type="email" placeholder="tu@email.com" class="smart-input w-full" required />
+              </div>
+            </div>
+            <div class="space-y-2">
+              <label class="text-xs font-mono text-zinc-400 uppercase tracking-wide">{t.contact.form.message}</label>
+              <textarea rows="4" placeholder="Describe tu contenido, audiencia, objetivos..." class="smart-input w-full resize-none"></textarea>
+            </div>
+            <button type="submit" class="btn-cta w-full group">
+              <span>{t.contact.form.submit}</span>
+              <iconify-icon icon="solar:arrow-right-linear" class="group-hover:translate-x-1 transition-transform" width="16"></iconify-icon>
+            </button>
+          </form>
+        </GlassPanel>
+      </div>
+    </section>
+
+    <Footer />
+  </main>
+</Layout>

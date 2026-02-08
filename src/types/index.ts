@@ -1,5 +1,5 @@
 // ============================================
-// FIDUBIT - Type Definitions
+// TRACKWISE - Type Definitions
 // ============================================
 
 export interface NavItem {

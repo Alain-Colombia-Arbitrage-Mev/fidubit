@@ -10,6 +10,7 @@ export default {
     remittance: 'Remessas',
     staff: 'Talentos',
     media: 'Mídia',
+    creators: 'Criadores',
     contact: 'Contato',
     getStarted: 'Começar',
   },
@@ -130,6 +131,7 @@ export default {
       incorporation: 'Constituição de Empresas',
       blockchain: 'Blockchain / Tokenização',
       musicMarketing: 'Marketing / Distribuição Musical',
+      creatorsUgc: 'Branding de Criadores / UGC',
       otcLiquidity: 'Serviços de Liquidez OTC',
       other: 'Outros Serviços',
     },
@@ -285,7 +287,79 @@ export default {
     cta: 'Solicitar Engenheiros',
     howItWorks: 'Como Funciona',
   },
-  
+
+  // Creators Page
+  creators: {
+    badge: 'Economia de Criadores',
+    title: 'Transformamos Criadores',
+    titleHighlight: 'Em Marcas',
+    description: 'Geração de conteúdo UGC, crescimento em redes sociais como TikTok e Instagram, estúdios de produção audiovisual no mundo todo e otimização do modelo de negócio para criadores.',
+    cta: 'Crie Sua Marca',
+    explore: 'Nossos Serviços',
+    stats: {
+      managed: 'Criadores Gerenciados',
+      views: 'Visualizações Geradas',
+      growth: 'Crescimento Médio',
+      countries: 'Países Alcançados',
+    },
+    services: {
+      title: 'Serviços para Criadores',
+      description: 'Tudo o que você precisa para construir, crescer e monetizar sua marca pessoal.',
+      ugc: {
+        title: 'Geração de Conteúdo UGC',
+        subtitle: 'Conteúdo Autêntico de Marca',
+        description: 'Criamos conteúdo gerado por usuários de alta conversão para marcas e criadores. Da estratégia à produção, entregamos conteúdo orgânico que impulsiona o engajamento.',
+      },
+      brand: {
+        title: 'De Criador a Marca',
+        subtitle: 'Arquitetura de Marca Pessoal',
+        description: 'Transformamos artistas e criadores de conteúdo em marcas reconhecíveis. Da identidade visual e posicionamento à estratégia de audiência e frameworks de monetização.',
+      },
+      social: {
+        title: 'Crescimento em Redes Sociais',
+        subtitle: 'TikTok, Instagram e YouTube',
+        description: 'Marketing em redes sociais orientado por dados que faz crescer sua audiência e engajamento. Otimizamos perfis, desenvolvemos calendários de conteúdo e executamos estratégias de crescimento.',
+      },
+    },
+    studios: {
+      badge: 'Produção Global',
+      title: 'Estúdios de Produção',
+      description: 'Produção audiovisual profissional em três continentes.',
+      dubai: 'Estúdio de produção completo em Dubai Media City. Vídeo 4K/8K, estúdios de podcast e instalações de tela verde.',
+      china: 'Hub de produção de conteúdo em Shenzhen. Especializado em videografia de produto, unboxing e mídia de e-commerce.',
+      usa: 'Estúdio criativo em Miami focado em conteúdo de estilo de vida, música e entretenimento. Equipe de produção bilíngue (EN/ES).',
+    },
+    business: {
+      title: 'Otimização do Modelo de Negócio',
+      description: 'Não apenas criamos conteúdo — construímos negócios sustentáveis ao redor da sua marca pessoal.',
+      revenue: 'Fontes de Receita',
+      revenueDesc: 'Diversifique a renda com acordos de marca, merch, cursos, assinaturas e programas de afiliados.',
+      analytics: 'Análise e Crescimento',
+      analyticsDesc: 'Decisões baseadas em dados com insights de audiência, métricas de desempenho e previsões de crescimento.',
+      partnerships: 'Parcerias com Marcas',
+      partnershipsDesc: 'Conectamos criadores com marcas alinhadas com sua audiência para colaborações autênticas.',
+      legal: 'Legal e Estrutura',
+      legalDesc: 'Constituição de empresa, gestão de contratos, proteção de PI e otimização fiscal para negócios de criadores.',
+    },
+    process: {
+      title: 'Nosso Processo',
+      audit: 'Auditoria',
+      auditDesc: 'Analisar sua marca e conteúdo atual',
+      strategy: 'Estratégia',
+      strategyDesc: 'Construir seu plano de crescimento e monetização',
+      production: 'Produção',
+      productionDesc: 'Criar conteúdo em nossos estúdios globais',
+      distribution: 'Distribuição',
+      distributionDesc: 'Publicar e amplificar em todas as plataformas',
+      scale: 'Escalar',
+      scaleDesc: 'Otimizar, monetizar e crescer receita',
+    },
+    contact: {
+      title: 'Construa Sua Marca',
+      description: 'Conte-nos sobre seu conteúdo e objetivos — projetaremos sua estratégia de crescimento.',
+    },
+  },
+
   // Common
   common: {
     learnMore: 'Saiba Mais',

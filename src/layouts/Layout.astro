@@ -1,6 +1,6 @@
 ---
 /**
- * FIDUBIT - Main Layout
+ * TRACKWISE - Main Layout
  * Optimized for SEO with comprehensive meta tags and i18n support
  */
 import type { SEOProps } from '@/types';
@@ -22,7 +22,7 @@ const langData = languages[currentLang];
 const alternateLinks = getAlternateLinks(Astro.url.pathname);
 
 const defaultSEO: SEOProps = {
-  title: 'FIDUBIT - Fintech & Media Infrastructure',
+  title: 'TRACKWISE - Fintech & Media Infrastructure',
   description: 'Hong Kong Card Issuance, Fintech Core Development & Digital Music Distribution. We incorporate companies and build the financial & media rails they run on.',
   keywords: [
     'fintech',
@@ -41,24 +41,26 @@ const defaultSEO: SEOProps = {
     'RWA tokenization',
   ],
   type: 'website',
-  author: 'FIDUBIT Systems Ltd',
-  twitterHandle: '@fidubit',
+  author: 'TRACKWISE LLC',
+  twitterHandle: '@trackwise',
 };
 
 const meta = { ...defaultSEO, ...seo };
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://fidubit.com');
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://trackwise.com');
 
 // Structured Data for Organization
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'FIDUBIT',
+  name: 'TRACKWISE LLC',
+  legalName: 'TRACKWISE LLC',
   description: meta.description,
-  url: 'https://fidubit.com',
-  logo: 'https://fidubit.com/logo.png',
+  url: 'https://trackwise.com',
+  logo: 'https://trackwise.com/logo.png',
+  image: 'https://trackwise.com/og-image.png',
   sameAs: [
-    'https://twitter.com/fidubit',
-    'https://linkedin.com/company/fidubit',
+    'https://twitter.com/trackwise',
+    'https://linkedin.com/company/trackwise',
   ],
   address: {
     '@type': 'PostalAddress',
@@ -70,7 +72,12 @@ const organizationSchema = {
     '@type': 'ContactPoint',
     telephone: '+852-1234-5678',
     contactType: 'sales',
-    availableLanguage: ['English', 'Chinese'],
+    availableLanguage: ['English', 'Chinese', 'Spanish', 'Portuguese'],
+  },
+  foundingDate: '2024',
+  numberOfEmployees: {
+    '@type': 'QuantitativeValue',
+    value: '50+',
   },
 };
 
@@ -81,7 +88,7 @@ const servicesSchema = {
   serviceType: 'Fintech Infrastructure',
   provider: {
     '@type': 'Organization',
-    name: 'FIDUBIT',
+    name: 'TRACKWISE',
   },
   areaServed: {
     '@type': 'GeoCircle',
@@ -125,7 +132,7 @@ const servicesSchema = {
 ---
 
 <!DOCTYPE html>
-<html lang={langData.locale} class="bg-fidubit-black">
+<html lang={langData.locale} class="bg-tw-black">
   <head>
     <!-- Primary Meta Tags -->
     <meta charset="UTF-8" />
@@ -145,24 +152,32 @@ const servicesSchema = {
     {alternateLinks.map((alt) => (
       <link rel="alternate" hreflang={languages[alt.lang].locale.split('-')[0]} href={alt.href} />
     ))}
-    <link rel="alternate" hreflang="x-default" href="https://fidubit.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://trackwise.com/" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={meta.type || 'website'} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={meta.title} />
     <meta property="og:description" content={meta.description} />
-    <meta property="og:image" content={meta.image || 'https://fidubit.com/og-image.png'} />
-    <meta property="og:site_name" content="FIDUBIT" />
+    <meta property="og:image" content={meta.image || 'https://trackwise.com/og-image.png'} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${meta.title} - TRACKWISE LLC`} />
+    <meta property="og:site_name" content="TRACKWISE LLC" />
     <meta property="og:locale" content={langData.locale.replace('-', '_')} />
-    
+    {Object.entries(languages).filter(([code]) => code !== currentLang).map(([_, data]) => (
+      <meta property="og:locale:alternate" content={data.locale.replace('-', '_')} />
+    ))}
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content={canonicalURL} />
     <meta name="twitter:title" content={meta.title} />
     <meta name="twitter:description" content={meta.description} />
-    <meta name="twitter:image" content={meta.image || 'https://fidubit.com/og-image.png'} />
+    <meta name="twitter:image" content={meta.image || 'https://trackwise.com/og-image.png'} />
+    <meta name="twitter:image:alt" content={`${meta.title} - TRACKWISE LLC`} />
     {meta.twitterHandle && <meta name="twitter:site" content={meta.twitterHandle} />}
+    <meta name="twitter:creator" content={meta.twitterHandle || '@trackwise'} />
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -192,7 +207,7 @@ const servicesSchema = {
     <script is:inline src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js" defer></script>
   </head>
   
-  <body class="text-zinc-400 min-h-screen flex flex-col selection:bg-yellow-500 selection:text-black bg-fidubit-black overflow-x-hidden">
+  <body class="text-zinc-400 min-h-screen flex flex-col selection:bg-yellow-500 selection:text-black bg-tw-black overflow-x-hidden">
     <slot />
   </body>
 </html>

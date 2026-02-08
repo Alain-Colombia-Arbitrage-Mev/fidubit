@@ -1,6 +1,6 @@
 ---
 /**
- * FIDUBIT - Header Component
+ * TRACKWISE - Header Component
  * Premium glass header with state management and navigation
  */
 import { navigation, siteConfig } from '@/data/site';
@@ -26,6 +26,7 @@ const navLabels: Record<string, string> = {
   'Remittance': t.nav.remittance,
   'Staff': t.nav.staff,
   'Media': t.nav.media,
+  'Creators': t.nav.creators,
 };
 
 // Get current path for active state
@@ -79,7 +80,7 @@ const getHref = (href: string) => {
   >
     <div class="relative">
       <div class="w-8 h-8 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-lg flex items-center justify-center shadow-lg shadow-yellow-500/20 group-hover:shadow-yellow-500/40 transition-shadow">
-        <span class="text-black font-bold text-sm">F</span>
+        <span class="text-black font-bold text-sm">T</span>
       </div>
       <div class="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-green-500 rounded-full border-2 border-black animate-pulse"></div>
     </div>
@@ -87,7 +88,7 @@ const getHref = (href: string) => {
       <span class="text-white font-bold tracking-tight group-hover:text-yellow-400 transition-colors">
         {siteConfig.name}
       </span>
-      <span class="text-[9px] text-zinc-600 font-mono block -mt-0.5">SYSTEMS</span>
+      <span class="text-[9px] text-zinc-600 font-mono block -mt-0.5">LLC</span>
     </div>
   </a>
   
@@ -187,7 +188,7 @@ const getHref = (href: string) => {
   <div class="flex items-center justify-between p-4 border-b border-white/5">
     <a href="/" class="flex items-center gap-3">
       <div class="w-8 h-8 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-lg flex items-center justify-center">
-        <span class="text-black font-bold text-sm">F</span>
+        <span class="text-black font-bold text-sm">T</span>
       </div>
       <span class="text-white font-bold">{siteConfig.name}</span>
     </a>

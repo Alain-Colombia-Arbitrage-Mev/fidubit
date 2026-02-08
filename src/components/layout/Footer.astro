@@ -1,6 +1,6 @@
 ---
 /**
- * FIDUBIT - Footer Component
+ * TRACKWISE - Footer Component
  * Site footer with legal links
  */
 import { siteConfig, footerLinks } from '@/data/site';
@@ -19,7 +19,7 @@ const t = useTranslations(lang);
 
 <footer 
   class:list={[
-    "border-t border-white/5 bg-fidubit-darker py-12 px-8 mt-auto",
+    "border-t border-white/5 bg-tw-darker py-12 px-8 mt-auto",
     className
   ]}
 >
@@ -75,7 +75,7 @@ const t = useTranslations(lang);
     <!-- Bottom Bar -->
     <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
       <div class="text-xs text-zinc-600 font-mono">
-        &copy; {siteConfig.year} {siteConfig.name} SYSTEMS LTD. {t.footer.rights}
+        &copy; {siteConfig.year} {siteConfig.name} LLC. {t.footer.rights}
       </div>
       
       <!-- Legal Links -->

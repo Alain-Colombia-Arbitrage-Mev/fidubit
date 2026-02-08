@@ -1,4 +1,4 @@
-# FIDUBIT
+# TRACKWISE
 
 Fintech & Media Infrastructure Platform built with Astro + TypeScript + Tailwind CSS.
 
@@ -21,7 +21,7 @@ Fintech & Media Infrastructure Platform built with Astro + TypeScript + Tailwind
 ## 📦 Project Structure
 
 ```
-fidubit/
+trackwise/
 ├── src/
 │   ├── components/
 │   │   ├── layout/      # Header, Sidebar, Footer
@@ -60,4 +60,4 @@ This project is configured for deployment on **Cloudflare Pages**.
 
 ## 📄 License
 
-Proprietary - FIDUBIT Systems Ltd.
+Proprietary - TRACKWISE LLC.

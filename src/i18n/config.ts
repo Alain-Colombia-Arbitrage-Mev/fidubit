@@ -1,5 +1,5 @@
 /**
- * FIDUBIT - Internationalization Configuration
+ * TRACKWISE - Internationalization Configuration
  * SEO-friendly static routes for each language
  */
 
@@ -55,6 +55,6 @@ export function getLocalizedPath(path: string, lang: Language): string {
 export function getAlternateLinks(currentPath: string): Array<{ lang: Language; href: string }> {
   return Object.keys(languages).map((lang) => ({
     lang: lang as Language,
-    href: `https://fidubit.com${getLocalizedPath(currentPath, lang as Language)}`,
+    href: `https://trackwise.com${getLocalizedPath(currentPath, lang as Language)}`,
   }));
 }
