@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@iconify/json": "^2.2.279",
+    "@types/node": "^25.2.2",
     "astro-icon": "^1.1.1"
   }
 }
