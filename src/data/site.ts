@@ -21,7 +21,7 @@ export const siteConfig = {
   tagline: 'Fintech & Media Infrastructure',
   description: 'Hong Kong Card Issuance, Fintech Core Development & Digital Music Distribution. We incorporate companies and build the financial & media rails they run on.',
   url: 'https://trackwise.com',
-  whatsapp: '+852 1234 5678',
+  whatsapp: '+573161355699',
   email: 'contact@trackwise.com',
   location: 'Hong Kong SAR',
   year: new Date().getFullYear(),
