@@ -314,17 +314,6 @@ export const teamMembers: TeamMember[] = [
     },
   },
   {
-    name: 'Alain Herrera',
-    role: 'Chief Executive Officer',
-    bio: 'Sets the company strategy, runs commercial partnerships with sponsor banks and BIN sponsors, and owns capital and growth at Trackwise.',
-    icon: 'solar:crown-star-linear',
-    skills: ['Strategy', 'Fundraising', 'Partnerships', 'GTM'],
-    accentColor: 'yellow',
-    socials: {
-      email: 'alain@trackwise.finance',
-    },
-  },
-  {
     name: 'Mauricio Jaramillo',
     role: 'Chief Compliance Officer / BSA Officer',
     bio: 'Owns the BSA/AML program, FinCEN reporting, sanctions screening and overall compliance posture for the Wyoming MSB.',
