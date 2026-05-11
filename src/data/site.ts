@@ -24,7 +24,7 @@ export const siteConfig = {
   tagline: 'Banking-as-a-Service Infrastructure',
   description: 'Fintech BaaS platform powering card issuance, multi-currency accounts, cross-border payments, and embedded financial APIs. Wyoming-licensed Money Services Business.',
   url: 'https://trackwise.finance',
-  whatsapp: '+1 307 200 0000',
+  whatsapp: '+1 515 506 8239',
   email: 'info@trackwise.finance',
   location: 'Wyoming, USA',
   year: new Date().getFullYear(),
