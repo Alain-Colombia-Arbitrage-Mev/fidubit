@@ -313,6 +313,50 @@ export const teamMembers: TeamMember[] = [
       email: 'dawin@trackwise.finance',
     },
   },
+  {
+    name: 'Alain Herrera',
+    role: 'Chief Executive Officer',
+    bio: 'Sets the company strategy, runs commercial partnerships with sponsor banks and BIN sponsors, and owns capital and growth at Trackwise.',
+    icon: 'solar:crown-star-linear',
+    skills: ['Strategy', 'Fundraising', 'Partnerships', 'GTM'],
+    accentColor: 'yellow',
+    socials: {
+      email: 'alain@trackwise.finance',
+    },
+  },
+  {
+    name: 'Mauricio Jaramillo',
+    role: 'Chief Compliance Officer / BSA Officer',
+    bio: 'Owns the BSA/AML program, FinCEN reporting, sanctions screening and overall compliance posture for the Wyoming MSB.',
+    icon: 'solar:shield-check-linear',
+    skills: ['BSA/AML', 'FinCEN', 'KYC/KYB', 'OFAC', 'SAR/CTR'],
+    accentColor: 'green',
+    socials: {
+      email: 'mauricio@trackwise.finance',
+    },
+  },
+  {
+    name: 'Jorge Quiroz',
+    role: 'Head of Product',
+    bio: 'Defines the BaaS product surface — accounts, cards, payments, and developer experience — translating regulatory and customer needs into shipped product.',
+    icon: 'solar:widget-5-linear',
+    skills: ['Product Strategy', 'BaaS', 'API Design', 'UX'],
+    accentColor: 'purple',
+    socials: {
+      email: 'jorge@trackwise.finance',
+    },
+  },
+  {
+    name: 'Catalina Cartagena',
+    role: 'Head of Operations & Risk',
+    bio: 'Runs day-to-day operations, fraud and transaction monitoring, vendor risk and incident response across the platform.',
+    icon: 'solar:graph-up-linear',
+    skills: ['Operations', 'Fraud', 'Risk', 'Vendor Mgmt', 'Incident Response'],
+    accentColor: 'blue',
+    socials: {
+      email: 'catalina@trackwise.finance',
+    },
+  },
 ];
 
 export const footerLinks = [
