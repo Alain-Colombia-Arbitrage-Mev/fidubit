@@ -1,30 +1,41 @@
 // ============================================
-// FIDUBIT - Site Data & Content
+// TRACKWISE - Site Data & Content
 // ============================================
 
-import type { 
-  NavItem, 
-  CardData, 
-  ServiceFeature, 
-  VideoItem, 
-  CorporateService, 
+import type {
+  NavItem,
+  CardData,
+  ServiceFeature,
+  VideoItem,
+  CorporateService,
   ContactOption,
   SystemStatus,
   TechStack,
   StaffRole,
   StaffStat,
-  StaffEngagementModel
+  StaffEngagementModel,
+  TeamMember,
+  CompanyInfo,
 } from '@/types';
 
 export const siteConfig = {
-  name: 'FIDUBIT',
-  tagline: 'Fintech & Media Infrastructure',
-  description: 'Hong Kong Card Issuance, Fintech Core Development & Digital Music Distribution. We incorporate companies and build the financial & media rails they run on.',
-  url: 'https://fidubit.com',
-  whatsapp: '+852 1234 5678',
-  email: 'contact@fidubit.com',
-  location: 'Hong Kong SAR',
+  name: 'TRACKWISE',
+  legalName: 'Trackwise LLC',
+  tagline: 'Banking-as-a-Service Infrastructure',
+  description: 'Fintech BaaS platform powering card issuance, multi-currency accounts, cross-border payments, and embedded financial APIs. Wyoming-licensed Money Services Business.',
+  url: 'https://trackwise.finance',
+  whatsapp: '+1 307 200 0000',
+  email: 'info@trackwise.finance',
+  location: 'Wyoming, USA',
   year: new Date().getFullYear(),
+};
+
+export const companyInfo: CompanyInfo = {
+  legalName: 'Trackwise LLC',
+  jurisdiction: 'Wyoming, United States',
+  licenseType: 'Money Services Business (MSB)',
+  licenseNumber: '31000299058422',
+  registeredAddress: 'Wyoming, USA',
 };
 
 export const navigation: NavItem[] = [
@@ -33,12 +44,13 @@ export const navigation: NavItem[] = [
   { label: 'AI Solutions', href: '/ai', icon: 'solar:cpu-bolt-linear', accentColor: 'purple' },
   { label: 'Remittance', href: '/remittance', icon: 'solar:hand-money-linear', accentColor: 'yellow' },
   { label: 'Staff', href: '/staff', icon: 'solar:users-group-rounded-linear', accentColor: 'blue' },
+  { label: 'Team', href: '/#section-team', icon: 'solar:user-id-linear', accentColor: 'green' },
   { label: 'Media', href: '/#section-music', icon: 'solar:music-note-linear', accentColor: 'fuchsia' },
 ];
 
 export const systemModules: SystemStatus[] = [
   { name: 'Issuance', icon: 'solar:card-linear', status: 'active', accentColor: 'yellow' },
-  { name: 'Media Dist', icon: 'solar:music-note-linear', status: 'active', accentColor: 'fuchsia' },
+  { name: 'BaaS API', icon: 'solar:code-square-linear', status: 'active', accentColor: 'blue' },
   { name: 'Blockchain', icon: 'solar:link-circle-linear', status: 'synced', accentColor: 'purple' },
   { name: 'KYC/AML', icon: 'solar:shield-check-linear', status: 'active', accentColor: 'green' },
 ];
@@ -48,7 +60,7 @@ export const cardProducts: CardData[] = [
     title: 'Black Elite',
     description: 'Unlimited daily spend • 0% FX Fees • Priority Support 24/7',
     cardNumber: '4111 •••• •••• 8829',
-    holderName: 'FIDUBIT ELITE',
+    holderName: 'TRACKWISE ELITE',
     network: 'visa',
     variant: 'black',
   },
@@ -56,7 +68,7 @@ export const cardProducts: CardData[] = [
     title: 'Platinum Business',
     description: 'Multi-currency IBAN • API Access • Expense Management',
     cardNumber: '5248 •••• •••• 1092',
-    holderName: 'FIDUBIT PLATINUM',
+    holderName: 'TRACKWISE PLATINUM',
     network: 'mastercard',
     variant: 'platinum',
   },
@@ -64,7 +76,7 @@ export const cardProducts: CardData[] = [
     title: 'Corporate Metal',
     description: 'Team Cards • Real-time Controls • Accounting Integration',
     cardNumber: '4822 •••• •••• 5591',
-    holderName: 'FIDUBIT CORP',
+    holderName: 'TRACKWISE CORP',
     network: 'visa',
     variant: 'gold',
   },
@@ -73,9 +85,9 @@ export const cardProducts: CardData[] = [
 export const infrastructureServices: ServiceFeature[] = [
   {
     icon: 'solar:code-square-linear',
-    title: 'Fintech Developer',
-    description: 'Custom fintech ledger systems built for scale. We deliver white-label IBAN generation, Swift/SEPA integration, and high-performance transaction engines capable of processing millions of transactions per second.',
-    tag: 'INFRA_DEV',
+    title: 'Fintech BaaS APIs',
+    description: 'Embedded banking infrastructure built for scale. White-label IBAN generation, Swift/SEPA integration, and high-performance transaction engines capable of processing millions of transactions per second.',
+    tag: 'BAAS_CORE',
     accentColor: 'blue',
     features: [
       'White-label UI/UX Design',
@@ -135,18 +147,18 @@ export const musicVideos: VideoItem[] = [
 export const corporateServices: CorporateService[] = [
   {
     icon: 'solar:globus-linear',
-    title: 'HK & Offshore Incorporation',
-    description: 'Remote company setup with nominee director services, registered office address, and corporate secretary. Jurisdictions include Hong Kong, Singapore, BVI, Cayman, and Seychelles.',
+    title: 'US & Offshore Incorporation',
+    description: 'Remote company setup with registered agent, EIN registration, and corporate compliance. Jurisdictions include Wyoming, Delaware, BVI, Cayman, and Singapore.',
   },
   {
     icon: 'solar:document-text-linear',
-    title: 'Licensing & Compliance',
-    description: 'MSO License assistance, AML/KYC framework setup, legal opinion letters, and ongoing compliance monitoring. We handle the regulatory complexity so you can focus on growth.',
+    title: 'MSB Licensing & Compliance',
+    description: 'Money Services Business registration, AML/KYC framework setup, legal opinion letters, and ongoing FinCEN compliance monitoring. We handle the regulatory complexity so you can focus on growth.',
   },
   {
     icon: 'solar:bank-linear',
     title: 'Fintech Introductions',
-    description: 'Warm introductions to tier-1 banks and EMIs across Asia and Europe. Multi-currency account setup with SWIFT/SEPA connectivity for seamless international operations.',
+    description: 'Warm introductions to tier-1 banks and EMIs across the US, Europe, and Asia. Multi-currency account setup with SWIFT/SEPA connectivity for seamless international operations.',
   },
   {
     icon: 'solar:shield-check-linear',
@@ -157,7 +169,7 @@ export const corporateServices: CorporateService[] = [
 
 export const contactOptions: ContactOption[] = [
   { value: 'card-issuance', label: 'Card Issuance Program' },
-  { value: 'core-fintech', label: 'Core Fintech Development' },
+  { value: 'baas-api', label: 'BaaS / Embedded Finance APIs' },
   { value: 'ai-solutions', label: 'AI Solutions / Model Training' },
   { value: 'remittance', label: 'Remittance / Cross-Border Payments' },
   { value: 'staff-augmentation', label: 'Staff Augmentation' },
@@ -271,6 +283,35 @@ export const engagementModels: StaffEngagementModel[] = [
       'Complete documentation',
       'Post-launch support included',
     ],
+  },
+];
+
+// ============================================
+// Team
+// ============================================
+
+export const teamMembers: TeamMember[] = [
+  {
+    name: 'Alain Herrera',
+    role: 'Chief Technology Officer',
+    bio: 'Drives the technical vision of Trackwise: BaaS architecture, payment rails, and compliance-grade infrastructure powering the platform.',
+    icon: 'solar:cpu-bolt-linear',
+    skills: ['Fintech Architecture', 'BaaS', 'Cloud Infrastructure', 'Security'],
+    accentColor: 'yellow',
+    socials: {
+      email: 'alain@trackwise.finance',
+    },
+  },
+  {
+    name: 'Dawin Ossa',
+    role: 'Senior Developer',
+    bio: 'Builds and ships the core platform — from card issuance flows to ledger and API layers — with a focus on performance and reliability.',
+    icon: 'solar:code-square-linear',
+    skills: ['TypeScript', 'Node.js', 'PostgreSQL', 'APIs'],
+    accentColor: 'blue',
+    socials: {
+      email: 'dawin@trackwise.finance',
+    },
   },
 ];
 

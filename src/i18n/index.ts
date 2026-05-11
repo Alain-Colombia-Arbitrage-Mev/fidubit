@@ -1,5 +1,5 @@
 /**
- * FIDUBIT - i18n System
+ * TRACKWISE - i18n System
  * SEO-friendly internationalization with static routes
  */
 

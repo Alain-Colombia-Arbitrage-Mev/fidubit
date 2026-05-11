@@ -9,6 +9,7 @@ export default {
     ai: 'AI Solutions',
     remittance: 'Remittance',
     staff: 'Staff',
+    team: 'Team',
     media: 'Media',
     contact: 'Contact',
     getStarted: 'Get Started',
@@ -88,6 +89,19 @@ export default {
     },
   },
   
+  // Team Section
+  team: {
+    module: 'MODULE_TEAM',
+    label: 'Leadership',
+    badge: 'Our Team',
+    title: 'Built by',
+    titleHighlight: 'Operators',
+    description: 'A senior fintech team behind Trackwise — building reliable BaaS infrastructure, payment rails, and developer-first APIs.',
+    role: 'Role',
+    skills: 'Skills',
+    contact: 'Contact',
+  },
+
   // Music Section
   music: {
     module: 'MODULE_MEDIA',

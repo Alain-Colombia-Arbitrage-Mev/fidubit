@@ -9,6 +9,7 @@ export default {
     ai: 'حلول الذكاء الاصطناعي',
     remittance: 'التحويلات',
     staff: 'المواهب',
+    team: 'الفريق',
     media: 'الإعلام',
     contact: 'اتصل بنا',
     getStarted: 'ابدأ',
@@ -88,6 +89,19 @@ export default {
     },
   },
   
+  // Team Section
+  team: {
+    module: 'الفريق_MODULE',
+    label: 'القيادة',
+    badge: 'فريقنا',
+    title: 'من بناء',
+    titleHighlight: 'مشغّلين',
+    description: 'فريق فنتك مخضرم وراء Trackwise — يبني بنية BaaS موثوقة، ومسارات دفع، وواجهات برمجية تركّز على المطوّر.',
+    role: 'الدور',
+    skills: 'المهارات',
+    contact: 'تواصل',
+  },
+
   // Music Section
   music: {
     module: 'وحدة_الإعلام',

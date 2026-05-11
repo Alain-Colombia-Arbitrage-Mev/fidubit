@@ -1,8 +1,8 @@
 {
-  "name": "fidubit",
+  "name": "trackwise",
   "type": "module",
   "version": "1.0.0",
-  "description": "FIDUBIT - Fintech & Media Infrastructure Platform",
+  "description": "TRACKWISE - Fintech & Media Infrastructure Platform",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

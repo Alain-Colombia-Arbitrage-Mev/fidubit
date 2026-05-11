@@ -1,6 +1,6 @@
 ---
 /**
- * FIDUBIT - Homepage
+ * TRACKWISE - Homepage
  * Main landing page for Fintech & Media Infrastructure
  */
 import Layout from '@/layouts/Layout.astro';
@@ -16,17 +16,21 @@ import MusicSection from '@/components/sections/MusicSection.astro';
 import CorporateSection from '@/components/sections/CorporateSection.astro';
 import ContactSection from '@/components/sections/ContactSection.astro';
 import StaffTeaser from '@/components/sections/StaffTeaser.astro';
+import TeamSection from '@/components/sections/TeamSection.astro';
 
 const seo = {
-  title: 'FIDUBIT - Hong Kong Fintech & Media Infrastructure',
-  description: 'Premium card issuance, fintech development, blockchain solutions, staff augmentation, and digital music distribution. We incorporate companies and build the financial & media rails they run on. Based in Hong Kong SAR.',
+  title: 'TRACKWISE - Fintech BaaS & Embedded Banking Infrastructure',
+  description: 'Trackwise LLC (Wyoming, FinCEN MSB #31000299058422). Banking-as-a-Service platform: card issuance, multi-currency accounts, cross-border payments, blockchain rails, and developer-first financial APIs.',
   keywords: [
-    'fintech hong kong',
+    'fintech baas',
+    'banking as a service',
+    'embedded finance',
     'card issuance program',
     'BIN sponsorship',
     'prepaid debit cards',
-    'fintech development',
-    'core fintech system',
+    'core banking',
+    'multi-currency accounts',
+    'cross-border payments',
     'blockchain development',
     'RWA tokenization',
     'stablecoin infrastructure',
@@ -34,10 +38,8 @@ const seo = {
     'fintech developers',
     'engineering team',
     'tech talent',
-    'music distribution',
-    'company incorporation hong kong',
-    'offshore company formation',
-    'MSO license',
+    'company incorporation wyoming',
+    'msb license',
     'OTC crypto liquidity',
   ],
 };
@@ -68,6 +70,9 @@ const seo = {
 
       <!-- Staff Augmentation Teaser -->
       <StaffTeaser />
+
+      <!-- Team / Leadership Section -->
+      <TeamSection />
 
       <!-- Music & Media Section -->
       <MusicSection />

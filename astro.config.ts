@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   integrations: [tailwind()],
-  site: 'https://fidubit.com',
+  site: 'https://trackwise.finance',
   compressHTML: true,
   i18n: {
     defaultLocale: 'en',

@@ -1,15 +1,17 @@
-# FIDUBIT
+# TRACKWISE
 
-Fintech & Media Infrastructure Platform built with Astro + TypeScript + Tailwind CSS.
+Banking-as-a-Service (BaaS) infrastructure platform built with Astro + TypeScript + Tailwind CSS.
+
+Trackwise LLC is a Wyoming-licensed Money Services Business (FinCEN MSB #31000299058422) providing embedded financial APIs, card issuance, multi-currency accounts, and cross-border payment rails.
 
 ## 🚀 Features
 
-- **Card Issuance** - Hong Kong prepaid card programs with BIN sponsorship
-- **Software Development** - E-Banking core systems, white-label solutions
+- **Card Issuance** - Prepaid and corporate card programs with BIN sponsorship
+- **BaaS APIs** - Embedded banking, ledger, IBAN/ACH/SEPA rails, KYC/AML
 - **Blockchain Architecture** - Smart contracts, RWA tokenization, stablecoin infrastructure
 - **Staff Augmentation** - Senior engineering talent for fintech projects
 - **Music & Media** - Digital distribution and marketing network
-- **Corporate Services** - Company incorporation in HK, Singapore, offshore jurisdictions
+- **Corporate Services** - Company incorporation in Wyoming, Delaware, and offshore jurisdictions
 
 ## 🛠️ Tech Stack
 
@@ -21,7 +23,7 @@ Fintech & Media Infrastructure Platform built with Astro + TypeScript + Tailwind
 ## 📦 Project Structure
 
 ```
-fidubit/
+trackwise/
 ├── src/
 │   ├── components/
 │   │   ├── layout/      # Header, Sidebar, Footer
@@ -58,6 +60,14 @@ This project is configured for deployment on **Cloudflare Pages**.
    - **Build output directory:** `dist`
    - **Node.js version:** `18` or higher
 
+## 🏢 Company
+
+- **Legal name:** Trackwise LLC
+- **Jurisdiction:** Wyoming, United States
+- **License:** Money Services Business (MSB) — FinCEN registration **#31000299058422**
+- **Contact:** info@trackwise.finance
+- **Website:** https://trackwise.finance
+
 ## 📄 License
 
-Proprietary - FIDUBIT Systems Ltd.
+Proprietary - Trackwise LLC.

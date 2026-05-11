@@ -9,6 +9,7 @@ export default {
     ai: 'AI解决方案',
     remittance: '汇款',
     staff: '人才',
+    team: '团队',
     media: '媒体',
     contact: '联系我们',
     getStarted: '开始',
@@ -88,6 +89,19 @@ export default {
     },
   },
   
+  // Team Section
+  team: {
+    module: '模块_团队',
+    label: '领导团队',
+    badge: '我们的团队',
+    title: '由运营者',
+    titleHighlight: '打造',
+    description: 'Trackwise 背后的资深金融科技团队 — 构建可靠的 BaaS 基础设施、支付通道和开发者优先的 API。',
+    role: '职位',
+    skills: '技能',
+    contact: '联系方式',
+  },
+
   // Music Section
   music: {
     module: '媒体模块',

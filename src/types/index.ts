@@ -1,5 +1,5 @@
 // ============================================
-// FIDUBIT - Type Definitions
+// TRACKWISE - Type Definitions
 // ============================================
 
 export interface NavItem {
@@ -89,4 +89,28 @@ export interface StaffEngagementModel {
   icon: string;
   features: string[];
   recommended?: boolean;
+}
+
+export interface TeamMember {
+  name: string;
+  role: string;
+  bio?: string;
+  avatar?: string;
+  icon?: string;
+  skills?: string[];
+  socials?: {
+    linkedin?: string;
+    github?: string;
+    twitter?: string;
+    email?: string;
+  };
+  accentColor?: 'yellow' | 'fuchsia' | 'purple' | 'blue' | 'green';
+}
+
+export interface CompanyInfo {
+  legalName: string;
+  jurisdiction: string;
+  licenseType: string;
+  licenseNumber: string;
+  registeredAddress: string;
 }

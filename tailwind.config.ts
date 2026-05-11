@@ -5,7 +5,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        fidubit: {
+        trackwise: {
           black: '#050505',
           dark: '#080808',
           darker: '#030303',
