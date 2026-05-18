@@ -1,0 +1,108 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import TeamSection from '@/components/sections/TeamSection.astro';
+import { siteConfig } from '@/data/site';
+
+const seo = {
+  title: 'About · Trackwise',
+  description:
+    'Trackwise LLC is a Wyoming-registered Money Services Business building banking infrastructure for modern fintech operators.',
+};
+---
+
+<Layout seo={seo}>
+  <Header />
+
+  <main class="pt-16">
+    <section class="bg-trackwise-surface border-b border-trackwise-line">
+      <div class="container-page py-20">
+        <div class="eyebrow mb-3">About Trackwise</div>
+        <h1 class="text-4xl lg:text-5xl font-semibold text-white tracking-tightest leading-[1.05] max-w-3xl">
+          Built for the operators who run regulated fintech products.
+        </h1>
+        <p class="lede mt-6 max-w-2xl">
+          Trackwise LLC is a Wyoming limited liability company registered with
+          the U.S. Financial Crimes Enforcement Network (FinCEN) as a Money
+          Services Business, registration number 31000299058422. We build the
+          card issuance, accounts, and payment infrastructure that fintech
+          operators in the U.S. and LATAM use to ship products, on top of
+          licensed banking partners.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-trackwise-ink border-b border-trackwise-line/60">
+      <div class="container-page py-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl font-semibold text-white">What we do</h2>
+          <p class="lede mt-4">
+            We provide a single platform for fintech operators to issue cards,
+            open multi-currency accounts, move money across borders, and run
+            their compliance program. Each feature is delivered through a
+            licensed partner where required and exposed to your product as a
+            single, audited API surface.
+          </p>
+          <p class="lede mt-4">
+            We are deliberate about scope. We are not a wallet. We do not list
+            tokens. We do not custody customer cryptocurrency. We do not run a
+            consumer-facing brand.
+          </p>
+        </div>
+        <div>
+          <h2 class="text-2xl font-semibold text-white">Where we sit</h2>
+          <p class="lede mt-4">
+            Our team is split between the U.S. and Latin America, with bilingual
+            (English / Spanish) operations and a U.S. compliance function led
+            by our Chief Compliance Officer / BSA Officer.
+          </p>
+          <div class="mt-6 surface p-5 num text-[12px] text-ink-400 leading-relaxed">
+            Trackwise LLC<br />
+            {siteConfig.addressLine1}<br />
+            {siteConfig.addressLine2}<br />
+            {siteConfig.country}<br />
+            <br />
+            FinCEN MSB #31000299058422<br />
+            <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer" class="text-brand-400 hover:text-brand-300">
+              Verify on FinCEN MSB Registrant Search →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <TeamSection />
+
+    <section class="bg-trackwise-surface">
+      <div class="container-page py-20 text-center">
+        <h2 class="text-2xl font-semibold text-white">Talk to us</h2>
+        <p class="lede mt-4 max-w-xl mx-auto">
+          For commercial inquiries, compliance requests, or press, use the
+          contact form.
+        </p>
+        <a href="/contact" class="btn-primary mt-8 mx-auto">
+          Contact
+          <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('sys-active');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 },
+  );
+  document.querySelectorAll('.sys-reveal').forEach((el) => observer.observe(el));
+</script>

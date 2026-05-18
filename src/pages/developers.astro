@@ -1,0 +1,51 @@
+---
+import LegalLayout from '@/layouts/LegalLayout.astro';
+---
+
+<LegalLayout
+  title="Developers"
+  description="Developer access to Trackwise APIs. Sandbox and production access are gated by KYB and partner approval."
+  eyebrow="Developers"
+>
+  <p>
+    Trackwise APIs are exposed to onboarded customers. Public documentation
+    and a sandbox are part of our roadmap. In the meantime, request early
+    access through{' '}
+    <a href="/contact">the contact form</a> (select <strong>Developer access</strong>).
+  </p>
+
+  <h2>API surface</h2>
+  <ul>
+    <li><strong>Cards:</strong> create, freeze, replace, tokenize virtual and physical cards.</li>
+    <li><strong>Accounts:</strong> open, list, close named beneficiary accounts (USD, EUR, GBP).</li>
+    <li><strong>Ledger:</strong> double-entry primitives, balances, statements.</li>
+    <li><strong>Payments:</strong> ACH, wire, SEPA, and partner remittance corridors.</li>
+    <li><strong>Compliance:</strong> KYC / KYB orchestration, sanctions screening, case management.</li>
+    <li><strong>Webhooks:</strong> signed, retried, idempotent.</li>
+  </ul>
+
+  <h2>Authentication</h2>
+  <p>
+    API access uses scoped API keys with optional IP allow-listing and HMAC
+    request signing. All production credentials are issued after KYB and a
+    written subscription agreement.
+  </p>
+
+  <h2>Environments</h2>
+  <ul>
+    <li><strong>Sandbox:</strong> deterministic test data, full API surface, no real money movement.</li>
+    <li><strong>Production:</strong> issued after KYB, integration review, and partner approval.</li>
+  </ul>
+
+  <h2>Status</h2>
+  <p>
+    A public status page is in progress. For incident communications, customers receive in-app
+    notifications and email.
+  </p>
+
+  <h2>Security</h2>
+  <p>
+    See <a href="/security">Security</a>. To report a vulnerability, email{' '}
+    <a href="mailto:security@trackwise.finance">security@trackwise.finance</a>.
+  </p>
+</LegalLayout>

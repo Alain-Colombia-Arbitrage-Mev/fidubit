@@ -3,7 +3,7 @@
  * TRACKWISE - Footer Component
  * Site footer with legal links
  */
-import { siteConfig, footerLinks } from '@/data/site';
+import { siteConfig, footerLinks, msbDisclaimer } from '@/data/site';
 import { getLangFromUrl, useTranslations } from '@/i18n';
 
 interface Props {
@@ -46,6 +46,7 @@ const t = useTranslations(lang);
         <a href="/remittance" class="text-xs text-zinc-500 hover:text-yellow-500 transition-colors font-mono">{t.nav.remittance}</a>
         <a href="/staff" class="text-xs text-zinc-500 hover:text-blue-500 transition-colors font-mono">{t.nav.staff}</a>
         <a href="/#section-team" class="text-xs text-zinc-500 hover:text-green-500 transition-colors font-mono">{t.nav.team}</a>
+        <a href="/apps" class="text-xs text-zinc-500 hover:text-blue-500 transition-colors font-mono">Apps</a>
         <a href="#section-music" class="text-xs text-zinc-500 hover:text-fuchsia-500 transition-colors font-mono">{t.nav.media}</a>
       </div>
       
@@ -66,13 +67,39 @@ const t = useTranslations(lang);
           <iconify-icon icon="logos:whatsapp-icon" width="14" class="grayscale opacity-50"></iconify-icon>
           {siteConfig.whatsapp}
         </a>
-        <div class="flex items-center gap-2 text-xs text-zinc-600 font-mono">
-          <iconify-icon icon="solar:map-point-linear" class="text-zinc-600"></iconify-icon>
-          {siteConfig.location}
+        <div class="flex items-start gap-2 text-xs text-zinc-600 font-mono leading-relaxed">
+          <iconify-icon icon="solar:map-point-linear" class="text-zinc-600 mt-0.5"></iconify-icon>
+          <span>
+            {siteConfig.addressLine1}<br />
+            {siteConfig.addressLine2}<br />
+            {siteConfig.country}
+          </span>
         </div>
       </div>
     </div>
-    
+
+    <!-- MSB Scope Disclaimer -->
+    <div class="mb-8 p-4 border border-white/5 rounded-md bg-white/[0.02]">
+      <div class="flex items-start gap-3">
+        <iconify-icon
+          icon="solar:info-circle-linear"
+          class="text-yellow-500/70 mt-0.5 shrink-0"
+          width="16"
+        ></iconify-icon>
+        <p class="text-[11px] text-zinc-500 font-mono leading-relaxed">
+          {msbDisclaimer}
+          <a
+            href="https://www.fincen.gov/msb-registrant-search"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-yellow-500/70 hover:text-yellow-500 ml-1"
+          >
+            Verify on FinCEN →
+          </a>
+        </p>
+      </div>
+    </div>
+
     <!-- Bottom Bar -->
     <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
       <div class="text-xs text-zinc-600 font-mono">
@@ -92,28 +119,13 @@ const t = useTranslations(lang);
         ))}
       </div>
       
-      <!-- Social Links -->
-      <div class="flex gap-4">
-        <a 
-          href="#" 
-          class="text-zinc-600 hover:text-white transition-colors"
-          aria-label="Twitter"
+      <!-- Compliance contact -->
+      <div class="flex items-center gap-3 text-[10px] text-zinc-600 font-mono">
+        <a
+          href={`mailto:${siteConfig.compliance}`}
+          class="hover:text-yellow-500 transition-colors"
         >
-          <iconify-icon icon="ri:twitter-x-line" width="18"></iconify-icon>
-        </a>
-        <a 
-          href="#" 
-          class="text-zinc-600 hover:text-white transition-colors"
-          aria-label="LinkedIn"
-        >
-          <iconify-icon icon="ri:linkedin-line" width="18"></iconify-icon>
-        </a>
-        <a 
-          href="#" 
-          class="text-zinc-600 hover:text-white transition-colors"
-          aria-label="GitHub"
-        >
-          <iconify-icon icon="ri:github-line" width="18"></iconify-icon>
+          {siteConfig.compliance}
         </a>
       </div>
     </div>

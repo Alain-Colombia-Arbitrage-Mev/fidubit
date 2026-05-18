@@ -1,5 +1,6 @@
 /**
  * English translations
+ * Original keys preserved. Copy cleaned of unverifiable claims.
  */
 export default {
   // Navigation
@@ -14,81 +15,88 @@ export default {
     contact: 'Contact',
     getStarted: 'Get Started',
   },
-  
+
   // Hero Section
   hero: {
-    badge: 'Fintech Infrastructure',
+    badge: 'Wyoming MSB · FinCEN #31000299058422',
     title: 'Fintech',
-    titleHighlight: 'Architecture',
-    description: 'Corporate infrastructure, digital card issuance, core fintech development, and blockchain integration. Operating licenses in multiple jurisdictions.',
-    cta: 'Start Now',
-    learnMore: 'Learn More',
+    titleHighlight: 'Infrastructure',
+    description:
+      'Banking-as-a-Service platform for fintech operators: card issuance, multi-currency accounts, and cross-border payments through licensed banking partners. Wyoming-registered Money Services Business.',
+    cta: 'Talk to sales',
+    learnMore: 'Learn more',
   },
-  
+
   // Cards Section
   cards: {
     module: 'MODULE_CARDS',
     label: 'Card Programs',
     title: 'Card Issuance',
-    description: 'Launch your own card program with our white-label card issuance infrastructure. Visa and Mastercard ready.',
+    description:
+      'Launch a card program through our partner BIN sponsors. Visa and Mastercard, virtual and physical, with spend controls, 3-D Secure, and digital wallet tokenization.',
     features: {
       virtual: 'Virtual Cards',
       physical: 'Physical Cards',
-      corporate: 'Corporate Cards',
-      prepaid: 'Prepaid Cards',
+      corporate: 'Business Expense',
+      prepaid: 'Prepaid / Payout',
     },
   },
-  
+
   // Infrastructure Section
   infrastructure: {
     module: 'MODULE_INFRA',
     label: 'Core Systems',
     title: 'Fintech Development',
-    description: 'Enterprise-grade core fintech systems, blockchain infrastructure, and OTC liquidity solutions.',
+    description:
+      'Core fintech engineering: ledger services, payment integrations, KYC orchestration, and blockchain engineering — built through partners and exposed as APIs to your product.',
     services: {
       fintech: {
         title: 'Fintech Core',
-        description: 'Full-stack fintech development with compliance-ready architecture.',
+        description:
+          'Fintech engineering with compliance-ready architecture and audit trail.',
       },
       blockchain: {
         title: 'Blockchain',
-        description: 'Smart contracts, tokenization, and DeFi protocol development.',
+        description:
+          'Smart-contract engineering, tokenization, and stablecoin integration.',
       },
       otc: {
-        title: 'OTC Desk',
-        description: 'High-volume cryptocurrency trading with deep liquidity pools.',
+        title: 'Crypto OTC (partners)',
+        description:
+          'Fiat/crypto ramps via licensed exchange and OTC partners. Trackwise is not a counterparty.',
       },
     },
   },
-  
+
   // Staff Section
   staff: {
     module: 'MODULE_STAFF',
     label: 'Talent',
-    badge: 'Staff Augmentation',
+    badge: 'Engineering services',
     title: 'Engineering',
-    titleHighlight: 'Talent',
-    description: 'Scale your development team with our specialized fintech and blockchain engineers. Deploy dedicated teams for simultaneous projects.',
+    titleHighlight: 'capacity',
+    description:
+      'Senior engineers experienced in regulated financial systems join your team to ship card programs, ledger services, KYC orchestration, and operations tooling.',
     stats: {
-      engineers: 'Senior Engineers',
-      projects: 'Active Projects',
-      countries: 'Countries',
-      uptime: 'Availability',
+      engineers: 'Seniority bar',
+      projects: 'Domain focus',
+      countries: 'Time-zone alignment',
+      uptime: 'Communication',
     },
-    cta: 'View Talent Pool',
-    learnMore: 'How It Works',
+    cta: 'Discuss a team',
+    learnMore: 'How it works',
     roles: {
-      title: 'Engineers We Provide',
-      deployNow: 'Deploy Now',
-      thisWeek: 'This Week',
+      title: 'Engineers we provide',
+      deployNow: 'Immediate',
+      thisWeek: 'Within a week',
       scheduled: 'Scheduled',
     },
     models: {
-      title: 'Engagement Models',
-      features: 'Features',
+      title: 'Engagement models',
+      features: 'Includes',
     },
   },
-  
+
   // Team Section
   team: {
     module: 'MODULE_TEAM',
@@ -96,220 +104,242 @@ export default {
     badge: 'Our Team',
     title: 'Built by',
     titleHighlight: 'Operators',
-    description: 'A senior fintech team behind Trackwise — building reliable BaaS infrastructure, payment rails, and developer-first APIs.',
+    description:
+      'A senior fintech team behind Trackwise — Chief Compliance Officer, CTO, Head of Product, Head of Operations & Risk, and senior engineers — focused on banking infrastructure that holds up under audit.',
     role: 'Role',
-    skills: 'Skills',
+    skills: 'Focus',
     contact: 'Contact',
   },
 
-  // Music Section
+  // Music Section (non-financial)
   music: {
     module: 'MODULE_MEDIA',
     label: 'Distribution',
-    title: 'Music Distribution',
-    description: 'Digital music distribution, playlist pitching, and marketing for independent artists. Global reach across all major platforms.',
+    title: 'Artist Distribution',
+    description:
+      'Independent of the regulated Trackwise platform: digital music distribution and artist marketing operated as a non-financial service through partner aggregators.',
   },
-  
+
   // Corporate Section
   corporate: {
     module: 'MODULE_CORP',
     label: 'Corporate_Structure',
-    title: 'Corporate Services',
-    description: 'Company formation, compliance, and operational infrastructure in strategic jurisdictions worldwide.',
-    holding: 'Holding Structure',
-    multiJurisdiction: 'Multi-Jurisdiction',
+    title: 'Formation Introductions',
+    description:
+      'Introductions to U.S. company-formation providers, MSB / EMI advisors, and banking partners. Trackwise does not provide legal, tax, or fiduciary advice.',
+    holding: 'Introductions only',
+    multiJurisdiction: 'U.S. focus',
   },
-  
+
   // Contact Section
   contact: {
     module: 'MODULE_CONTACT',
     label: 'Connect',
-    title: 'Get In Touch',
-    description: 'Ready to build your fintech infrastructure? Let\'s discuss your project.',
+    title: 'Talk to us',
+    description:
+      'Tell us about your product. We respond within one business day. For compliance or law-enforcement requests, email compliance@trackwise.finance.',
     form: {
-      name: 'Full Name',
-      email: 'Email Address',
+      name: 'Full name',
+      email: 'Work email',
       company: 'Company',
-      service: 'Service Interest',
-      message: 'Message',
-      submit: 'Send Message',
-      selectService: 'Select a service',
+      service: 'Topic',
+      message: 'Details',
+      submit: 'Send message',
+      selectService: 'Select a topic',
     },
     options: {
-      cardIssuance: 'Card Issuance Program',
-      coreFintech: 'Core Fintech Development',
-      aiSolutions: 'AI Solutions / Model Training',
-      remittance: 'Remittance / Cross-Border Payments',
-      staffAugmentation: 'Staff Augmentation',
-      incorporation: 'Company Incorporation',
-      blockchain: 'Blockchain / Tokenization',
-      musicMarketing: 'Music Marketing / Distribution',
-      otcLiquidity: 'OTC Liquidity Services',
-      other: 'Other Services',
+      cardIssuance: 'Card issuance program',
+      coreFintech: 'BaaS / APIs',
+      aiSolutions: 'AI engineering',
+      remittance: 'Cross-border payments',
+      staffAugmentation: 'Engineering services',
+      incorporation: 'Formation introductions',
+      blockchain: 'Blockchain engineering',
+      musicMarketing: 'Artist distribution (non-financial)',
+      otcLiquidity: 'Crypto OTC (via partners)',
+      other: 'Other inquiry',
     },
   },
-  
+
   // Footer
   footer: {
     rights: 'All rights reserved.',
     privacy: 'Privacy Policy',
     terms: 'Terms of Service',
     compliance: 'Compliance',
-    quickLinks: 'Quick Links',
-    services: 'Services',
+    quickLinks: 'Quick links',
+    product: 'Product',
     company: 'Company',
+    legal: 'Legal',
+    developers: 'Developers',
+    services: 'Services',
   },
-  
+
   // AI Page
   ai: {
-    badge: 'Artificial Intelligence',
+    badge: 'AI Engineering',
     title: 'Custom',
     titleHighlight: 'AI Models',
-    description: 'Enterprise model training, fine-tuning for trading & healthtech, and intelligent agents for advertising, calls, and customer intelligence.',
-    cta: 'Start Your AI Project',
-    explore: 'Explore Solutions',
+    description:
+      'AI engineering services for fintech operators: model training, fine-tuning for fraud and risk, intelligent agents for support and operations. Built for production with audit and explainability requirements in mind.',
+    cta: 'Talk to engineering',
+    explore: 'Explore solutions',
     stats: {
-      parameters: 'Parameters Trained',
-      uptime: 'Uptime SLA',
-      latency: 'Inference Latency',
-      models: 'Models Deployed',
+      parameters: 'Model parameters trained',
+      uptime: 'Uptime target',
+      latency: 'Inference latency target',
+      models: 'Models deployed',
     },
     services: {
       title: 'Model Training & Fine-Tuning',
-      description: 'Custom AI models built for your specific industry and use case.',
+      description: 'Custom AI models built for your industry and use case.',
       bigData: {
         title: 'Enterprise Big Data',
         subtitle: 'Custom Model Training',
-        description: 'Train custom AI models on your enterprise data. Extract insights, predict trends, and automate decision-making at scale.',
+        description:
+          'Train custom models on your enterprise data. Extract patterns, predict trends, and automate decisions where appropriate, with human-in-the-loop review for high-impact actions.',
       },
       trading: {
-        title: 'HFT Trading Models',
-        subtitle: 'Real-Time Sentiment Analysis',
-        description: 'Fine-tuned models for high-frequency trading with live market sentiment analysis. Sub-millisecond predictions on market movements.',
+        title: 'Fraud & Risk Models',
+        subtitle: 'Real-time scoring',
+        description:
+          'Fine-tuned models for fraud scoring, transaction monitoring, and risk classification, integrated with your case-management workflow.',
       },
       healthtech: {
         title: 'HealthTech AI',
-        subtitle: 'Nutrition & Wellness Models',
-        description: 'AI models for personalized nutrition, health recommendations, and medical data analysis with privacy-first architecture.',
+        subtitle: 'Privacy-first models',
+        description:
+          'AI models for personalized health and wellness use cases with privacy-first architecture and on-device or VPC-isolated inference where required.',
       },
     },
     agents: {
       title: 'Intelligent Agents',
-      description: 'Deploy AI agents that work 24/7 to acquire, classify, and serve your customers.',
+      description: 'AI agents that work alongside your operations team.',
       advertising: {
-        title: 'Advertising Agents',
-        description: 'AI agents that create, optimize, and manage ad campaigns across platforms. Automatic A/B testing and budget allocation.',
+        title: 'Marketing Agents',
+        description:
+          'Agents that draft and optimize ad campaigns with human approval gates. No autonomous spend without limits.',
       },
       calls: {
-        title: 'Live Call Agents',
-        description: 'Voice AI agents for inbound/outbound calls. Handle sales, support, and scheduling with natural conversation flow.',
+        title: 'Voice Agents',
+        description:
+          'Voice agents for inbound and outbound calls, with handoff to human operators and full call recording where consent is collected.',
       },
       classification: {
         title: 'Customer Classification',
-        description: 'AI agents that segment, score, and classify customers in real-time. Predict lifetime value and churn probability.',
+        description:
+          'Customer segmentation, risk scoring, and lifetime-value modeling with auditable feature importance.',
       },
     },
     process: {
       title: 'Our Process',
       discovery: 'Discovery',
-      discoveryDesc: 'Understand your data & objectives',
-      dataPrep: 'Data Prep',
-      dataPrepDesc: 'Clean, label & prepare datasets',
+      discoveryDesc: 'Understand the use case, data, and constraints',
+      dataPrep: 'Data prep',
+      dataPrepDesc: 'Clean, label, and prepare datasets',
       training: 'Training',
-      trainingDesc: 'Train & fine-tune models',
+      trainingDesc: 'Train and fine-tune models',
       validation: 'Validation',
-      validationDesc: 'Test & benchmark performance',
+      validationDesc: 'Test and benchmark performance',
       deploy: 'Deploy',
-      deployDesc: 'Production APIs & monitoring',
+      deployDesc: 'Production APIs and monitoring',
     },
     contact: {
-      title: 'Start Your AI Project',
-      description: 'Tell us about your AI needs and we\'ll design a custom solution.',
+      title: 'Start an AI project',
+      description:
+        'Tell us about the use case and we will design a custom solution.',
     },
   },
-  
+
   // Remittance Page
   remittance: {
     badge: 'Cross-Border Payments',
-    title: 'Global',
-    titleHighlight: 'Remittance',
-    description: 'Send and receive money across borders. Collect payments, pay suppliers, and process payroll in Latin America, USA, Europe, and Asia with competitive rates.',
-    cta: 'Get Started',
-    viewCoverage: 'View Coverage',
+    title: 'Cross-Border',
+    titleHighlight: 'Payments',
+    description:
+      'Send and receive money across borders through licensed banking and payment partners. Available where Trackwise or a partner is authorized to operate.',
+    cta: 'Talk to sales',
+    viewCoverage: 'View coverage',
     stats: {
-      currencies: 'Currencies',
-      countries: 'Countries',
-      settlement: 'Settlement',
-      fees: 'From Fees',
+      currencies: 'Settlement currencies',
+      countries: 'Partner coverage',
+      settlement: 'Typical settlement',
+      fees: 'Transparent fees',
     },
     services: {
-      title: 'Payment Solutions',
-      description: 'Whether you need to collect, send, or pay - we\'ve got you covered.',
+      title: 'Payment use cases',
+      description: 'Common flows we support through partners.',
       collect: {
-        title: 'Collect Payments',
-        description: 'Receive payments from customers worldwide. We provide local collection accounts in multiple countries so your customers can pay in their preferred method.',
+        title: 'Collect payments',
+        description:
+          'Receive payments from your customers through local collection methods provided by our partners.',
       },
       pay: {
-        title: 'Pay Suppliers',
-        description: 'Pay your international suppliers quickly and cost-effectively. Competitive FX rates with transparent fees and full payment tracking.',
+        title: 'Pay suppliers',
+        description:
+          'Pay international suppliers with transparent FX and end-to-end tracking through partner rails.',
       },
       payroll: {
-        title: 'Global Payroll',
-        description: 'Pay your remote team anywhere in the world. Compliant payroll processing with local tax handling and multiple payout options.',
+        title: 'Contractor payouts',
+        description:
+          'Pay distributed contractors with partner-operated rails and compliance support.',
       },
     },
     coverage: {
-      title: 'Global Coverage',
-      description: 'Send and receive money in these regions with local payment rails.',
+      title: 'Coverage',
+      description:
+        'Coverage is provided through licensed banking partners. Availability depends on geography, product, and the partner. We do not service customers in sanctioned jurisdictions.',
     },
     howItWorks: {
-      title: 'How It Works',
-      step1: 'Create Account',
-      step1Desc: 'Quick onboarding with KYC verification',
-      step2: 'Add Beneficiary',
-      step2Desc: 'Enter recipient details and bank info',
-      step3: 'Fund Transfer',
-      step3Desc: 'Send funds via bank or crypto',
-      step4: 'Delivered',
-      step4Desc: 'Recipient gets funds same day',
+      title: 'How it works',
+      step1: 'Apply',
+      step1Desc: 'Tell us about your business and use case',
+      step2: 'KYB',
+      step2Desc: 'We verify your business and beneficial owners',
+      step3: 'Integrate',
+      step3Desc: 'Sandbox access and API integration',
+      step4: 'Go live',
+      step4Desc: 'Live access under partner authorization',
     },
     useCases: {
-      title: 'Common Use Cases',
-      remote: 'Remote Teams',
-      remoteDesc: 'Pay your distributed engineering team in their local currency',
-      ecommerce: 'E-Commerce',
-      ecommerceDesc: 'Collect payments from customers in LATAM and Europe',
-      suppliers: 'Supplier Payments',
-      suppliersDesc: 'Pay manufacturers and vendors in Asia efficiently',
-      family: 'Family Support',
-      familyDesc: 'Send money to family members abroad quickly and safely',
+      title: 'Use cases',
+      remote: 'Contractor payouts',
+      remoteDesc: 'Pay distributed contractors in supported corridors',
+      ecommerce: 'Marketplace payouts',
+      ecommerceDesc: 'Disburse to sellers and service providers',
+      suppliers: 'Supplier payments',
+      suppliersDesc: 'Pay vendors with transparent FX and tracking',
+      family: 'Customer remittance',
+      familyDesc: 'Remittance flows through licensed partners only',
     },
     contact: {
-      title: 'Start Sending Money',
-      description: 'Tell us about your payment needs and we\'ll set up your account.',
+      title: 'Talk to sales',
+      description:
+        'Tell us about your geographies and volume. We respond within one business day.',
     },
   },
-  
+
   // Staff Page
   staffPage: {
-    badge: 'Staff Augmentation',
-    title: 'Scale Your',
-    titleHighlight: 'Engineering Team',
-    description: 'Access senior fintech and blockchain engineers ready to join your projects. Flexible engagement models, immediate availability.',
-    cta: 'Request Engineers',
-    howItWorks: 'How It Works',
+    badge: 'Engineering services',
+    title: 'Engineering capacity',
+    titleHighlight: 'for fintech teams',
+    description:
+      'Senior engineers experienced in regulated financial systems join your team to ship card programs, ledger services, KYC orchestration, and operations tooling.',
+    cta: 'Discuss a team',
+    howItWorks: 'How it works',
   },
-  
+
   // Common
   common: {
-    learnMore: 'Learn More',
-    getStarted: 'Get Started',
-    contactUs: 'Contact Us',
-    viewAll: 'View All',
+    learnMore: 'Learn more',
+    getStarted: 'Talk to sales',
+    contactUs: 'Contact us',
+    viewAll: 'View all',
     home: 'Home',
-    useCases: 'Common Use Cases',
+    useCases: 'Use cases',
     features: 'Features',
     capabilities: 'Capabilities',
-    techStack: 'Technology Stack',
+    techStack: 'Technology stack',
   },
 };

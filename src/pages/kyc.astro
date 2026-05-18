@@ -1,0 +1,68 @@
+---
+import LegalLayout from '@/layouts/LegalLayout.astro';
+---
+
+<LegalLayout
+  title="KYC Policy"
+  description="How Trackwise verifies the identity of individuals and businesses on its platform."
+  eyebrow="Compliance"
+  effective="2026-05-17"
+  lastUpdated="2026-05-17"
+>
+  <p>
+    Trackwise applies a Know Your Customer (KYC) and Know Your Business (KYB)
+    program built on a risk-based approach and aligned with the BSA / AML
+    program described in our <a href="/aml">AML / BSA Policy</a>.
+  </p>
+
+  <h2>1. Individual identity verification (KYC)</h2>
+  <ul>
+    <li>Government-issued photo identification (passport, national ID, driver's license).</li>
+    <li>Selfie with liveness detection, compared against the ID image.</li>
+    <li>Address verification through document or authoritative database.</li>
+    <li>Tax identifier where required.</li>
+  </ul>
+
+  <h2>2. Business identity verification (KYB)</h2>
+  <ul>
+    <li>Certificate of incorporation / good standing.</li>
+    <li>Articles of organization or bylaws.</li>
+    <li>Beneficial-owner identification at 25% or greater ownership.</li>
+    <li>One control person (e.g., CEO or equivalent).</li>
+    <li>Description of business and source of funds.</li>
+  </ul>
+
+  <h2>3. Vendors</h2>
+  <p>
+    Identity verification is performed through specialized vendors. Vendors we
+    may use include Persona, Sumsub, Veriff, Onfido, Au10tix, and Trulioo. Our
+    choice of vendor depends on geography and product. All vendors are subject
+    to vendor-risk review and contractual data-protection terms.
+  </p>
+
+  <h2>4. Enhanced due diligence (EDD)</h2>
+  <p>EDD is applied when the customer or activity presents elevated risk, including:</p>
+  <ul>
+    <li>Politically exposed persons (PEPs) and their immediate family / close associates.</li>
+    <li>Customers based in, or doing business with, high-risk geographies (e.g., FATF-listed jurisdictions).</li>
+    <li>High-value or high-velocity transactions inconsistent with the stated profile.</li>
+    <li>Adverse media or sanctions hits.</li>
+  </ul>
+
+  <h2>5. Refresh</h2>
+  <p>
+    Customer information is refreshed on a risk-based schedule. Higher-risk
+    customers are reviewed more frequently.
+  </p>
+
+  <h2>6. Prohibited jurisdictions</h2>
+  <p>
+    Trackwise does not onboard customers located in, organized under the laws
+    of, or ordinarily resident in jurisdictions subject to comprehensive U.S.
+    sanctions or on the FATF call-for-action list. The list is reviewed and
+    updated regularly.
+  </p>
+
+  <h2>7. Contact</h2>
+  <p><a href="mailto:compliance@trackwise.finance">compliance@trackwise.finance</a></p>
+</LegalLayout>

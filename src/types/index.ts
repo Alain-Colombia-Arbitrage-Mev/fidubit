@@ -114,3 +114,21 @@ export interface CompanyInfo {
   licenseNumber: string;
   registeredAddress: string;
 }
+
+export interface AppShowcase {
+  slug: string;
+  name: string;
+  tagline: string;
+  description: string;
+  screenshot: string;
+  status: 'live' | 'beta' | 'in-development';
+  category: string;
+  capabilities: string[];
+  stack: string[];
+  links: {
+    website?: string;
+    googlePlay?: string;
+    appStore?: string;
+  };
+  accentColor: 'yellow' | 'fuchsia' | 'purple' | 'blue' | 'green';
+}

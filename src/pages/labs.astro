@@ -1,0 +1,196 @@
+---
+/**
+ * TRACKWISE - /labs
+ * Non-financial services. Surfaced separately from the regulated
+ * Trackwise platform with explicit scope disclaimer at the top.
+ */
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import { musicVideos, corporateServices, siteConfig } from '@/data/site';
+
+const seo = {
+  title: 'Labs — non-financial services · Trackwise',
+  description:
+    'Independent of the regulated Trackwise platform: artist distribution and formation introductions. These services are not regulated Trackwise MSB services.',
+};
+---
+
+<Layout seo={seo}>
+  <Header />
+
+  <main class="pt-16">
+    <!-- Scope banner -->
+    <section class="bg-amber-500/5 border-b border-amber-500/20">
+      <div class="container-page py-5 flex items-start gap-3">
+        <iconify-icon
+          icon="solar:danger-triangle-linear"
+          class="text-amber-400 shrink-0 mt-0.5"
+          width="20"
+        ></iconify-icon>
+        <div class="text-[13px] text-ink-200 leading-relaxed">
+          <strong class="text-white">Not regulated Trackwise services.</strong>
+          The services listed on this page (artist distribution, formation and
+          banking introductions) are operated separately from the regulated
+          Trackwise platform and are <span class="text-white">not</span> covered
+          by our FinCEN MSB registration. Trackwise does not provide legal, tax,
+          or fiduciary advice. Money transmission, card issuance, and account
+          services are described on the{' '}
+          <a href="/" class="text-brand-400 hover:text-brand-300 underline-offset-2 hover:underline">homepage</a>{' '}
+          and the{' '}
+          <a href="/compliance" class="text-brand-400 hover:text-brand-300 underline-offset-2 hover:underline">compliance overview</a>.
+        </div>
+      </div>
+    </section>
+
+    <!-- Header -->
+    <section class="bg-trackwise-ink border-b border-trackwise-line">
+      <div class="container-page py-20">
+        <div class="eyebrow mb-3">Labs · Non-financial services</div>
+        <h1 class="text-4xl lg:text-5xl font-semibold text-white tracking-tightest leading-[1.05] max-w-3xl">
+          Side projects, kept separate from the regulated platform.
+        </h1>
+        <p class="lede mt-5 max-w-2xl">
+          Trackwise operates two non-financial offerings: artist distribution
+          and formation/banking introductions. These are documented here for
+          transparency. They have no shared infrastructure with our card
+          issuance, accounts, or payments products.
+        </p>
+      </div>
+    </section>
+
+    <!-- Artist distribution -->
+    <section class="bg-trackwise-surface border-b border-trackwise-line/60">
+      <div class="container-page py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          <div class="lg:col-span-5">
+            <div class="eyebrow mb-3">Non-financial</div>
+            <h2 class="text-3xl font-semibold text-white">Artist distribution</h2>
+            <p class="lede mt-4">
+              Independent digital distribution and artist marketing.
+              Operated by the same team on a non-financial basis. There is no
+              custody of funds, no money transmission, and no relationship to
+              the Trackwise MSB.
+            </p>
+            <div class="mt-8 space-y-3 text-sm text-ink-300">
+              <div class="flex items-start gap-2.5">
+                <iconify-icon icon="solar:check-circle-linear" class="text-brand-400 mt-0.5" width="16"></iconify-icon>
+                Distribution to major DSPs through partner aggregators
+              </div>
+              <div class="flex items-start gap-2.5">
+                <iconify-icon icon="solar:check-circle-linear" class="text-brand-400 mt-0.5" width="16"></iconify-icon>
+                Marketing and editorial outreach
+              </div>
+              <div class="flex items-start gap-2.5">
+                <iconify-icon icon="solar:check-circle-linear" class="text-brand-400 mt-0.5" width="16"></iconify-icon>
+                Royalty pass-through via the partner aggregator
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {musicVideos.map((video) => (
+              <a
+                href={`https://www.youtube.com/watch?v=${video.youtubeId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="surface overflow-hidden group hover:border-brand-500/30 transition-colors"
+              >
+                <div class="aspect-video bg-ink-900 relative">
+                  <img
+                    src={`https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`}
+                    alt={`${video.title} — ${video.artist}`}
+                    class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="p-4">
+                  <div class="text-sm font-medium text-white">{video.title}</div>
+                  <div class="text-[12px] text-ink-400">{video.artist}</div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formation introductions -->
+    <section class="bg-trackwise-ink border-b border-trackwise-line/60">
+      <div class="container-page py-20">
+        <div class="max-w-3xl mb-10">
+          <div class="eyebrow mb-3">Non-financial</div>
+          <h2 class="text-3xl font-semibold text-white">Formation and banking introductions</h2>
+          <p class="lede mt-4">
+            Introductions to specialized providers for U.S. company formation,
+            registered agent, and banking-for-fintechs programs. Trackwise does
+            not act as a registered agent and does not provide legal or tax
+            advice. All formation, licensing, and tax work is performed by
+            third-party providers under their own engagement terms.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {corporateServices.map((service) => (
+            <article class="surface p-7">
+              <div class="w-11 h-11 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center mb-5">
+                <iconify-icon icon={service.icon} class="text-brand-400" width="22"></iconify-icon>
+              </div>
+              <h3 class="text-lg font-semibold text-white mb-2">{service.title}</h3>
+              <p class="text-sm text-ink-300 leading-relaxed">{service.description}</p>
+            </article>
+          ))}
+        </div>
+
+        <div class="mt-10 surface-subtle p-5 flex items-start gap-3">
+          <iconify-icon
+            icon="solar:info-circle-linear"
+            class="text-ink-400 shrink-0 mt-0.5"
+            width="16"
+          ></iconify-icon>
+          <p class="text-[12px] text-ink-400 leading-relaxed">
+            Introductions are made on a best-efforts basis. Trackwise does not
+            guarantee bank account approval or licensing outcomes. Trackwise
+            does not recommend offshore structures for the purpose of regulatory
+            arbitrage, tax evasion, or beneficial-ownership concealment.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="bg-trackwise-surface">
+      <div class="container-page py-20 text-center">
+        <h2 class="text-2xl font-semibold text-white">Inquiries</h2>
+        <p class="lede mt-4 max-w-xl mx-auto">
+          For Labs (non-financial) inquiries, use the contact form and select{' '}
+          <span class="text-white">Labs (non-financial)</span>.
+        </p>
+        <a href="/contact" class="btn-primary mt-8">
+          Contact
+          <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+        </a>
+        <p class="mt-6 text-[11px] text-ink-500 num">
+          {siteConfig.legalName} · FinCEN MSB #31000299058422 · {siteConfig.addressLine2}
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('sys-active');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 },
+  );
+  document.querySelectorAll('.sys-reveal').forEach((el) => observer.observe(el));
+</script>

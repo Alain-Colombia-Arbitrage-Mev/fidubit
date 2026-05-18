@@ -1,0 +1,85 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import ContactSection from '@/components/sections/ContactSection.astro';
+import { siteConfig } from '@/data/site';
+
+const seo = {
+  title: 'Contact · Trackwise',
+  description:
+    'Reach the Trackwise sales, compliance, security, or support teams.',
+};
+---
+
+<Layout seo={seo}>
+  <Header />
+
+  <main class="pt-16">
+    <section class="bg-trackwise-surface border-b border-trackwise-line">
+      <div class="container-page py-20">
+        <div class="eyebrow mb-3">Contact</div>
+        <h1 class="text-4xl lg:text-5xl font-semibold text-white tracking-tightest leading-[1.05] max-w-3xl">
+          Tell us what you're building.
+        </h1>
+        <p class="lede mt-5 max-w-2xl">
+          For commercial inquiries, use the form below. For compliance,
+          security, abuse reports, or law-enforcement requests, use the direct
+          mailboxes.
+        </p>
+
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <a href={`mailto:${siteConfig.email}`} class="surface p-5 hover:border-brand-500/30 transition-colors">
+            <div class="text-[11px] uppercase tracking-[0.18em] text-ink-500 font-medium mb-2">Sales</div>
+            <div class="text-sm text-white num">{siteConfig.email}</div>
+            <div class="text-[12px] text-ink-400 mt-2">Commercial inquiries</div>
+          </a>
+          <a href={`mailto:${siteConfig.compliance}`} class="surface p-5 hover:border-brand-500/30 transition-colors">
+            <div class="text-[11px] uppercase tracking-[0.18em] text-ink-500 font-medium mb-2">Compliance</div>
+            <div class="text-sm text-white num">{siteConfig.compliance}</div>
+            <div class="text-[12px] text-ink-400 mt-2">BSA / AML, law enforcement</div>
+          </a>
+          <a href={`mailto:security@trackwise.finance`} class="surface p-5 hover:border-brand-500/30 transition-colors">
+            <div class="text-[11px] uppercase tracking-[0.18em] text-ink-500 font-medium mb-2">Security</div>
+            <div class="text-sm text-white num">security@trackwise.finance</div>
+            <div class="text-[12px] text-ink-400 mt-2">Vulnerability reports</div>
+          </a>
+          <a href={`mailto:${siteConfig.abuse}`} class="surface p-5 hover:border-brand-500/30 transition-colors">
+            <div class="text-[11px] uppercase tracking-[0.18em] text-ink-500 font-medium mb-2">Abuse</div>
+            <div class="text-sm text-white num">{siteConfig.abuse}</div>
+            <div class="text-[12px] text-ink-400 mt-2">Fraud, misuse reports</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <ContactSection />
+
+    <section class="bg-trackwise-surface">
+      <div class="container-page py-12 text-center">
+        <p class="text-[12px] text-ink-500 num leading-relaxed">
+          {siteConfig.legalName}<br />
+          {siteConfig.addressLine1}, {siteConfig.addressLine2}, {siteConfig.country}<br />
+          FinCEN MSB #31000299058422
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('sys-active');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 },
+  );
+  document.querySelectorAll('.sys-reveal').forEach((el) => observer.observe(el));
+</script>

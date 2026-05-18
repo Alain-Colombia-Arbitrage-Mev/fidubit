@@ -13,48 +13,48 @@ const t = useTranslations(lang);
 
 const corpContent: Record<string, { title: string; description: string; services: Array<{ title: string; description: string }> }> = {
   en: {
-    title: 'Global Company Constitution',
-    description: "We don't just build the tech; we build the legal entity. Full service company formation in Hong Kong, Singapore, and Offshore jurisdictions optimized for Fintech, Web3, and digital commerce.",
+    title: 'Formation Introductions',
+    description: 'Introductions to U.S. company-formation providers, MSB / EMI advisors, and partner banks. Trackwise does not provide legal, tax, or fiduciary advice; all formation and licensing work is performed by third-party providers under their own engagement terms.',
     services: [
-      { title: 'Company Incorporation', description: 'End-to-end entity setup with nominee directors, registered address, and banking introduction.' },
-      { title: 'Compliance & Licensing', description: 'MSB, MTL, EMI licensing support and ongoing compliance monitoring.' },
-      { title: 'Tax Optimization', description: 'Strategic jurisdiction selection and transfer pricing structures.' },
+      { title: 'U.S. Company Formation', description: 'Introductions to Wyoming and Delaware LLC formation providers, registered agent, and EIN registration.' },
+      { title: 'MSB / EMI Advisor Introductions', description: 'Introductions to law firms and consultants advising on FinCEN MSB registration, state MTL strategy, and EU EMI licensing.' },
+      { title: 'Audit & Tax Compliance', description: 'Introductions to audit firms and tax advisors for annual audit preparation and tax compliance.' },
     ],
   },
   es: {
-    title: 'Constitución Global de Empresas',
-    description: 'No solo construimos la tecnología; construimos la entidad legal. Formación completa de empresas en Hong Kong, Singapur y jurisdicciones offshore optimizadas para Fintech, Web3 y comercio digital.',
+    title: 'Presentaciones para Constitución',
+    description: 'Presentaciones a proveedores de formación de empresas en EE.UU., asesores MSB / EMI y bancos partner. Trackwise no proporciona asesoría legal, fiscal ni fiduciaria; todo el trabajo de formación y licenciamiento es realizado por terceros bajo sus propios términos.',
     services: [
-      { title: 'Incorporación de Empresas', description: 'Configuración completa con directores nominados, dirección registrada e introducción bancaria.' },
-      { title: 'Compliance y Licencias', description: 'Soporte para licencias MSB, MTL, EMI y monitoreo continuo de compliance.' },
-      { title: 'Optimización Fiscal', description: 'Selección estratégica de jurisdicciones y estructuras de precios de transferencia.' },
+      { title: 'Formación de Empresas en EE.UU.', description: 'Presentaciones a proveedores de constitución en Wyoming y Delaware, agente registrado y registro EIN.' },
+      { title: 'Asesores MSB / EMI', description: 'Presentaciones a firmas legales y consultores que asesoran sobre registro FinCEN MSB, estrategia de MTL estatal y licenciamiento EMI en la UE.' },
+      { title: 'Auditoría y Cumplimiento Fiscal', description: 'Presentaciones a firmas de auditoría y asesores fiscales para preparación de auditoría anual y cumplimiento fiscal.' },
     ],
   },
   pt: {
-    title: 'Constituição Global de Empresas',
-    description: 'Não construímos apenas a tecnologia; construímos a entidade legal. Formação completa de empresas em Hong Kong, Singapura e jurisdições offshore otimizadas para Fintech, Web3 e comércio digital.',
+    title: 'Apresentações para Constituição',
+    description: 'Apresentações a provedores de formação de empresas nos EUA, consultores MSB / EMI e bancos parceiros. Trackwise não fornece assessoria jurídica, fiscal ou fiduciária; todo o trabalho é realizado por terceiros sob seus próprios termos.',
     services: [
-      { title: 'Incorporação de Empresas', description: 'Configuração completa com diretores nominados, endereço registrado e introdução bancária.' },
-      { title: 'Compliance e Licenças', description: 'Suporte para licenças MSB, MTL, EMI e monitoramento contínuo de compliance.' },
-      { title: 'Otimização Fiscal', description: 'Seleção estratégica de jurisdições e estruturas de preços de transferência.' },
+      { title: 'Formação de Empresas nos EUA', description: 'Apresentações a provedores de constituição em Wyoming e Delaware, agente registrado e registro EIN.' },
+      { title: 'Consultores MSB / EMI', description: 'Apresentações a escritórios de advocacia e consultores que assessoram registro FinCEN MSB, estratégia MTL estadual e licenciamento EMI na UE.' },
+      { title: 'Auditoria e Compliance Fiscal', description: 'Apresentações a firmas de auditoria e consultores fiscais para preparação de auditoria anual e compliance fiscal.' },
     ],
   },
   zh: {
-    title: '全球公司设立',
-    description: '我们不仅构建技术；我们还构建法律实体。在香港、新加坡和离岸司法管辖区提供完整的公司设立服务，专为金融科技、Web3和数字商务优化。',
+    title: '公司设立介绍',
+    description: '介绍美国公司组建服务提供商、MSB / EMI 顾问以及合作银行。Trackwise 不提供法律、税务或受托咨询服务；所有组建和许可工作均由第三方按其自身条款执行。',
     services: [
-      { title: '公司注册', description: '完整的实体设置，包括代名董事、注册地址和银行开户介绍。' },
-      { title: '合规与牌照', description: 'MSB、MTL、EMI牌照支持和持续合规监控。' },
-      { title: '税务优化', description: '战略性司法管辖区选择和转让定价结构。' },
+      { title: '美国公司组建', description: '介绍 Wyoming 和 Delaware LLC 组建服务提供商、注册代理和 EIN 注册。' },
+      { title: 'MSB / EMI 顾问', description: '介绍提供 FinCEN MSB 注册、州 MTL 策略和欧盟 EMI 许可咨询的律师事务所和顾问。' },
+      { title: '审计与税务合规', description: '介绍审计公司和税务顾问，协助年度审计准备和税务合规。' },
     ],
   },
   ar: {
-    title: 'تأسيس الشركات العالمية',
-    description: 'نحن لا نبني التكنولوجيا فحسب؛ بل نبني الكيان القانوني. تأسيس شركات كاملة الخدمات في هونغ كونغ وسنغافورة والولايات القضائية الخارجية المحسنة للتكنولوجيا المالية وWeb3 والتجارة الرقمية.',
+    title: 'تأسيس الشركات - مقدمات',
+    description: 'مقدمات لمزودي تأسيس الشركات في الولايات المتحدة، ومستشاري MSB / EMI، والبنوك الشركاء. لا تقدم Trackwise مشورة قانونية أو ضريبية أو ائتمانية؛ يتم تنفيذ جميع أعمال التأسيس والترخيص من قبل أطراف ثالثة بشروطها الخاصة.',
     services: [
-      { title: 'تأسيس الشركات', description: 'إعداد كيان شامل مع مديرين مرشحين وعنوان مسجل ومقدمة مصرفية.' },
-      { title: 'الامتثال والترخيص', description: 'دعم تراخيص MSB وMTL وEMI ومراقبة الامتثال المستمر.' },
-      { title: 'تحسين الضرائب', description: 'اختيار الولاية القضائية الاستراتيجية وهياكل أسعار التحويل.' },
+      { title: 'تأسيس الشركات في الولايات المتحدة', description: 'مقدمات لمزودي تأسيس LLC في Wyoming و Delaware، ووكيل مسجل، وتسجيل EIN.' },
+      { title: 'مستشارو MSB / EMI', description: 'مقدمات لمكاتب محاماة ومستشارين يقدمون استشارات حول تسجيل FinCEN MSB، واستراتيجية MTL على مستوى الولاية، وترخيص EMI في الاتحاد الأوروبي.' },
+      { title: 'التدقيق والامتثال الضريبي', description: 'مقدمات لشركات التدقيق والمستشارين الضريبيين للتحضير للتدقيق السنوي والامتثال الضريبي.' },
     ],
   },
 };
@@ -88,7 +88,7 @@ const content = corpContent[lang] || corpContent.en;
 
         <!-- Jurisdictions -->
         <div class="flex flex-wrap gap-2 sys-reveal sys-rise sys-delay-100">
-          {['Hong Kong', 'Singapore', 'BVI', 'Cayman', 'Seychelles', 'UK', 'Delaware'].map((jurisdiction) => (
+          {['Wyoming', 'Delaware'].map((jurisdiction) => (
             <span class="text-[9px] border border-yellow-500/30 text-yellow-400 px-3 py-1 rounded bg-yellow-500/5 font-mono uppercase">
               {jurisdiction}
             </span>

@@ -1,0 +1,252 @@
+---
+/**
+ * TRACKWISE - Apps & Case Studies
+ * Showcases products built by the Trackwise team.
+ */
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import GlassPanel from '@/components/ui/GlassPanel.astro';
+import { apps, siteConfig } from '@/data/site';
+
+const seo = {
+  title: 'Apps & Case Studies · Trackwise',
+  description:
+    'Products built and operated by the Trackwise team — chat, wallet, and fintech experiences powered by Trackwise infrastructure.',
+};
+
+const colorMap: Record<string, { text: string; bg: string; border: string; ring: string; gradient: string }> = {
+  yellow:  { text: 'text-yellow-400',  bg: 'bg-yellow-500/10',  border: 'border-yellow-500/30',  ring: 'hover:border-yellow-500/50',  gradient: 'from-yellow-500/10 to-transparent' },
+  blue:    { text: 'text-blue-400',    bg: 'bg-blue-500/10',    border: 'border-blue-500/30',    ring: 'hover:border-blue-500/50',    gradient: 'from-blue-500/10 to-transparent' },
+  green:   { text: 'text-green-400',   bg: 'bg-green-500/10',   border: 'border-green-500/30',   ring: 'hover:border-green-500/50',   gradient: 'from-green-500/10 to-transparent' },
+  purple:  { text: 'text-purple-400',  bg: 'bg-purple-500/10',  border: 'border-purple-500/30',  ring: 'hover:border-purple-500/50',  gradient: 'from-purple-500/10 to-transparent' },
+  fuchsia: { text: 'text-fuchsia-400', bg: 'bg-fuchsia-500/10', border: 'border-fuchsia-500/30', ring: 'hover:border-fuchsia-500/50', gradient: 'from-fuchsia-500/10 to-transparent' },
+};
+
+const statusMap: Record<string, { label: string; classes: string }> = {
+  'live':            { label: 'Live',           classes: 'text-green-400 bg-green-500/10 border-green-500/30' },
+  'beta':            { label: 'Beta',           classes: 'text-yellow-400 bg-yellow-500/10 border-yellow-500/30' },
+  'in-development':  { label: 'In development', classes: 'text-zinc-400 bg-white/5 border-white/10' },
+};
+---
+
+<Layout seo={seo}>
+  <Header />
+
+  <main class="pt-16">
+    <!-- Hero -->
+    <section class="relative border-b border-white/5 bg-trackwise-darker py-20">
+      <div class="absolute inset-0 dot-pattern opacity-20"></div>
+      <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+        <div class="flex items-center gap-2 mb-6">
+          <span class="w-2 h-2 bg-yellow-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(234,179,8,0.8)]"></span>
+          <span class="font-mono text-xs text-yellow-500 uppercase tracking-widest">// Apps & Case Studies</span>
+        </div>
+
+        <h1 class="text-4xl lg:text-6xl font-medium text-white uppercase tracking-tight leading-none mb-6">
+          Built by
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 block">
+            Trackwise
+          </span>
+        </h1>
+
+        <p class="text-zinc-400 font-mono text-sm leading-relaxed max-w-2xl border-l-2 border-zinc-700 pl-4">
+          Products designed, built, and operated by the Trackwise team. Some apps embed Trackwise banking primitives;
+          others are non-financial products outside the scope of the Trackwise MSB registration.
+        </p>
+      </div>
+    </section>
+
+    <!-- Apps Grid -->
+    <section class="border-b border-white/5 bg-trackwise-black py-20">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="space-y-16">
+          {apps.map((app, idx) => {
+            const colors = colorMap[app.accentColor] || colorMap.blue;
+            const statusInfo = statusMap[app.status];
+            const isReversed = idx % 2 === 1;
+
+            return (
+              <article
+                class:list={[
+                  'grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center',
+                  isReversed && 'lg:flex-row-reverse',
+                ]}
+              >
+                <!-- Screenshot -->
+                <div class:list={['lg:col-span-5 flex justify-center sys-reveal', isReversed ? 'sys-slide-r lg:order-2' : 'sys-slide-l']}>
+                  <div class="relative">
+                    <!-- Glow -->
+                    <div
+                      class:list={[
+                        'absolute inset-0 blur-3xl opacity-50 -z-10',
+                        colors.bg,
+                      ]}
+                    ></div>
+
+                    <!-- Phone frame -->
+                    <div class="relative w-full max-w-[280px] rounded-[2.5rem] border border-white/10 bg-zinc-900/40 p-2 shadow-2xl shadow-black/60">
+                      <img
+                        src={app.screenshot}
+                        alt={`${app.name} app screenshot`}
+                        class="w-full rounded-[2rem] block"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Content -->
+                <div class:list={['lg:col-span-7 sys-reveal sys-rise sys-delay-100', isReversed && 'lg:order-1']}>
+                  <!-- Status + Category -->
+                  <div class="flex flex-wrap items-center gap-3 mb-5">
+                    <span class:list={['inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[10px] font-mono uppercase tracking-widest', statusInfo.classes]}>
+                      <span class="w-1.5 h-1.5 rounded-full bg-current"></span>
+                      {statusInfo.label}
+                    </span>
+                    <span class:list={['text-[10px] font-mono uppercase tracking-widest', colors.text]}>
+                      {app.category}
+                    </span>
+                  </div>
+
+                  <!-- Name + Tagline -->
+                  <h2 class="text-3xl lg:text-4xl font-medium text-white uppercase tracking-tight leading-none mb-3">
+                    {app.name}
+                  </h2>
+                  <p class:list={['text-base font-mono mb-5', colors.text]}>
+                    {app.tagline}
+                  </p>
+
+                  <!-- Description -->
+                  <p class="text-sm text-zinc-400 font-mono leading-relaxed mb-7 max-w-2xl">
+                    {app.description}
+                  </p>
+
+                  <!-- Capabilities -->
+                  <div class="mb-7">
+                    <div class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-3">Capabilities</div>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
+                      {app.capabilities.map((cap) => (
+                        <li class="flex items-start gap-2 text-xs font-mono text-zinc-400">
+                          <iconify-icon icon="solar:check-circle-linear" class:list={['mt-0.5 shrink-0', colors.text]}></iconify-icon>
+                          <span>{cap}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <!-- Stack badges -->
+                  <div class="mb-7">
+                    <div class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-3">Stack</div>
+                    <div class="flex flex-wrap gap-2">
+                      {app.stack.map((tech) => (
+                        <span class="text-[10px] border border-white/10 text-zinc-400 px-2.5 py-1 rounded bg-white/5 font-mono">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <!-- CTAs -->
+                  <div class="flex flex-wrap gap-3">
+                    {app.links.website && (
+                      <a
+                        href={app.links.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-primary"
+                      >
+                        <iconify-icon icon="solar:global-linear" width="16"></iconify-icon>
+                        <span>Website</span>
+                        <iconify-icon icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
+                      </a>
+                    )}
+                    {app.links.googlePlay && (
+                      <a
+                        href={app.links.googlePlay}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-secondary"
+                      >
+                        <iconify-icon icon="ri:google-play-fill" width="16"></iconify-icon>
+                        <span>Google Play</span>
+                        <iconify-icon icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
+                      </a>
+                    )}
+                    {app.links.appStore && (
+                      <a
+                        href={app.links.appStore}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-secondary"
+                      >
+                        <iconify-icon icon="ri:app-store-fill" width="16"></iconify-icon>
+                        <span>App Store</span>
+                        <iconify-icon icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+
+        <!-- Scope note -->
+        <GlassPanel padding="md" rounded="lg" class="mt-20 border border-white/5 max-w-4xl mx-auto">
+          <div class="flex items-start gap-3">
+            <iconify-icon icon="solar:info-circle-linear" class="text-yellow-500/70 shrink-0 mt-0.5" width="18"></iconify-icon>
+            <p class="text-[12px] text-zinc-500 font-mono leading-relaxed">
+              The apps on this page are products built by the Trackwise team. Financial features in any app are
+              operated through licensed banking and payment partners where required. Non-financial features (chat,
+              content, community) are outside the scope of the Trackwise FinCEN MSB registration.
+            </p>
+          </div>
+        </GlassPanel>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-trackwise-darker py-20">
+      <div class="max-w-4xl mx-auto px-6 lg:px-12 text-center">
+        <h2 class="text-2xl lg:text-3xl font-medium text-white uppercase tracking-tight mb-4">
+          Want to build something like this?
+        </h2>
+        <p class="text-zinc-400 font-mono text-sm leading-relaxed mb-8 max-w-xl mx-auto">
+          The Trackwise team builds card programs, ledger services, and full mobile experiences on top of our
+          banking infrastructure. Tell us about your product.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/contact" class="btn-primary">
+            <span>Talk to sales</span>
+            <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+          </a>
+          <a href="/developers" class="btn-secondary">
+            <iconify-icon icon="solar:code-square-linear" width="16"></iconify-icon>
+            <span>Developer docs</span>
+          </a>
+        </div>
+        <p class="mt-8 text-[10px] text-zinc-600 font-mono">
+          {siteConfig.legalName} · FinCEN MSB #31000299058422
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('sys-active');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 },
+  );
+  document.querySelectorAll('.sys-reveal').forEach((el) => observer.observe(el));
+</script>

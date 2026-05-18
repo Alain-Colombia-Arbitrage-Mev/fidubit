@@ -1,0 +1,97 @@
+---
+import LegalLayout from '@/layouts/LegalLayout.astro';
+import { siteConfig } from '@/data/site';
+---
+
+<LegalLayout
+  title="Compliance"
+  description="Trackwise's regulatory posture: FinCEN MSB registration, BSA / AML program, sanctions screening, and partner-bank model."
+  eyebrow="Compliance"
+  effective="2026-05-17"
+  lastUpdated="2026-05-17"
+>
+  <p>
+    Trackwise is a regulated Money Services Business committed to operating
+    under U.S. financial-crime law. This page provides a single reference for
+    our regulatory posture.
+  </p>
+
+  <h2>1. Entity</h2>
+  <ul>
+    <li><strong>Legal name:</strong> Trackwise LLC</li>
+    <li><strong>Jurisdiction:</strong> Wyoming, United States</li>
+    <li><strong>Registered office:</strong> 30 N. Gould St., Ste R, Sheridan, WY 82801, USA</li>
+    <li><strong>Entity type:</strong> Limited Liability Company</li>
+  </ul>
+
+  <h2>2. FinCEN MSB registration</h2>
+  <ul>
+    <li><strong>MSB Registration Number:</strong> 31000299058422</li>
+    <li><strong>Type:</strong> Initial registration</li>
+    <li><strong>Filing received:</strong> April 30, 2025</li>
+    <li><strong>Authorized signature date:</strong> May 1, 2025</li>
+    <li>
+      Verify on the{' '}
+      <a href="https://www.fincen.gov/msb-registrant-search" target="_blank" rel="noopener noreferrer">FinCEN MSB Registrant Search</a>.
+    </li>
+  </ul>
+
+  <h2>3. Scope of registration</h2>
+  <p>
+    Trackwise's FinCEN MSB registration is a federal registration and{' '}
+    <strong>is not a license to transmit money in any U.S. state</strong>.
+    Money transmission services, where required, are provided through licensed
+    banking and payment partners. See our{' '}
+    <a href="/jurisdictions">Jurisdictions</a> page for a description of how
+    services are offered in each country.
+  </p>
+
+  <h2>4. BSA / AML program</h2>
+  <p>
+    Trackwise operates a written BSA / AML program led by a designated BSA
+    Officer / Chief Compliance Officer. The program includes risk-based
+    customer due diligence (KYC / KYB), beneficial-owner identification,
+    sanctions screening, transaction monitoring, SAR / CTR reporting, and
+    independent annual review. See our <a href="/aml">AML / BSA Policy</a> and{' '}
+    <a href="/kyc">KYC Policy</a>.
+  </p>
+
+  <h2>5. Sanctions</h2>
+  <p>
+    Trackwise screens customers and counterparties against OFAC SDN and
+    Consolidated Sanctions Lists, UN, EU, UK HMT, and country-specific lists,
+    plus PEP and adverse-media data, at onboarding and on an ongoing basis.
+  </p>
+
+  <h2>6. Prohibited activities</h2>
+  <p>
+    Trackwise does not provide services for activities listed in our{' '}
+    <a href="/responsible-use">Responsible Use Policy</a>, including
+    sanctioned jurisdictions, unlicensed money transmission, and activities
+    incompatible with our partner banks' acceptable-use policies.
+  </p>
+
+  <h2>7. Partner network</h2>
+  <p>
+    Card issuance, card processing, account services, money transmission, and
+    payment rails are provided through licensed banking and card-network
+    partners. The specific partner depends on geography and product. Partner
+    information is shared with prospective customers under NDA.
+  </p>
+
+  <h2>8. Law enforcement and regulators</h2>
+  <p>
+    Subpoenas, court orders, and regulatory requests should be served on the
+    BSA Officer at the registered office, with a copy to{' '}
+    <a href={`mailto:${siteConfig.compliance}`}>{siteConfig.compliance}</a>.
+    Trackwise participates in 314(a) / 314(b) information sharing where
+    eligible.
+  </p>
+
+  <h2>9. Contact</h2>
+  <p>
+    <a href={`mailto:${siteConfig.compliance}`}>{siteConfig.compliance}</a><br />
+    Attn: Chief Compliance Officer / BSA Officer, Trackwise LLC, 30 N. Gould
+    St., Ste R, Sheridan, WY 82801, USA
+  </p>
+</LegalLayout>

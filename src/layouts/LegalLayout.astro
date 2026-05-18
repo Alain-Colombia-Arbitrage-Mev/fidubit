@@ -1,0 +1,89 @@
+---
+/**
+ * TRACKWISE - Legal / Compliance Page Layout
+ * Shared chrome for /privacy, /terms, /aml, /kyc, /security,
+ * /compliance, /sms-policy, /cookies, /responsible-use,
+ * /jurisdictions, /about, /contact, /developers, /status.
+ */
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import { siteConfig } from '@/data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  eyebrow?: string;
+  lastUpdated?: string;
+  effective?: string;
+}
+
+const { title, description, eyebrow, lastUpdated, effective } = Astro.props;
+---
+
+<Layout seo={{ title: `${title} · Trackwise`, description }}>
+  <Header />
+
+  <main class="pt-16">
+    <!-- Header -->
+    <section class="bg-trackwise-darker border-b border-white/5">
+      <div class="max-w-5xl mx-auto px-6 lg:px-10 py-16 lg:py-20">
+        {eyebrow && (
+          <div class="text-[11px] font-mono text-yellow-500 uppercase tracking-widest mb-3">
+            {eyebrow}
+          </div>
+        )}
+        <h1 class="text-3xl lg:text-4xl font-medium text-white uppercase tracking-tight leading-tight max-w-3xl">
+          {title}
+        </h1>
+        <p class="mt-5 max-w-2xl text-base text-zinc-400 leading-relaxed">{description}</p>
+        <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-1 text-[11px] text-zinc-600 font-mono">
+          {effective && <span>Effective: {effective}</span>}
+          {lastUpdated && <span>Last updated: {lastUpdated}</span>}
+          <span>{siteConfig.legalName} · FinCEN MSB #31000299058422</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="bg-trackwise-black">
+      <div class="max-w-5xl mx-auto px-6 lg:px-10 py-16 lg:py-20">
+        <article class="prose-legal max-w-3xl mx-auto text-zinc-300 text-[15px] leading-relaxed space-y-6">
+          <slot />
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style is:global>
+  .prose-legal h2 {
+    @apply text-xl font-medium text-white tracking-tight mt-10 mb-3 uppercase;
+  }
+  .prose-legal h3 {
+    @apply text-base font-medium text-white tracking-tight mt-6 mb-2;
+  }
+  .prose-legal p {
+    @apply text-zinc-300 leading-relaxed;
+  }
+  .prose-legal ul {
+    @apply list-disc pl-6 space-y-1.5 marker:text-zinc-600;
+  }
+  .prose-legal ol {
+    @apply list-decimal pl-6 space-y-1.5 marker:text-zinc-600;
+  }
+  .prose-legal a {
+    @apply text-yellow-500 hover:text-yellow-400 underline underline-offset-2 decoration-yellow-500/30 hover:decoration-yellow-400/60;
+  }
+  .prose-legal code {
+    @apply font-mono text-[13px] bg-white/[0.04] border border-white/10 px-1.5 py-0.5 rounded text-yellow-200;
+  }
+  .prose-legal strong {
+    @apply text-white font-semibold;
+  }
+  .prose-legal hr {
+    @apply border-white/10 my-10;
+  }
+</style>

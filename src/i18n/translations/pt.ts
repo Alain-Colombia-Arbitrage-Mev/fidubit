@@ -155,9 +155,12 @@ export default {
     privacy: 'Política de Privacidade',
     terms: 'Termos de Serviço',
     compliance: 'Compliance',
-    quickLinks: 'Links Rápidos',
-    services: 'Serviços',
+    quickLinks: 'Links rápidos',
+    product: 'Produto',
     company: 'Empresa',
+    legal: 'Legal',
+    developers: 'Desenvolvedores',
+    services: 'Produto',
   },
   
   // AI Page

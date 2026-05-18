@@ -156,8 +156,11 @@ export default {
     terms: 'شروط الخدمة',
     compliance: 'الامتثال',
     quickLinks: 'روابط سريعة',
-    services: 'الخدمات',
+    product: 'المنتج',
     company: 'الشركة',
+    legal: 'قانوني',
+    developers: 'المطورون',
+    services: 'المنتج',
   },
   
   // AI Page

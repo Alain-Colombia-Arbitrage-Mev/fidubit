@@ -1,5 +1,6 @@
 /**
  * Spanish translations
+ * Original keys preserved. Copy limpio sin claims no verificables.
  */
 export default {
   // Navigation
@@ -14,81 +15,88 @@ export default {
     contact: 'Contacto',
     getStarted: 'Comenzar',
   },
-  
+
   // Hero Section
   hero: {
-    badge: 'Infraestructura Fintech',
-    title: 'Arquitectura',
+    badge: 'Wyoming MSB · FinCEN #31000299058422',
+    title: 'Infraestructura',
     titleHighlight: 'Fintech',
-    description: 'Infraestructura corporativa, emisión de tarjetas digitales, desarrollo de core fintech e integración blockchain. Licencias operativas en múltiples jurisdicciones.',
-    cta: 'Comenzar Ahora',
-    learnMore: 'Saber Más',
+    description:
+      'Plataforma Banking-as-a-Service para operadores fintech: emisión de tarjetas, cuentas multi-moneda y pagos transfronterizos a través de partners bancarios licenciados. Money Services Business registrado en Wyoming.',
+    cta: 'Hablar con ventas',
+    learnMore: 'Saber más',
   },
-  
+
   // Cards Section
   cards: {
     module: 'MÓDULO_TARJETAS',
     label: 'Programas de Tarjetas',
     title: 'Emisión de Tarjetas',
-    description: 'Lanza tu propio programa de tarjetas con nuestra infraestructura de emisión white-label. Compatible con Visa y Mastercard.',
+    description:
+      'Lanza un programa de tarjetas a través de nuestros patrocinadores BIN. Visa y Mastercard, virtuales y físicas, con controles de gasto, 3-D Secure y tokenización para wallets digitales.',
     features: {
       virtual: 'Tarjetas Virtuales',
       physical: 'Tarjetas Físicas',
-      corporate: 'Tarjetas Corporativas',
-      prepaid: 'Tarjetas Prepago',
+      corporate: 'Gasto Empresarial',
+      prepaid: 'Prepago / Payout',
     },
   },
-  
+
   // Infrastructure Section
   infrastructure: {
     module: 'MÓDULO_INFRA',
     label: 'Sistemas Core',
     title: 'Desarrollo Fintech',
-    description: 'Sistemas core fintech de nivel empresarial, infraestructura blockchain y soluciones de liquidez OTC.',
+    description:
+      'Ingeniería fintech core: servicios de ledger, integraciones de pago, orquestación de KYC e ingeniería blockchain — construido a través de partners y expuesto como APIs a tu producto.',
     services: {
       fintech: {
         title: 'Core Fintech',
-        description: 'Desarrollo full-stack fintech con arquitectura preparada para compliance.',
+        description:
+          'Ingeniería fintech con arquitectura preparada para compliance y audit trail.',
       },
       blockchain: {
         title: 'Blockchain',
-        description: 'Smart contracts, tokenización y desarrollo de protocolos DeFi.',
+        description:
+          'Ingeniería de smart contracts, tokenización e integración de stablecoins.',
       },
       otc: {
-        title: 'Mesa OTC',
-        description: 'Trading de criptomonedas de alto volumen con pools de liquidez profundos.',
+        title: 'Cripto OTC (partners)',
+        description:
+          'Rampas fiat/cripto vía partners de exchange y OTC licenciados. Trackwise no es contraparte.',
       },
     },
   },
-  
+
   // Staff Section
   staff: {
     module: 'MÓDULO_TALENTO',
     label: 'Talento',
-    badge: 'Staff Augmentation',
-    title: 'Talento de',
+    badge: 'Servicios de ingeniería',
+    title: 'Capacidad de',
     titleHighlight: 'Ingeniería',
-    description: 'Escala tu equipo de desarrollo con nuestros ingenieros especializados en fintech y blockchain. Despliega equipos dedicados para proyectos simultáneos.',
+    description:
+      'Ingenieros senior con experiencia en sistemas financieros regulados se integran a tu equipo para enviar programas de tarjetas, servicios de ledger, orquestación de KYC y herramientas de operaciones.',
     stats: {
-      engineers: 'Ingenieros Senior',
-      projects: 'Proyectos Activos',
-      countries: 'Países',
-      uptime: 'Disponibilidad',
+      engineers: 'Nivel de seniority',
+      projects: 'Foco de dominio',
+      countries: 'Alineación horaria',
+      uptime: 'Comunicación',
     },
-    cta: 'Ver Pool de Talento',
-    learnMore: 'Cómo Funciona',
+    cta: 'Conversar sobre un equipo',
+    learnMore: 'Cómo funciona',
     roles: {
-      title: 'Ingenieros que Proveemos',
-      deployNow: 'Desplegar Ya',
-      thisWeek: 'Esta Semana',
+      title: 'Ingenieros que cubrimos',
+      deployNow: 'Inmediato',
+      thisWeek: 'En una semana',
       scheduled: 'Programado',
     },
     models: {
-      title: 'Modelos de Contratación',
-      features: 'Características',
+      title: 'Modelos de contratación',
+      features: 'Incluye',
     },
   },
-  
+
   // Team Section
   team: {
     module: 'MÓDULO_EQUIPO',
@@ -96,220 +104,242 @@ export default {
     badge: 'Nuestro Equipo',
     title: 'Construido por',
     titleHighlight: 'Operadores',
-    description: 'Un equipo fintech senior detrás de Trackwise — construyendo infraestructura BaaS confiable, rieles de pago y APIs developer-first.',
+    description:
+      'Equipo fintech senior detrás de Trackwise — Chief Compliance Officer, CTO, Head of Product, Head of Operations & Risk e ingenieros senior — enfocado en infraestructura bancaria que aguanta una auditoría.',
     role: 'Rol',
-    skills: 'Habilidades',
+    skills: 'Foco',
     contact: 'Contacto',
   },
 
-  // Music Section
+  // Music Section (no financiero)
   music: {
     module: 'MÓDULO_MEDIA',
     label: 'Distribución',
-    title: 'Distribución Musical',
-    description: 'Distribución de música digital, pitching de playlists y marketing para artistas independientes. Alcance global en todas las plataformas principales.',
+    title: 'Distribución de Artistas',
+    description:
+      'Independiente de la plataforma regulada Trackwise: distribución musical digital y marketing de artistas operado como servicio no-financiero a través de partners aggregators.',
   },
-  
+
   // Corporate Section
   corporate: {
     module: 'MÓDULO_CORP',
     label: 'Estructura_Corporativa',
-    title: 'Servicios Corporativos',
-    description: 'Constitución de empresas, compliance e infraestructura operacional en jurisdicciones estratégicas a nivel mundial.',
-    holding: 'Estructura Holding',
-    multiJurisdiction: 'Multi-Jurisdicción',
+    title: 'Presentaciones para Constitución',
+    description:
+      'Presentaciones a proveedores de formación de empresas en EE.UU., asesores MSB / EMI y partners bancarios. Trackwise no proporciona asesoría legal, fiscal ni fiduciaria.',
+    holding: 'Solo presentaciones',
+    multiJurisdiction: 'Foco en EE.UU.',
   },
-  
+
   // Contact Section
   contact: {
     module: 'MÓDULO_CONTACTO',
     label: 'Conectar',
-    title: 'Contáctanos',
-    description: '¿Listo para construir tu infraestructura fintech? Hablemos de tu proyecto.',
+    title: 'Hablemos',
+    description:
+      'Cuéntanos sobre tu producto. Respondemos en un día hábil. Para temas de compliance o solicitudes de autoridades, escribe a compliance@trackwise.finance.',
     form: {
-      name: 'Nombre Completo',
-      email: 'Correo Electrónico',
+      name: 'Nombre completo',
+      email: 'Correo de trabajo',
       company: 'Empresa',
-      service: 'Servicio de Interés',
-      message: 'Mensaje',
-      submit: 'Enviar Mensaje',
-      selectService: 'Selecciona un servicio',
+      service: 'Tema',
+      message: 'Detalles',
+      submit: 'Enviar',
+      selectService: 'Selecciona un tema',
     },
     options: {
-      cardIssuance: 'Programa de Emisión de Tarjetas',
-      coreFintech: 'Desarrollo Core Fintech',
-      aiSolutions: 'Soluciones IA / Entrenamiento de Modelos',
-      remittance: 'Remesas / Pagos Transfronterizos',
-      staffAugmentation: 'Staff Augmentation',
-      incorporation: 'Constitución de Empresas',
-      blockchain: 'Blockchain / Tokenización',
-      musicMarketing: 'Marketing / Distribución Musical',
-      otcLiquidity: 'Servicios de Liquidez OTC',
-      other: 'Otros Servicios',
+      cardIssuance: 'Emisión de tarjetas',
+      coreFintech: 'BaaS / APIs',
+      aiSolutions: 'Ingeniería de IA',
+      remittance: 'Pagos transfronterizos',
+      staffAugmentation: 'Servicios de ingeniería',
+      incorporation: 'Presentaciones para constitución',
+      blockchain: 'Ingeniería blockchain',
+      musicMarketing: 'Distribución de artistas (no-financiero)',
+      otcLiquidity: 'Cripto OTC (vía partners)',
+      other: 'Otra consulta',
     },
   },
-  
+
   // Footer
   footer: {
     rights: 'Todos los derechos reservados.',
     privacy: 'Política de Privacidad',
-    terms: 'Términos de Servicio',
+    terms: 'Términos del Servicio',
     compliance: 'Compliance',
-    quickLinks: 'Enlaces Rápidos',
-    services: 'Servicios',
+    quickLinks: 'Enlaces',
+    product: 'Producto',
     company: 'Empresa',
+    legal: 'Legal',
+    developers: 'Desarrolladores',
+    services: 'Servicios',
   },
-  
+
   // AI Page
   ai: {
-    badge: 'Inteligencia Artificial',
-    title: 'Modelos',
-    titleHighlight: 'IA Personalizados',
-    description: 'Entrenamiento de modelos empresariales, fine-tuning para trading y healthtech, y agentes inteligentes para publicidad, llamadas y clasificación de clientes.',
-    cta: 'Iniciar Proyecto IA',
-    explore: 'Explorar Soluciones',
+    badge: 'Ingeniería de IA',
+    title: 'Modelos IA',
+    titleHighlight: 'Personalizados',
+    description:
+      'Servicios de ingeniería de IA para operadores fintech: entrenamiento de modelos, fine-tuning para fraude y riesgo, agentes inteligentes para soporte y operaciones. Construido para producción con auditabilidad y explicabilidad.',
+    cta: 'Hablar con ingeniería',
+    explore: 'Explorar soluciones',
     stats: {
-      parameters: 'Parámetros Entrenados',
-      uptime: 'SLA de Disponibilidad',
-      latency: 'Latencia de Inferencia',
-      models: 'Modelos Desplegados',
+      parameters: 'Parámetros entrenados',
+      uptime: 'Disponibilidad objetivo',
+      latency: 'Latencia objetivo',
+      models: 'Modelos desplegados',
     },
     services: {
       title: 'Entrenamiento y Fine-Tuning',
-      description: 'Modelos de IA personalizados para tu industria y caso de uso específico.',
+      description: 'Modelos de IA personalizados para tu industria y caso de uso.',
       bigData: {
         title: 'Big Data Empresarial',
-        subtitle: 'Entrenamiento de Modelos',
-        description: 'Entrena modelos de IA personalizados con tus datos empresariales. Extrae insights, predice tendencias y automatiza la toma de decisiones a escala.',
+        subtitle: 'Entrenamiento personalizado',
+        description:
+          'Entrena modelos con tus datos empresariales. Extrae patrones, predice tendencias y automatiza decisiones donde corresponda, con revisión human-in-the-loop para acciones de alto impacto.',
       },
       trading: {
-        title: 'Modelos HFT Trading',
-        subtitle: 'Análisis de Sentimiento en Tiempo Real',
-        description: 'Modelos fine-tuned para trading de alta frecuencia con análisis de sentimiento del mercado en vivo. Predicciones sub-milisegundo en movimientos del mercado.',
+        title: 'Modelos de Fraude y Riesgo',
+        subtitle: 'Scoring en tiempo real',
+        description:
+          'Modelos fine-tuned para scoring de fraude, monitoreo de transacciones y clasificación de riesgo, integrados con tu workflow de gestión de casos.',
       },
       healthtech: {
         title: 'IA para HealthTech',
-        subtitle: 'Modelos de Nutrición y Bienestar',
-        description: 'Modelos de IA para nutrición personalizada, recomendaciones de salud y análisis de datos médicos con arquitectura privacy-first.',
+        subtitle: 'Modelos privacy-first',
+        description:
+          'Modelos de IA para casos personalizados de salud y bienestar con arquitectura privacy-first e inferencia en-dispositivo o aislada en VPC donde sea necesario.',
       },
     },
     agents: {
       title: 'Agentes Inteligentes',
-      description: 'Despliega agentes de IA que trabajan 24/7 para adquirir, clasificar y atender a tus clientes.',
+      description: 'Agentes de IA que trabajan junto a tu equipo de operaciones.',
       advertising: {
-        title: 'Agentes de Publicidad',
-        description: 'Agentes de IA que crean, optimizan y gestionan campañas publicitarias en todas las plataformas. Testing A/B automático y asignación de presupuesto.',
+        title: 'Agentes de Marketing',
+        description:
+          'Agentes que redactan y optimizan campañas con aprobación humana. Sin gasto autónomo sin límites.',
       },
       calls: {
-        title: 'Agentes de Llamadas',
-        description: 'Agentes de voz IA para llamadas entrantes/salientes. Manejan ventas, soporte y agendamiento con flujo de conversación natural.',
+        title: 'Agentes de Voz',
+        description:
+          'Agentes de voz para llamadas entrantes y salientes, con traspaso a operadores humanos y grabación completa donde el consentimiento esté recolectado.',
       },
       classification: {
         title: 'Clasificación de Clientes',
-        description: 'Agentes de IA que segmentan, califican y clasifican clientes en tiempo real. Predicen valor de vida y probabilidad de churn.',
+        description:
+          'Segmentación, scoring de riesgo y modelado de lifetime-value con importancia de features auditable.',
       },
     },
     process: {
       title: 'Nuestro Proceso',
-      discovery: 'Descubrimiento',
-      discoveryDesc: 'Entender tus datos y objetivos',
-      dataPrep: 'Preparación',
-      dataPrepDesc: 'Limpiar, etiquetar y preparar datos',
+      discovery: 'Discovery',
+      discoveryDesc: 'Entender caso de uso, datos y restricciones',
+      dataPrep: 'Data prep',
+      dataPrepDesc: 'Limpiar, etiquetar y preparar datasets',
       training: 'Entrenamiento',
       trainingDesc: 'Entrenar y ajustar modelos',
       validation: 'Validación',
-      validationDesc: 'Probar y medir rendimiento',
+      validationDesc: 'Probar y medir performance',
       deploy: 'Despliegue',
-      deployDesc: 'APIs en producción y monitoreo',
+      deployDesc: 'APIs productivas y monitoreo',
     },
     contact: {
-      title: 'Inicia tu Proyecto IA',
-      description: 'Cuéntanos sobre tus necesidades de IA y diseñaremos una solución personalizada.',
+      title: 'Inicia un proyecto IA',
+      description:
+        'Cuéntanos sobre el caso de uso y diseñamos una solución personalizada.',
     },
   },
-  
+
   // Remittance Page
   remittance: {
     badge: 'Pagos Transfronterizos',
-    title: 'Remesas',
-    titleHighlight: 'Globales',
-    description: 'Envía y recibe dinero a través de fronteras. Recoge pagos, paga proveedores y procesa nómina en Latinoamérica, USA, Europa y Asia con tarifas competitivas.',
-    cta: 'Comenzar',
-    viewCoverage: 'Ver Cobertura',
+    title: 'Pagos',
+    titleHighlight: 'Transfronterizos',
+    description:
+      'Envía y recibe dinero entre fronteras a través de partners bancarios licenciados. Disponible donde Trackwise o un partner esté autorizado a operar.',
+    cta: 'Hablar con ventas',
+    viewCoverage: 'Ver cobertura',
     stats: {
-      currencies: 'Monedas',
-      countries: 'Países',
-      settlement: 'Liquidación',
-      fees: 'Desde Comisión',
+      currencies: 'Monedas de liquidación',
+      countries: 'Cobertura de partners',
+      settlement: 'Liquidación típica',
+      fees: 'Comisiones transparentes',
     },
     services: {
-      title: 'Soluciones de Pago',
-      description: 'Ya sea que necesites cobrar, enviar o pagar - te tenemos cubierto.',
+      title: 'Casos de uso',
+      description: 'Flujos comunes soportados a través de partners.',
       collect: {
-        title: 'Cobrar Pagos',
-        description: 'Recibe pagos de clientes en todo el mundo. Proporcionamos cuentas locales de cobro en múltiples países para que tus clientes paguen en su método preferido.',
+        title: 'Cobrar pagos',
+        description:
+          'Recibe pagos de tus clientes a través de los métodos locales de nuestros partners.',
       },
       pay: {
-        title: 'Pagar Proveedores',
-        description: 'Paga a tus proveedores internacionales de forma rápida y económica. Tasas FX competitivas con comisiones transparentes y seguimiento completo.',
+        title: 'Pagar proveedores',
+        description:
+          'Paga proveedores internacionales con FX transparente y trazabilidad end-to-end a través de partner rails.',
       },
       payroll: {
-        title: 'Nómina Global',
-        description: 'Paga a tu equipo remoto en cualquier parte del mundo. Procesamiento de nómina con compliance local y múltiples opciones de pago.',
+        title: 'Pagos a contractors',
+        description:
+          'Paga contractors distribuidos con rieles operados por partners y soporte de compliance.',
       },
     },
     coverage: {
-      title: 'Cobertura Global',
-      description: 'Envía y recibe dinero en estas regiones con rieles de pago locales.',
+      title: 'Cobertura',
+      description:
+        'La cobertura se provee a través de partners bancarios licenciados. Disponibilidad depende de geografía, producto y partner. No atendemos clientes en jurisdicciones sancionadas.',
     },
     howItWorks: {
-      title: 'Cómo Funciona',
-      step1: 'Crear Cuenta',
-      step1Desc: 'Onboarding rápido con verificación KYC',
-      step2: 'Agregar Beneficiario',
-      step2Desc: 'Ingresa datos del destinatario y banco',
-      step3: 'Fondear Transferencia',
-      step3Desc: 'Envía fondos vía banco o cripto',
-      step4: 'Entregado',
-      step4Desc: 'El destinatario recibe el mismo día',
+      title: 'Cómo funciona',
+      step1: 'Aplicar',
+      step1Desc: 'Cuéntanos sobre tu negocio y caso de uso',
+      step2: 'KYB',
+      step2Desc: 'Verificamos tu empresa y beneficiarios finales',
+      step3: 'Integrar',
+      step3Desc: 'Acceso a sandbox e integración de API',
+      step4: 'Producción',
+      step4Desc: 'Acceso productivo bajo autorización del partner',
     },
     useCases: {
-      title: 'Casos de Uso Comunes',
-      remote: 'Equipos Remotos',
-      remoteDesc: 'Paga a tu equipo de ingeniería distribuido en su moneda local',
-      ecommerce: 'E-Commerce',
-      ecommerceDesc: 'Cobra pagos de clientes en LATAM y Europa',
-      suppliers: 'Pago a Proveedores',
-      suppliersDesc: 'Paga a fabricantes y vendedores en Asia eficientemente',
-      family: 'Apoyo Familiar',
-      familyDesc: 'Envía dinero a familiares en el extranjero de forma rápida y segura',
+      title: 'Casos de uso',
+      remote: 'Pagos a contractors',
+      remoteDesc: 'Paga contractors distribuidos en corredores soportados',
+      ecommerce: 'Payouts de marketplaces',
+      ecommerceDesc: 'Distribuye fondos a vendedores y proveedores',
+      suppliers: 'Pago a proveedores',
+      suppliersDesc: 'Paga vendors con FX transparente y trazabilidad',
+      family: 'Remesas de cliente final',
+      familyDesc: 'Remesas exclusivamente a través de partners licenciados',
     },
     contact: {
-      title: 'Comienza a Enviar Dinero',
-      description: 'Cuéntanos sobre tus necesidades de pago y configuraremos tu cuenta.',
+      title: 'Hablar con ventas',
+      description:
+        'Cuéntanos sobre tus geografías y volumen. Respondemos en un día hábil.',
     },
   },
-  
+
   // Staff Page
   staffPage: {
-    badge: 'Staff Augmentation',
-    title: 'Escala tu',
-    titleHighlight: 'Equipo de Ingeniería',
-    description: 'Accede a ingenieros senior de fintech y blockchain listos para unirse a tus proyectos. Modelos de contratación flexibles, disponibilidad inmediata.',
-    cta: 'Solicitar Ingenieros',
-    howItWorks: 'Cómo Funciona',
+    badge: 'Servicios de ingeniería',
+    title: 'Capacidad de ingeniería',
+    titleHighlight: 'para equipos fintech',
+    description:
+      'Ingenieros senior con experiencia en sistemas financieros regulados se integran a tu equipo para enviar programas de tarjetas, servicios de ledger, orquestación de KYC y herramientas de operaciones.',
+    cta: 'Conversar sobre un equipo',
+    howItWorks: 'Cómo funciona',
   },
-  
+
   // Common
   common: {
-    learnMore: 'Saber Más',
-    getStarted: 'Comenzar',
+    learnMore: 'Saber más',
+    getStarted: 'Hablar con ventas',
     contactUs: 'Contáctanos',
-    viewAll: 'Ver Todo',
+    viewAll: 'Ver todo',
     home: 'Inicio',
-    useCases: 'Casos de Uso Comunes',
+    useCases: 'Casos de uso',
     features: 'Características',
     capabilities: 'Capacidades',
-    techStack: 'Stack Tecnológico',
+    techStack: 'Stack tecnológico',
   },
 };

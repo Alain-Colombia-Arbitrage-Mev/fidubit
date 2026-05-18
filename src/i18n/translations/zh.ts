@@ -156,8 +156,11 @@ export default {
     terms: '服务条款',
     compliance: '合规',
     quickLinks: '快速链接',
-    services: '服务',
+    product: '产品',
     company: '公司',
+    legal: '法律',
+    developers: '开发者',
+    services: '产品',
   },
   
   // AI Page
